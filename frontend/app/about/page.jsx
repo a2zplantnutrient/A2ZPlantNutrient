@@ -1,0 +1,171 @@
+"use client";
+
+import Link from "next/link";
+import {
+  ArrowRight,
+  Target,
+  Eye,
+  Heart,
+  Leaf,
+  ShieldCheck,
+  Users,
+  Building2,
+} from "lucide-react";
+import PageHero from "@/components/PageHero";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FadeIn, Stagger, StaggerItem, ScaleIn } from "@/components/Motion";
+import Counter from "@/components/Counter";
+import {
+  ABOUT_IMAGES,
+  STATS,
+  CERTIFICATIONS,
+  LEADERSHIP,
+  COMPANY,
+} from "@/lib/mock";
+
+export default function AboutPage() {
+  const blocks = [
+    {
+      icon: Target,
+      title: "Our Mission",
+      text: "To deliver reliable, sustainable horticulture EPC — helping India's government bodies, PSUs and corporates meet their green-cover, biodiversity and ESG mandates at scale.",
+    },
+    {
+      icon: Eye,
+      title: "Our Vision",
+      text: "To be India's most trusted horticulture EPC partner — combining agronomy, design and operational excellence to shape long-lasting green infrastructure.",
+    },
+    {
+      icon: Heart,
+      title: "Our Values",
+      text: "Compliance, transparency and craftsmanship. We treat every tender as a long-term partnership and every plant as a decade-long commitment.",
+    },
+  ];
+
+  return (
+    <div data-testid="about-page">
+      <PageHero title="About A2Z Plant Nutrient" subtitle="Who We Are" />
+
+      {/* Intro */}
+      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
+        <ScaleIn className="grid grid-cols-2 gap-4">
+          <img src={ABOUT_IMAGES.one} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover" />
+          <img src={ABOUT_IMAGES.two} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover mt-10" />
+        </ScaleIn>
+        <FadeIn>
+          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
+            About the Company
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+            A horticulture EPC contractor — built for India&apos;s scale.
+          </h2>
+          <p className="mt-5 text-stone-600 leading-relaxed">
+            <strong>{COMPANY.legalName}</strong> is a DPIIT-recognized, ISO 9001 &amp; 14001 certified private
+            limited company incorporated in {COMPANY.founded}. Headquartered in Varanasi and operating across
+            multiple Indian states, we deliver end-to-end horticulture contracts — landscaping, plantation, turf,
+            mural art and multi-year maintenance — for government departments, PSUs and corporate campuses.
+          </p>
+          <p className="mt-4 text-stone-600 leading-relaxed">
+            Our in-house team of 100+ horticulturists, agronomists, gardeners and site supervisors is the
+            engine behind on-time, tender-spec delivery. We are proud to have executed work for national
+            agencies including NHAI, NTPC, NFL, BHEL, VDA and Hindustan Copper.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {CERTIFICATIONS.map((c) => (
+              <span
+                key={c.code}
+                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full ${
+                  c.color === "amber"
+                    ? "bg-amber-100 text-amber-800"
+                    : "bg-emerald-100 text-emerald-800"
+                }`}
+              >
+                <ShieldCheck size={12} /> {c.code} · {c.name}
+              </span>
+            ))}
+          </div>
+          <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
+            <Link href="/projects">
+              See our Projects <ArrowRight size={18} className="ml-1" />
+            </Link>
+          </Button>
+        </FadeIn>
+      </section>
+
+      {/* Mission / Vision / Values */}
+      <section className="py-16 bg-emerald-50/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-12">
+            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Our North Star</p>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              Mission · Vision · Values
+            </h2>
+          </FadeIn>
+          <Stagger className="grid md:grid-cols-3 gap-6">
+            {blocks.map((b, i) => {
+              const Icon = b.icon;
+              return (
+                <StaggerItem key={i}>
+                  <Card className="p-8 border-stone-200 bg-white hover:shadow-xl transition-all h-full">
+                    <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700 mb-5">
+                      <Icon size={26} />
+                    </div>
+                    <h3 className="font-serif text-2xl font-semibold text-emerald-950 mb-3">{b.title}</h3>
+                    <p className="text-stone-600 leading-relaxed">{b.text}</p>
+                  </Card>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
+          {STATS.map((s, i) => (
+            <FadeIn key={i} delay={i * 0.05} className="text-center p-8 rounded-3xl bg-white border border-stone-200">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-700 mb-5">
+                {i === 0 ? <Building2 size={26} /> : i === 1 ? <Users size={26} /> : i === 2 ? <Leaf size={26} /> : <ShieldCheck size={26} />}
+              </div>
+              <div className="font-serif text-3xl lg:text-4xl text-emerald-800 font-semibold">
+                {/^\d/.test(s.number) && !s.number.includes("₹") ? <Counter to={s.number} /> : s.number}
+              </div>
+              <div className="mt-2 font-serif text-lg text-emerald-950">{s.title}</div>
+              <p className="mt-2 text-stone-600 text-sm">{s.text}</p>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="py-16 bg-stone-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-10">
+            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Leadership</p>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              Meet the founder
+            </h2>
+          </FadeIn>
+          <div className="grid gap-6 max-w-3xl mx-auto">
+            {LEADERSHIP.map((l, i) => (
+              <FadeIn key={i}>
+                <Card className="p-8 border-stone-200 bg-white flex flex-col sm:flex-row items-start gap-6">
+                  <div className="w-20 h-20 rounded-full bg-emerald-700 text-white font-serif text-2xl font-semibold flex items-center justify-center shrink-0">
+                    {l.initials}
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-2xl font-semibold text-emerald-950">{l.name}</h3>
+                    <div className="text-sm text-emerald-700 font-medium mt-1">{l.role}</div>
+                    <p className="mt-3 text-stone-600 leading-relaxed">{l.bio}</p>
+                  </div>
+                </Card>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

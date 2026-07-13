@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# A2Z Plant Nutrient — Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The official website for **A2Z Plant Nutrient Private Limited** — Landscaping, Plantation, and Indoor Plant services in Varanasi.
 
-## Available Scripts
+Built with **Next.js 14 (App Router)**, **Tailwind CSS**, and **lucide-react** icons.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Modern responsive design with Tailwind CSS
+- Multi-page site: Home, About, Services, Gallery, Blog, Gifting, Careers, Contact
+- Image-rich gallery with lightbox preview
+- Job application form (Careers)
+- WhatsApp / Call floating action buttons
+- Toast notifications (gifting enquiries, applications)
+- SEO-friendly with Next.js metadata API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Install dependencies
 
-### `npm run build`
+```bash
+npm install
+# or
+yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Run the development server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run dev
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm run eject`
+### 3. Build for production
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📁 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+.
+├── app/                    # Next.js App Router pages
+│   ├── layout.jsx          # Root layout (Header, Footer, FloatingActions)
+│   ├── page.jsx            # Home page
+│   ├── about/page.jsx
+│   ├── services/page.jsx
+│   ├── gallery/page.jsx
+│   ├── blog/page.jsx
+│   ├── gifting/page.jsx
+│   ├── careers/page.jsx
+│   ├── contact/page.jsx
+│   └── globals.css         # Tailwind + custom CSS
+├── components/             # Shared components
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── PageHero.jsx
+│   ├── FloatingActions.jsx
+│   └── ui/                 # UI primitives (Button, Card, Input, ...)
+├── hooks/
+│   └── use-toast.js
+├── lib/
+│   ├── mock.js             # Site content (company info, services, blog, etc.)
+│   └── utils.js
+├── public/                 # Static assets
+├── tailwind.config.js
+├── next.config.mjs
+└── package.json
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🎨 Customization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Edit `lib/mock.js` to update:
+- Company info (name, phone, email, address)
+- Navigation links
+- Services, Blog posts, Testimonials
+- Gallery images, Gift items, Career listings
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 Deployment
 
-### Analyzing the Bundle Size
+This project is ready to deploy on:
+- **Vercel** (recommended for Next.js) — `vercel deploy`
+- **Netlify** — works out of the box
+- Any Node.js host — run `npm run build` then `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📞 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Phone:** +91 81605 34604
+- **Email:** a2zplantnutrient@gmail.com
+- **Address:** 13A Shyam Bihar Colony, Laharata Road, Varanasi, Uttar Pradesh 221103
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© A2Z Plant Nutrient Private Limited. All rights reserved.
