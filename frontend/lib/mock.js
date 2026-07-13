@@ -5,18 +5,19 @@
 export const COMPANY = {
   name: "A2Z Plant Nutrient",
   legalName: "A2Z Plant Nutrient Private Limited",
-  tagline: "Grow & Eat Natural",
+  tagline: "From Tender to Tree",
   positioning: "Government / PSU / Corporate Horticulture EPC Contractor",
   founded: 2021,
   phone: "+91 81605 34604",
   phoneRaw: "+918160534604",
-  email: "a2zplantnutrient@gmail.com",
+  email: "info@a2zplantnutrient.com",
+  emailLegacy: "a2zplantnutrient@gmail.com",
   address:
     "13A Shyam Bihar Colony, Laharata Road, Varanasi, Uttar Pradesh 221103",
+  addressMapUrl:
+    "https://www.google.com/maps/search/?api=1&query=13A+Shyam+Bihar+Colony+Laharata+Road+Varanasi+Uttar+Pradesh+221103",
   hours: "Mon – Sat · 09:00 AM – 06:00 PM",
   logo: "/logo.png",
-  // Registration numbers — placeholder patterns; replace with your actual codes
-  // when available (Owner: kept partial for privacy in demo).
   cin: "U01xxxUP2021PTCxxxxxx",
   gstin: "09XXXXXXXXX1ZX",
   udyamNumber: "UDYAM-UP-XX-XXXXXXX",
@@ -241,10 +242,58 @@ export const CLIENTS = [
   "NTPC",
   "NFL",
   "BHEL",
+  "Indian Oil",
   "Hindustan Copper",
   "VDA · Varanasi",
   "PSU Townships",
   "Central Govt. Depts",
+];
+
+// Enriched institutional clients — one sentence of context per client
+// (shown prominently on the homepage, not buried in About).
+export const INSTITUTIONAL_CLIENTS = [
+  {
+    name: "NHAI",
+    fullName: "National Highways Authority of India",
+    sector: "Government · Infrastructure",
+    context:
+      "Avenue and compensatory plantation along national highway corridors, with three-year survival-linked maintenance.",
+  },
+  {
+    name: "NTPC",
+    fullName: "NTPC Limited",
+    sector: "PSU · Power",
+    context:
+      "Landscape execution for residential and administrative zones of an NTPC township — turf, ornamentals, irrigation and O&M.",
+  },
+  {
+    name: "NFL",
+    fullName: "National Fertilizers Limited",
+    sector: "PSU · Fertilizers",
+    context:
+      "Boundary plantation, ornamental landscaping and dust-mitigation green belts for a fertilizer plant complex.",
+  },
+  {
+    name: "Indian Oil",
+    fullName: "Indian Oil Corporation Ltd",
+    sector: "PSU · Oil & Gas",
+    context:
+      "Campus greening and landscape maintenance for Indian Oil facilities — driven by ESG and biodiversity targets.",
+  },
+  {
+    name: "BHEL",
+    fullName: "Bharat Heavy Electricals Ltd",
+    sector: "PSU · Manufacturing",
+    context:
+      "Corporate campus landscape upgrade — feature gardens, tree-cover augmentation and multi-year AMC.",
+  },
+  {
+    name: "Hindustan Copper",
+    fullName: "Hindustan Copper Ltd",
+    sector: "PSU · Mining",
+    context:
+      "Mine-adjacent green cover programme — native species, soil-remediation planting and biodiversity monitoring.",
+  },
 ];
 
 // Real, verifiable stats replacing vanity metrics
@@ -282,18 +331,69 @@ export const LEADERSHIP = [
   },
 ];
 
-// Gallery uses locally-hosted real images pulled from a2zplantnutrient.com
+// Gallery uses locally-hosted real project images (from a2zplantnutrient.com).
+// Each item is captioned to give context — top-nav gallery is now content-rich, not empty.
 export const GALLERY = [
-  "/service_01.jpg",
-  "/service_02.jpg",
-  "/service_03.jpg",
-  "/service_04.jpg",
-  "/service_05.jpg",
-  "/service_06.jpg",
-  "/service_07.jpg",
-  "/service_08.jpg",
-  "/project01.jpg",
-  "/project02.jpg",
+  {
+    src: "/service_01.jpg",
+    title: "Campus Landscape · PSU",
+    caption: "Feature landscape and turf development for a PSU corporate campus.",
+    category: "Landscaping",
+  },
+  {
+    src: "/service_02.jpg",
+    title: "Avenue Plantation · Highway Corridor",
+    caption: "Bulk avenue plantation with native species along a national highway.",
+    category: "Plantation",
+  },
+  {
+    src: "/service_03.jpg",
+    title: "Lawn Reconditioning",
+    caption: "Restoration of an institutional lawn with premium turf and irrigation.",
+    category: "Lawn Care",
+  },
+  {
+    src: "/service_04.jpg",
+    title: "Outdoor Court Planning",
+    caption: "Sports and recreation-space planning for a PSU township.",
+    category: "Facilities",
+  },
+  {
+    src: "/service_05.jpg",
+    title: "Mural & Environmental Art",
+    caption: "Large-format wall mural integrated with the landscape design.",
+    category: "Mural Art",
+  },
+  {
+    src: "/service_06.jpg",
+    title: "Lawn Development · New Build",
+    caption: "New lawn creation across a large administrative campus.",
+    category: "Lawn Care",
+  },
+  {
+    src: "/service_07.jpg",
+    title: "Multi-Year AMC in Action",
+    caption: "Routine horticulture maintenance under a multi-year AMC contract.",
+    category: "Maintenance",
+  },
+  {
+    src: "/service_08.jpg",
+    title: "Indoor Plants Deployment",
+    caption: "Bulk indoor-plant deployment across an office campus.",
+    category: "Indoor Plants",
+  },
+  {
+    src: "/project01.jpg",
+    title: "Featured Project · Site 01",
+    caption: "Signature institutional landscape delivered by A2Z Plant Nutrient.",
+    category: "Featured",
+  },
+  {
+    src: "/project02.jpg",
+    title: "Featured Project · Site 02",
+    caption: "Landscape and plantation work completed for a PSU client.",
+    category: "Featured",
+  },
 ];
 
 // CraftMyGarden — teaser for the residential/private track

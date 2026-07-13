@@ -139,6 +139,32 @@ def test_media_crud(s):
 
 
 # ---------- Contact ----------
+def test_profile_requests_create_and_list(s):
+    payload = {
+        "name": "TEST_ProfileUser",
+        "organization": "TEST_ORG",
+        "designation": "Manager",
+        "email": "profile_test@example.com",
+        "phone": "9998887777",
+        "tender_ref": "TENDER-XYZ",
+        "message": "Please send company profile."
+    }
+    r = s.post(f"{API}/profile-requests", json=payload)
+    assert r.status_code == 200, r.text
+    data = r.json()
+    assert data["name"] == payload["name"]
+    assert data["organization"] == payload["organization"]
+    assert data["email"] == payload["email"]
+    assert "id" in data
+    created_id = data["id"]
+
+    r = s.get(f"{API}/profile-requests")
+    assert r.status_code == 200
+    lst = r.json()
+    assert isinstance(lst, list)
+    assert any(x["id"] == created_id for x in lst)
+
+
 def test_contact_submit(s):
     r = s.post(f"{API}/contact", json={
         "name": "TEST_User", "email": "test@example.com", "phone": "9999999999",

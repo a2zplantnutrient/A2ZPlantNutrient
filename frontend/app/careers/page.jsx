@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Briefcase, MapPin, Send, Upload, Mail, Loader2 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Card } from "@/components/ui/card";
@@ -11,13 +12,14 @@ import { Label } from "@/components/ui/label";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
 import { useToast } from "@/hooks/use-toast";
 import { fetchCareers } from "@/lib/api";
-import { CAREERS as FALLBACK_CAREERS } from "@/lib/mock";
+import { CAREERS as FALLBACK_CAREERS, COMPANY } from "@/lib/mock";
 
 export default function CareersPage() {
   const { toast } = useToast();
   const [selected, setSelected] = useState(null);
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const formRef = useRef(null);
 
   useEffect(() => {
     fetchCareers()
@@ -25,6 +27,11 @@ export default function CareersPage() {
       .catch(() => setCareers(FALLBACK_CAREERS))
       .finally(() => setLoading(false));
   }, []);
+
+  const chooseRole = (title) => {
+    setSelected(title);
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const handleApply = (e) => {
     e.preventDefault();
@@ -62,14 +69,27 @@ export default function CareersPage() {
                         <div className="w-11 h-11 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-700">
                           <Briefcase size={20} />
                         </div>
-                        <h3 className="font-serif text-xl font-semibold text-emerald-950">{c.title}</h3>
+                        <button
+                          type="button"
+                          onClick={() => chooseRole(c.title)}
+                          className="text-left font-serif text-xl font-semibold text-emerald-950 hover:text-emerald-700 transition-colors"
+                          data-testid={`career-title-${i}`}
+                        >
+                          {c.title}
+                        </button>
                       </div>
                       <div className="flex items-center gap-3 text-xs text-stone-500">
                         <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded-full font-medium">{c.type}</span>
                         <span className="flex items-center gap-1"><MapPin size={12} /> {c.location}</span>
                       </div>
                     </div>
-                    <Button onClick={() => setSelected(c.title)} className="bg-emerald-700 hover:bg-emerald-800 rounded-full shrink-0">Apply</Button>
+                    <Button
+                      onClick={() => chooseRole(c.title)}
+                      className="bg-emerald-700 hover:bg-emerald-800 rounded-full shrink-0"
+                      data-testid={`career-apply-${i}`}
+                    >
+                      Apply
+                    </Button>
                   </div>
                   <p className="mt-4 text-stone-600 leading-relaxed">{c.desc}</p>
                 </Card>
@@ -78,7 +98,7 @@ export default function CareersPage() {
           </Stagger>
         )}
 
-        <div className="mt-16 grid lg:grid-cols-2 gap-10 items-start">
+        <div id="apply" ref={formRef} className="mt-16 grid lg:grid-cols-2 gap-10 items-start scroll-mt-24">
           <FadeIn className="rounded-3xl bg-emerald-50/60 p-10">
             <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Don&apos;t see a fit?</p>
             <h3 className="font-serif text-3xl md:text-4xl text-emerald-950 font-semibold mt-3 leading-tight">We&apos;d love to hear from you anyway</h3>
@@ -86,8 +106,20 @@ export default function CareersPage() {
               Send us your details and tell us what you love to do. If your passion aligns with ours, we&apos;ll make a place for you.
             </p>
             <div className="mt-6 space-y-3 text-stone-700">
-              <div className="flex items-center gap-3"><Mail className="text-emerald-700" size={18} /> a2zplantnutrient@gmail.com</div>
-              <div className="flex items-center gap-3"><MapPin className="text-emerald-700" size={18} /> Varanasi, Uttar Pradesh</div>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="flex items-center gap-3 hover:text-emerald-700 transition-colors"
+              >
+                <Mail className="text-emerald-700" size={18} /> {COMPANY.email}
+              </a>
+              <a
+                href={COMPANY.addressMapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 hover:text-emerald-700 transition-colors"
+              >
+                <MapPin className="text-emerald-700" size={18} /> Varanasi, Uttar Pradesh
+              </a>
             </div>
           </FadeIn>
           <FadeIn>
@@ -95,7 +127,7 @@ export default function CareersPage() {
               <h3 className="font-serif text-2xl font-semibold text-emerald-950">
                 Apply Now {selected && <span className="text-emerald-700">— {selected}</span>}
               </h3>
-              <form onSubmit={handleApply} className="mt-6 space-y-4">
+              <form onSubmit={handleApply} className="mt-6 space-y-4" data-testid="apply-form">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label className="text-stone-700">Full Name</Label>

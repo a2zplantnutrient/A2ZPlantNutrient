@@ -32,6 +32,7 @@ import {
   CERTIFICATIONS,
   PROJECTS,
   CLIENTS,
+  INSTITUTIONAL_CLIENTS,
   LEADERSHIP,
   CRAFTMYGARDEN,
   COMPANY,
@@ -101,9 +102,17 @@ export default function HomePage() {
                 asChild
                 variant="outline"
                 className="rounded-full px-7 py-6 border-emerald-700 text-emerald-700 hover:bg-emerald-50"
+                data-testid="hero-quote-btn"
+              >
+                <Link href="/contact">Get a Quote</Link>
+              </Button>
+              <Button
+                asChild
+                variant="ghost"
+                className="rounded-full px-6 py-6 text-emerald-700 hover:bg-emerald-50"
                 data-testid="hero-projects-btn"
               >
-                <Link href="/projects">View Our Projects</Link>
+                <Link href="/projects">View Projects</Link>
               </Button>
             </div>
 
@@ -227,6 +236,61 @@ export default function HomePage() {
               ))}
             </div>
           </ScaleIn>
+        </div>
+      </section>
+
+      {/* INSTITUTIONAL CLIENTS — dedicated homepage section per positioning brief */}
+      <section className="py-20 bg-white border-y border-stone-200" id="institutional-clients" data-testid="institutional-clients">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="max-w-3xl">
+            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Government &amp; PSU Clients</p>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              Our institutional clients
+            </h2>
+            <p className="mt-4 text-stone-600 leading-relaxed">
+              A snapshot of the government agencies, PSUs and public undertakings we&apos;ve
+              executed horticulture EPC contracts for.
+            </p>
+          </FadeIn>
+
+          <Stagger className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {INSTITUTIONAL_CLIENTS.map((c) => (
+              <StaggerItem key={c.name}>
+                <Card
+                  className="p-6 border-stone-200 hover:border-emerald-300 hover:shadow-lg transition-all h-full bg-white"
+                  data-testid={`inst-client-${c.name.toLowerCase().replace(/\s+/g, "-")}`}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="font-serif text-2xl text-emerald-950 font-semibold">{c.name}</div>
+                      <div className="text-xs text-stone-500 mt-0.5">{c.fullName}</div>
+                    </div>
+                    <span className="text-[10px] uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2 py-1 rounded-full font-semibold whitespace-nowrap">
+                      {c.sector.split(" · ")[0]}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-stone-600 text-sm leading-relaxed">{c.context}</p>
+                  <div className="text-[11px] text-emerald-700 mt-3 font-medium">{c.sector}</div>
+                </Card>
+              </StaggerItem>
+            ))}
+          </Stagger>
+
+          <FadeIn className="mt-10 rounded-2xl bg-emerald-50/60 border border-emerald-100 p-6 md:p-8 flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <div className="font-serif text-xl text-emerald-950 font-semibold">Evaluating vendors for a horticulture tender?</div>
+              <p className="text-sm text-stone-600 mt-1">
+                Get our full company profile with ISO certificates and past PO summary — instantly.
+              </p>
+            </div>
+            <Button
+              onClick={() => setProfileOpen(true)}
+              className="bg-emerald-700 hover:bg-emerald-800 rounded-full px-6"
+              data-testid="inst-clients-request-btn"
+            >
+              <FileText size={16} className="mr-2" /> Request Company Profile
+            </Button>
+          </FadeIn>
         </div>
       </section>
 

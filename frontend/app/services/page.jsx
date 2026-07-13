@@ -98,9 +98,19 @@ export default function ServicesPage() {
                 <div className="p-6">
                   <h3 className="font-serif text-2xl font-semibold text-emerald-950 mb-3">{s.title}</h3>
                   <p className="text-stone-600 leading-relaxed text-[15px]">{s.description}</p>
-                  <Link href="/contact" className="mt-5 inline-flex items-center gap-1 text-emerald-700 font-medium">
-                    Request a proposal <ArrowRight size={16} />
-                  </Link>
+                  <div className="mt-5 flex items-center justify-between gap-3">
+                    <Link href="/contact" className="inline-flex items-center gap-1 text-emerald-700 font-medium text-sm">
+                      Learn more <ArrowRight size={14} />
+                    </Link>
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-emerald-700 hover:bg-emerald-800 rounded-full"
+                      data-testid={`service-quote-${s.slug}`}
+                    >
+                      <Link href="/contact">Get a Quote</Link>
+                    </Button>
+                  </div>
                 </div>
               </Card>
             </StaggerItem>

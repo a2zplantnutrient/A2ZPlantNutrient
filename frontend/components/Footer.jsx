@@ -82,7 +82,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-emerald-200/80">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-amber-300 mt-0.5 shrink-0" />
-                <span>{COMPANY.address}</span>
+                <a
+                  href={COMPANY.addressMapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-amber-300 transition-colors"
+                  data-testid="footer-address-link"
+                >
+                  {COMPANY.address}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-amber-300 shrink-0" />
@@ -92,7 +100,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-amber-300 shrink-0" />
-                <a href={`mailto:${COMPANY.email}`} className="hover:text-amber-300 break-all">
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="hover:text-amber-300 break-all"
+                  data-testid="footer-email-link"
+                >
                   {COMPANY.email}
                 </a>
               </li>

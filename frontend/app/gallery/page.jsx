@@ -94,12 +94,17 @@ export default function GalleryPage() {
                     className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 )}
-                <div className="absolute inset-0 bg-emerald-950/0 group-hover:bg-emerald-950/40 transition-colors flex items-end p-4">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="text-xs uppercase tracking-wider text-amber-300">
+                <div className="absolute inset-0 bg-emerald-950/0 group-hover:bg-emerald-950/60 transition-colors flex flex-col justify-end p-5">
+                  <div className="text-white translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="text-[10px] uppercase tracking-wider text-amber-300 font-semibold">
                       {item.category}
                     </div>
-                    <div className="font-serif text-lg">{item.title}</div>
+                    <div className="font-serif text-lg leading-tight mt-1">{item.title}</div>
+                    {item.description && (
+                      <div className="text-xs text-emerald-100/80 mt-1 leading-snug line-clamp-2">
+                        {item.description}
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
