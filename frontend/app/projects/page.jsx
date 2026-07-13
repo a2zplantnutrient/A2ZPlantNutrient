@@ -1,15 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, Calendar, Layers } from "lucide-react";
+import { ArrowRight, MapPin, Calendar, Layers, FileText, ShieldCheck } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
-import { PROJECTS, CLIENTS } from "@/lib/mock";
+import ProfileRequestModal from "@/components/ProfileRequestModal";
+import { PROJECTS, CLIENTS, CERTIFICATIONS } from "@/lib/mock";
 
 export default function ProjectsPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <div data-testid="projects-page">
       <PageHero title="Projects & Portfolio" subtitle="Selected EPC Work" />
@@ -27,6 +31,40 @@ export default function ProjectsPage() {
             national agencies, PSUs and corporate clients across multiple Indian states.
             Full case studies and PO copies are shared with procurement teams on request.
           </p>
+        </FadeIn>
+
+        {/* Procurement quick-request banner */}
+        <FadeIn className="mt-10">
+          <Card className="p-6 md:p-8 border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-amber-50 grid md:grid-cols-[1fr_auto] gap-6 items-center" data-testid="procurement-banner">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] bg-amber-400/90 text-emerald-950 px-2.5 py-1 rounded-full">
+                  Procurement Officers
+                </span>
+                <div className="flex gap-1.5">
+                  {CERTIFICATIONS.slice(0, 3).map((c) => (
+                    <span key={c.code} className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                      <ShieldCheck size={10} /> {c.code}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <h3 className="font-serif text-2xl md:text-3xl text-emerald-950 font-semibold leading-tight">
+                Instantly download our full company profile
+              </h3>
+              <p className="mt-2 text-stone-600 text-sm md:text-base">
+                CIN, GSTIN, Udyam Registration, ISO 9001 &amp; 14001 references, DPIIT recognition,
+                past PO summary, workforce declaration and financials — in a single printable PDF.
+              </p>
+            </div>
+            <Button
+              onClick={() => setModalOpen(true)}
+              className="bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 whitespace-nowrap"
+              data-testid="request-profile-btn"
+            >
+              <FileText size={16} className="mr-2" /> Request Company Profile
+            </Button>
+          </Card>
         </FadeIn>
 
         {/* Client strip */}
@@ -120,15 +158,24 @@ export default function ProjectsPage() {
               workforce affidavits and financials — with procurement teams on request.
             </p>
           </div>
-          <div className="flex md:justify-end">
-            <Button asChild className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6">
+          <div className="flex md:justify-end gap-3 flex-wrap">
+            <Button
+              onClick={() => setModalOpen(true)}
+              className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6"
+              data-testid="cta-request-profile"
+            >
+              <FileText size={16} className="mr-2" /> Get Company Profile
+            </Button>
+            <Button asChild variant="outline" className="rounded-full px-7 py-6 border-emerald-700 text-white hover:bg-emerald-800 bg-transparent">
               <Link href="/contact">
-                Request Company Profile <ArrowRight size={18} className="ml-1" />
+                Contact Us <ArrowRight size={18} className="ml-1" />
               </Link>
             </Button>
           </div>
         </motion.div>
       </section>
+
+      <ProfileRequestModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }

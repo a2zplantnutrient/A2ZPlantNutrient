@@ -15,12 +15,14 @@ import {
   Users,
   CalendarDays,
   User as UserIcon,
+  FileText,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FadeIn, Stagger, StaggerItem, ScaleIn, FloatingLeaf } from "@/components/Motion";
 import Counter from "@/components/Counter";
+import ProfileRequestModal from "@/components/ProfileRequestModal";
 import {
   HERO,
   FEATURES,
@@ -40,6 +42,7 @@ const iconMap = { Sprout, Hammer, Leaf, Sparkles };
 
 export default function HomePage() {
   const [blogs, setBlogs] = useState([]);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   useEffect(() => {
     fetchBlogs()
@@ -474,8 +477,12 @@ export default function HomePage() {
           </div>
           <div className="flex md:justify-end">
             <div className="space-y-3">
-              <Button asChild className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6 w-full md:w-auto">
-                <Link href="/contact">Request Company Profile <ArrowRight size={18} className="ml-1" /></Link>
+              <Button
+                onClick={() => setProfileOpen(true)}
+                className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6 w-full md:w-auto"
+                data-testid="home-request-profile-btn"
+              >
+                <FileText size={18} className="mr-2" /> Request Company Profile
               </Button>
               <a href={`tel:${COMPANY.phoneRaw}`} className="block text-center text-amber-200 hover:text-amber-300 text-sm">
                 or call {COMPANY.phone}
@@ -484,6 +491,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ProfileRequestModal open={profileOpen} onClose={() => setProfileOpen(false)} />
     </div>
   );
 }

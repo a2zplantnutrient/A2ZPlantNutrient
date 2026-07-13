@@ -108,6 +108,22 @@ class Contact(ContactCreate):
     created_at: str = Field(default_factory=now_iso)
 
 
+class ProfileRequestCreate(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    name: str
+    organization: str
+    designation: Optional[str] = ""
+    email: str
+    phone: Optional[str] = ""
+    tender_ref: Optional[str] = ""
+    message: Optional[str] = ""
+
+
+class ProfileRequest(ProfileRequestCreate):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    created_at: str = Field(default_factory=now_iso)
+
+
 # ===================== Routes =====================
 @api_router.get("/")
 async def root():
@@ -226,6 +242,20 @@ async def create_contact(payload: ContactCreate):
     msg = Contact(**payload.model_dump())
     await db.contacts.insert_one(msg.model_dump())
     return msg
+
+
+# ---------- Company Profile Requests ----------
+@api_router.post("/profile-requests", response_model=ProfileRequest)
+async def create_profile_request(payload: ProfileRequestCreate):
+    req = ProfileRequest(**payload.model_dump())
+    await db.profile_requests.insert_one(req.model_dump())
+    return req
+
+
+@api_router.get("/profile-requests", response_model=List[ProfileRequest])
+async def list_profile_requests():
+    docs = await db.profile_requests.find({}, {"_id": 0}).sort("created_at", -1).to_list(200)
+    return docs
 
 
 # ---------- Seed (idempotent) ----------

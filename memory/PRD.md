@@ -29,10 +29,11 @@ Rebuild the a2zplantnutrient.com website using the shared Next.js codebase and c
 
 ## Implemented (2026-01-13)
 ### Public pages
-- `/` Home — EPC hero, ₹6.84 Cr order-book callout, certifications strip, client marquee, real STATS (order book / workforce / states / founded), features, projects preview, about snippet, founder card (Abhishek Agrawal), EPC services grid, CraftMyGarden coming-soon teaser, dynamic blog preview (only shows if blogs exist), procurement CTA.
+- `/` Home — EPC hero, ₹6.84 Cr order-book callout, certifications strip, client marquee, real STATS (order book / workforce / states / founded), features, projects preview, about snippet, founder card (Abhishek Agrawal), EPC services grid, CraftMyGarden coming-soon teaser, dynamic blog preview (only shows if blogs exist), procurement CTA **with "Request Company Profile" modal**.
 - `/about` — Company intro, mission/vision/values, real stats, certifications, founder card.
 - `/services` — Two-track split (EPC vs CraftMyGarden teaser), 6 EPC services, why-us block with certifications.
-- `/projects` — 6 named EPC projects: NHAI Avenue Plantation, NTPC Township Landscape, NFL Industrial Greening, BHEL Campus Landscape, VDA Public Park, Hindustan Copper Mine-Site Greening, each with metrics.
+- `/projects` — 6 named EPC projects with metrics + **prominent "Request Company Profile" banner** at the top + secondary CTA at the bottom.
+- `/company-profile` — **Printable one-page profile** (personalised via `?for=&org=` URL params). Includes CIN/GSTIN/Udyam block, all certifications, company snapshot, leadership bio, EPC portfolio, tabular PO summary of all 6 named projects with metrics, clients strip and contact details. One-click **Download / Print PDF** via browser print (print CSS included).
 - `/gallery` — Dynamic media grid with lightbox; falls back to real static images if backend empty.
 - `/careers` — Dynamic (from `/api/careers`); 4 seeded EPC-relevant roles + application form.
 - `/blog` — Dynamic list w/ search + category filter + link to `/add-blog`.
@@ -50,6 +51,7 @@ Rebuild the a2zplantnutrient.com website using the shared Next.js codebase and c
 - `POST/GET /media`, `DELETE /media/{id}`.
 - `POST/GET /careers`, `DELETE /careers/{id}`.
 - `POST /contact`.
+- **`POST /profile-requests`** — captures procurement-officer leads. **`GET /profile-requests`** — lists submissions (for admin).
 - `POST /seed` — idempotent seed of 3 EPC blogs, 4 careers, 10 media (also runs auto-seed on startup if empty).
 
 ### Design
