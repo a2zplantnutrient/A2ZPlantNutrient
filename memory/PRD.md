@@ -79,8 +79,45 @@ Rebuild the a2zplantnutrient.com website using the shared Next.js codebase and c
 - Blog auto-seeded with 3 real, EPC-relevant posts (Tender Compliance, Compensatory Afforestation, PSU AMC Playbook).
 - Multi-state / pan-India language throughout copy.
 
+## Implemented (2026-01-13)
+### Public pages
+- `/` Home — EPC hero (with tagline **"From Tender to Tree"** and three CTAs: Discuss a Tender, **Get a Quote**, View Projects), ₹6.84 Cr order-book callout, certifications strip, client marquee (now includes **Indian Oil**), real STATS (order book / workforce / states / founded), features, **new "Our Institutional Clients" section with 6 named PSU/gov cards (NHAI, NTPC, NFL, Indian Oil, BHEL, Hindustan Copper) each with a sentence of context**, projects preview, about snippet, founder card (Abhishek Agrawal), EPC services grid, CraftMyGarden coming-soon teaser, dynamic blog preview (only shows if blogs exist), procurement CTA **with "Request Company Profile" modal**.
+- `/about` — Company intro, mission/vision/values, real stats, certifications, founder card.
+- `/services` — Two-track split (EPC vs CraftMyGarden teaser), 6 EPC services **each with its own "Get a Quote" button**, why-us block with certifications.
+- `/projects` — 6 named EPC projects with metrics + prominent "Request Company Profile" banner at the top + secondary CTA at the bottom.
+- `/company-profile` — Printable one-page profile (personalised via `?for=&org=` URL params). CIN/GSTIN/Udyam block, all certifications, company snapshot, leadership bio, EPC portfolio, tabular PO summary of all 6 named projects with metrics, clients strip (**incl. Indian Oil**) and contact details. One-click Download / Print PDF via browser print.
+- `/gallery` — Dynamic media grid with lightbox; falls back to **captioned real project images** (title + caption + category) if backend empty.
+- `/careers` — Dynamic (from `/api/careers`); **job titles and Apply buttons are clickable — they scroll to the application form and prefill the selected role**; contact strip uses new domain email + clickable address.
+- `/blog` — Dynamic list w/ search + category filter + link to `/add-blog`.
+- `/blog/[slug]` — Full article view w/ share button.
+- `/contact` — Real address, phone, **info@a2zplantnutrient.com** email, working hours + form posts to `/api/contact`; Google map embed.
+
+### Admin pages (public — no auth)
+- `/admin` — Dashboard with tabs (Blogs / Media), delete with confirmation, links to add pages.
+- `/add-blog` — Form: title, excerpt, content, author, category, tags, cover image (upload → base64, or URL).
+- `/add-media` — Form: title, description, category, image/video toggle, upload (base64) or URL.
+
+### Backend endpoints (`/api/*`)
+- `GET /` health
+- `POST/GET /blogs`, `GET /blogs/{slug}`, `PUT /blogs/{id}`, `DELETE /blogs/{id}` — with `?q=` and `?category=` filters.
+- `POST/GET /media`, `DELETE /media/{id}`.
+- `POST/GET /careers`, `DELETE /careers/{id}`.
+- `POST /contact`.
+- `POST /profile-requests` (captures procurement leads) · `GET /profile-requests` (lists submissions).
+- `POST /seed` — idempotent seed of 3 EPC blogs, 4 careers, 10 media (also runs auto-seed on startup if empty).
+
+### Audit fixes applied (2026-01-13, iteration 2)
+- **Tagline** globally changed from "Grow & Eat Natural" → **"From Tender to Tree"**.
+- **Email** globally changed from `a2zplantnutrient@gmail.com` → **`info@a2zplantnutrient.com`** (header, footer, contact, careers, company profile page).
+- **Mobile navigation** verified working — hamburger toggle opens full-screen nav on mobile viewport.
+- **Dead links fixed** — footer address is now a Google Maps link (opens in new tab), footer email uses new domain, careers job titles are now clickable buttons that scroll to apply form + prefill role.
+- **"Get a Quote" CTA** added on hero (secondary button) and inside every service card on `/services`.
+- **Gallery** captioned — each fallback tile now has a real title + caption + category, no empty gallery experience.
+- **Institutional Clients** dedicated homepage section built — not buried on About page, showing NHAI, NTPC, NFL, Indian Oil, BHEL, Hindustan Copper as cards with sector chips and one-sentence context each.
+
 ## Testing
-- **Iteration 1** (`/app/test_reports/iteration_1.json`): 100% backend + 100% frontend pass. All 16 test flows verified. Idempotent seed confirmed.
+- **Iteration 1** (`/app/test_reports/iteration_1.json`): 100% backend + 100% frontend pass.
+- **Iteration 2** (`/app/test_reports/iteration_2.json`): 100% backend + 100% frontend pass — all audit deltas verified (tagline, email, mobile nav, institutional-clients section, careers scroll, service quote buttons, company profile).
 - Regression tests kept at `/app/backend/tests/backend_test.py`.
 
 ## Prioritized Backlog
