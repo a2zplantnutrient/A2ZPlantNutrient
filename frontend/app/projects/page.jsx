@@ -77,14 +77,24 @@ export default function ProjectsPage() {
             <div className="flex-1 h-px bg-stone-200" />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {TRUSTED_BY.slice(0, 12).map((c) => (
-              <div
-                key={c.name}
-                data-testid={`projects-client-tag-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-              >
-                <ClientLogo name={c.name} size="sm" />
-              </div>
-            ))}
+            {TRUSTED_BY.slice(0, 12).map((c) => {
+              const label = c.name.replace(/\(.*?\)/g, "").trim();
+              const short = c.sector?.split(" · ")[0] || "Client";
+              return (
+                <div
+                  key={c.name}
+                  className="rounded-xl bg-emerald-950 ring-1 ring-emerald-900 hover:ring-amber-300/50 transition-all px-3 py-4 text-center"
+                  data-testid={`projects-client-tag-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                >
+                  <div className="font-serif text-white text-lg font-semibold leading-none tracking-tight">
+                    {label.length > 22 ? label.slice(0, 20) + "…" : label}
+                  </div>
+                  <div className="text-[10px] uppercase tracking-[0.16em] text-emerald-300/70 mt-2 font-semibold">
+                    {short}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
