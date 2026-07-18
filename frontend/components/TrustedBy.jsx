@@ -22,11 +22,16 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
 // Actual institutional client logos — files live in /public/logos/
 const TRUSTED_LOGOS = [
   { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai.png" },
+  { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc.jpg" },
+  { name: "NFL", alt: "National Fertilizers Limited", src: "/logos/nfl.jpg" },
   { name: "BHEL", alt: "Bharat Heavy Electricals Limited", src: "/logos/bhel.png" },
   { name: "IndianOil", alt: "Indian Oil Corporation Limited", src: "/logos/iocl.png" },
   { name: "Indian Railways", alt: "Indian Railways", src: "/logos/indian-railways.png" },
   { name: "NBCC", alt: "National Buildings Construction Corporation", src: "/logos/nbcc.png" },
+  { name: "GSECL", alt: "Gujarat State Electricity Corporation Ltd.", src: "/logos/gsecl.jpg" },
   { name: "TCIL", alt: "Telecommunications Consultants India Ltd.", src: "/logos/tcil.png" },
+  { name: "Rajasthan Housing Board", alt: "Rajasthan Housing Board", src: "/logos/rajasthan-housing-board.jpg" },
+  { name: "Nagar Nigam Varanasi", alt: "Nagar Nigam Varanasi", src: "/logos/nagar-nigam-varanasi.jpg" },
   { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chhavni-parishad-varanasi.png" },
 ];
 
