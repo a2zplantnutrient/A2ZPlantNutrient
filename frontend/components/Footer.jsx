@@ -122,11 +122,7 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.
           </p>
-          <p>
-            <Link href="/admin" className="hover:text-amber-300 transition-colors">
-              Content Dashboard
-            </Link>
-          </p>
+          <p>Designed with care · Pan-India delivery</p>
         </div>
       </div>
     </footer>

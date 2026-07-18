@@ -302,14 +302,18 @@ async def seed():
             seeded["blogs"] += 1
 
     initial_careers = [
-        {"title": "Landscape Designer", "type": "Full-time", "location": "Varanasi, UP",
-         "desc": "Design beautiful, sustainable outdoor environments for residential and commercial clients."},
-        {"title": "Plant Care Specialist", "type": "Full-time", "location": "Varanasi, UP",
-         "desc": "Care for indoor and outdoor plants, troubleshoot health issues and recommend treatments."},
-        {"title": "Mural Artist", "type": "Contract", "location": "Varanasi, UP",
-         "desc": "Bring walls to life with captivating murals designed in collaboration with our clients."},
-        {"title": "Field Operations Lead", "type": "Full-time", "location": "Varanasi, UP",
-         "desc": "Manage on-ground execution of landscape and lawn projects from kickoff to handover."},
+        {"title": "Landscape Designer", "type": "Full-time", "location": "Varanasi, UP · Pan-India travel",
+         "desc": "Design large-scale landscapes for government and corporate EPC projects."},
+        {"title": "Site Supervisor — EPC Projects", "type": "Full-time", "location": "Multi-state · UP / MP / Odisha / Delhi",
+         "desc": "Lead ground execution and quality control at PSU / govt project sites across states."},
+        {"title": "Agronomist / Horticulturist", "type": "Full-time", "location": "Varanasi, UP + Project sites",
+         "desc": "Species selection, soil health, pest management and multi-year maintenance planning."},
+        {"title": "Mural Artist", "type": "Contract", "location": "Pan India · Project-based",
+         "desc": "Design and execute large-format murals integrated with our landscape projects."},
+        {"title": "Project Manager — Delhi / NCR", "type": "Full-time", "location": "New Delhi",
+         "desc": "Own NBCC / WTC and related institutional projects end-to-end — planning, procurement and handover."},
+        {"title": "Regional Coordinator — Odisha", "type": "Full-time", "location": "Odisha (IOCL Sites)",
+         "desc": "Coordinate landscape maintenance operations across IOCL, Odisha facilities."},
     ]
     for c in initial_careers:
         exists = await db.careers.find_one({"title": c["title"]})

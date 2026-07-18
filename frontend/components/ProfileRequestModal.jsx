@@ -10,6 +10,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { sendProfileRequest } from "@/lib/procurement";
+import { COMPANY } from "@/lib/mock";
+
+// Force download the official A2Z Company Profile PDF with a proper filename.
+function triggerPdfDownload() {
+  const a = document.createElement("a");
+  a.href = COMPANY.companyProfilePdf;
+  a.download = COMPANY.companyProfilePdfName;
+  a.target = "_blank";
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
 export default function ProfileRequestModal({ open, onClose }) {
   const { toast } = useToast();
@@ -29,25 +42,20 @@ export default function ProfileRequestModal({ open, onClose }) {
     };
     setSubmitting(true);
     try {
-      await sendProfileRequest(payload);
+      // Best-effort lead capture — do not block the download if backend is down.
+      try {
+        await sendProfileRequest(payload);
+      } catch (_) {}
+
+      // Trigger real PDF download of the official A2Z Company Profile.
+      triggerPdfDownload();
+
       toast({
-        title: "Profile request received",
-        description: "Opening your company-profile PDF in a new tab…",
+        title: "Company profile downloaded",
+        description: "Thank you — our team will also be in touch shortly.",
       });
-      // Open the printable company profile prefilled with requester's name
-      const params = new URLSearchParams({
-        for: payload.name,
-        org: payload.organization,
-      });
-      window.open(`/company-profile?${params.toString()}`, "_blank", "noopener");
       e.target.reset();
       onClose?.();
-    } catch (err) {
-      toast({
-        title: "Could not submit",
-        description: err.message,
-        variant: "destructive",
-      });
     } finally {
       setSubmitting(false);
     }
@@ -62,6 +70,9 @@ export default function ProfileRequestModal({ open, onClose }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Request Company Profile"
           className="fixed inset-0 z-50 bg-emerald-950/80 backdrop-blur-sm flex items-start md:items-center justify-center p-4 overflow-y-auto"
           data-testid="profile-request-modal"
         >
@@ -91,12 +102,12 @@ export default function ProfileRequestModal({ open, onClose }) {
                 </p>
               </div>
               <h2 className="font-serif text-2xl md:text-3xl text-emerald-950 font-semibold leading-tight">
-                Request our Company Profile
+                Download A2Z Company Profile
               </h2>
               <p className="mt-2 text-stone-600 text-sm leading-relaxed">
-                Share a few details and we&apos;ll instantly generate a printable profile
-                with our CIN, GSTIN, Udyam registration, ISO 9001 &amp; 14001 references,
-                DPIIT recognition and a summary of past PO / project work.
+                Share a few details and we&apos;ll deliver the official{" "}
+                <strong>{COMPANY.companyProfilePdfName}</strong> — with our ISO 9001 &amp; 14001
+                certificates, Startup India recognition, named PSU projects and complete client list.
               </p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-4" data-testid="profile-request-form">
@@ -156,16 +167,16 @@ export default function ProfileRequestModal({ open, onClose }) {
                     data-testid="pr-submit"
                   >
                     <Download size={16} className="mr-2" />
-                    {submitting ? "Sending…" : "Get Company Profile"}
+                    {submitting ? "Preparing…" : "Download Company Profile"}
                   </Button>
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={onClose}
-                    className="rounded-full border-stone-300"
+                  <a
+                    href={COMPANY.companyProfilePdf}
+                    download={COMPANY.companyProfilePdfName}
+                    className="text-sm text-emerald-700 hover:text-emerald-900 underline underline-offset-4"
+                    data-testid="pr-direct-download"
                   >
-                    Cancel
-                  </Button>
+                    or download directly
+                  </a>
                 </div>
               </form>
             </Card>

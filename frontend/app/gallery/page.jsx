@@ -52,11 +52,12 @@ export default function GalleryPage() {
           <Button
             asChild
             size="sm"
-            className="mt-5 bg-emerald-700 hover:bg-emerald-800 rounded-full"
-            data-testid="gallery-add-btn"
+            variant="outline"
+            className="mt-5 rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50"
+            data-testid="gallery-projects-btn"
           >
-            <Link href="/add-media">
-              <Plus size={14} className="mr-1" /> Add Media
+            <Link href="/projects">
+              <Plus size={14} className="mr-1" /> See Named Projects
             </Link>
           </Button>
         </FadeIn>

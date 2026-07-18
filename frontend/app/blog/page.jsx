@@ -68,16 +68,6 @@ export default function BlogPage() {
                 </>
               )}
             </p>
-            <Button
-              asChild
-              size="sm"
-              className="bg-emerald-700 hover:bg-emerald-800 rounded-full"
-              data-testid="blog-add-btn"
-            >
-              <Link href="/add-blog">
-                <Sparkles size={14} className="mr-1" /> Add New Blog
-              </Link>
-            </Button>
           </FadeIn>
 
           {loading && (
@@ -88,11 +78,8 @@ export default function BlogPage() {
             <Card className="p-10 border-dashed border-emerald-200 bg-emerald-50/40 text-center">
               <p className="font-serif text-2xl text-emerald-950">No articles yet</p>
               <p className="text-stone-600 mt-2">
-                Be the first to share — your content can go live in seconds.
+                Check back soon for our latest EPC insights and case notes.
               </p>
-              <Button asChild className="mt-5 bg-emerald-700 hover:bg-emerald-800 rounded-full">
-                <Link href="/add-blog">Create First Blog</Link>
-              </Button>
             </Card>
           )}
 

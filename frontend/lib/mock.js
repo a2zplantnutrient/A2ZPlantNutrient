@@ -10,17 +10,22 @@ export const COMPANY = {
   founded: 2021,
   phone: "+91 81605 34604",
   phoneRaw: "+918160534604",
+  phoneSecondary: "+91 75320 71388",
+  phoneSecondaryRaw: "+917532071388",
   email: "info@a2zplantnutrient.com",
   emailLegacy: "a2zplantnutrient@gmail.com",
   address:
-    "13A Shyam Bihar Colony, Laharata Road, Varanasi, Uttar Pradesh 221103",
+    "13A Shyam Bihar Colony, Lahartara Road, Varanasi, Uttar Pradesh 221103",
   addressMapUrl:
-    "https://www.google.com/maps/search/?api=1&query=13A+Shyam+Bihar+Colony+Laharata+Road+Varanasi+Uttar+Pradesh+221103",
+    "https://www.google.com/maps/search/?api=1&query=13A+Shyam+Bihar+Colony+Lahartara+Road+Varanasi+Uttar+Pradesh+221103",
   hours: "Mon – Sat · 09:00 AM – 06:00 PM",
   logo: "/logo.png",
-  cin: "U01xxxUP2021PTCxxxxxx",
-  gstin: "09XXXXXXXXX1ZX",
-  udyamNumber: "UDYAM-UP-XX-XXXXXXX",
+  companyProfilePdf: "/docs/A2Z-Plant-Nutrient-Company-Profile.pdf",
+  companyProfilePdfName: "A2Z-Plant-Nutrient-Company-Profile.pdf",
+  // Registration numbers — replace placeholders with real values before public launch
+  cin: "Available on request",
+  gstin: "Available on request",
+  udyamNumber: "Available on request",
 };
 
 export const NAV = [
@@ -147,106 +152,156 @@ export const SERVICES = [
   },
 ];
 
-// Named projects for PSUs / government bodies — replace generic figures once
-// tender/PO details can be shared publicly.
+// Named projects sourced from A2Z's Company Profile PDF — real, dated, verifiable.
 export const PROJECTS = [
   {
-    slug: "nhai-avenue-plantation",
+    slug: "nhai-ayodhya",
     client: "NHAI",
-    title: "Highway Avenue Plantation",
-    location: "Uttar Pradesh",
+    title: "Ayodhya–Basti Highway Plantation",
+    location: "Ayodhya, Uttar Pradesh",
     year: "2024",
     scope:
-      "Compensatory & avenue plantation along national highway corridors with native species and 3-year maintenance.",
+      "Execution of avenue plantation along the Ayodhya–Basti national highway corridor with native species and survival-linked maintenance.",
     metrics: [
-      { label: "Trees Planted", value: "20,000+" },
-      { label: "Corridor Length", value: "40 km" },
+      { label: "Plants Installed", value: "10,000+" },
+      { label: "Corridor", value: "Ayodhya–Basti" },
     ],
     image: "/service_02.jpg",
   },
   {
-    slug: "ntpc-township-landscape",
-    client: "NTPC",
-    title: "PSU Township Landscape Development",
-    location: "Multi-state",
+    slug: "nhai-prayagraj",
+    client: "NHAI",
+    title: "Highway Beautification · Prayagraj",
+    location: "Prayagraj, Uttar Pradesh",
     year: "2024",
     scope:
-      "Full landscape execution for residential and administrative zones of an NTPC township — turf, ornamentals, irrigation and O&M.",
+      "Beautification and landscape works undertaken across a large parcel adjacent to the highway.",
     metrics: [
-      { label: "Area Covered", value: "1.2 lakh sq.ft" },
-      { label: "Species Introduced", value: "80+" },
+      { label: "Land Parcel", value: "3 hectares" },
+      { label: "Client", value: "NHAI" },
     ],
     image: "/service_01.jpg",
   },
   {
-    slug: "nfl-industrial-greening",
-    client: "NFL",
-    title: "Industrial Complex Greening",
-    location: "North India",
-    year: "2023",
+    slug: "nbcc-wtc-delhi",
+    client: "NBCC · Navratna CPSE",
+    title: "World Trade Center Landscape · Delhi",
+    location: "New Delhi",
+    year: "2024",
     scope:
-      "Boundary plantation, ornamental landscaping and dust-mitigation green belts for a National Fertilizers Limited plant.",
+      "Landscape execution for the World Trade Center under NBCC — one of A2Z's most notable Navratna CPSE projects.",
     metrics: [
-      { label: "Green Belt", value: "8 acres" },
-      { label: "Native Species", value: "35+" },
-    ],
-    image: "/service_06.jpg",
-  },
-  {
-    slug: "bhel-campus-landscape",
-    client: "BHEL",
-    title: "Corporate Campus Landscape",
-    location: "India",
-    year: "2023",
-    scope:
-      "Campus landscape upgrade for a BHEL facility — feature gardens, tree cover augmentation and annual maintenance contract.",
-    metrics: [
-      { label: "Area", value: "60,000 sq.ft" },
-      { label: "Contract Duration", value: "3 years" },
-    ],
-    image: "/service_03.jpg",
-  },
-  {
-    slug: "vda-public-park",
-    client: "VDA (Varanasi Development Authority)",
-    title: "Public Park Redevelopment",
-    location: "Varanasi, UP",
-    year: "2023",
-    scope:
-      "Redevelopment of a public park under Varanasi Development Authority — hardscape, plantation, mural art and public seating.",
-    metrics: [
-      { label: "Park Area", value: "3 acres" },
-      { label: "Footfall Zone", value: "Daily 5k+" },
+      { label: "Client", value: "NBCC (Navratna)" },
+      { label: "Site", value: "WTC Delhi" },
     ],
     image: "/service_04.jpg",
   },
   {
-    slug: "hindustan-copper-plantation",
-    client: "Hindustan Copper Ltd",
-    title: "Mine-Site Greening Programme",
-    location: "India",
+    slug: "iocl-odisha",
+    client: "Indian Oil (IOCL)",
+    title: "Campus Landscape Maintenance · Odisha",
+    location: "Odisha",
     year: "2024",
     scope:
-      "Mine-adjacent green cover programme for Hindustan Copper Ltd — native species, soil-remediation planting and biodiversity monitoring.",
+      "Executing beautification and multi-year landscape maintenance works across IOCL facilities in Odisha.",
     metrics: [
-      { label: "Trees", value: "15,000+" },
-      { label: "Reclaimed Area", value: "12 acres" },
+      { label: "Client", value: "IOCL" },
+      { label: "Scope", value: "Maintenance AMC" },
+    ],
+    image: "/service_06.jpg",
+  },
+  {
+    slug: "nagar-nigam-varanasi",
+    client: "Nagar Nigam Varanasi",
+    title: "Urban Plantation · Varanasi",
+    location: "Varanasi, Uttar Pradesh",
+    year: "2023",
+    scope:
+      "Comprehensive plantation works across city zones with iron-guard protection for durability.",
+    metrics: [
+      { label: "Trees Planted", value: "5,000" },
+      { label: "Iron-Guard Protected", value: "100%" },
+    ],
+    image: "/service_03.jpg",
+  },
+  {
+    slug: "rajasthan-housing-board",
+    client: "Rajasthan Housing Board",
+    title: "Housing Estate Plantation · Rajasthan",
+    location: "Rajasthan",
+    year: "2023",
+    scope:
+      "Completed extensive plantation works across Rajasthan Housing Board estates.",
+    metrics: [
+      { label: "Client", value: "RHB" },
+      { label: "State", value: "Rajasthan" },
+    ],
+    image: "/service_07.jpg",
+  },
+  {
+    slug: "nfl-madhya-pradesh",
+    client: "NFL",
+    title: "Plant Beautification · Madhya Pradesh",
+    location: "Madhya Pradesh",
+    year: "2023",
+    scope:
+      "Ongoing beautification and maintenance activities across National Fertilizers Limited facilities in MP.",
+    metrics: [
+      { label: "Client", value: "NFL" },
+      { label: "State", value: "Madhya Pradesh" },
     ],
     image: "/service_08.jpg",
   },
+  {
+    slug: "sunbeam-varanasi",
+    client: "Sunbeam Group of Educational Institutions",
+    title: "Campus Horticulture · Varanasi",
+    location: "Varanasi, Uttar Pradesh",
+    year: "2023",
+    scope:
+      "Comprehensive horticulture and landscape development works across Sunbeam Group campuses.",
+    metrics: [
+      { label: "Sector", value: "Education" },
+      { label: "Scope", value: "Full landscape" },
+    ],
+    image: "/service_05.jpg",
+  },
 ];
 
-// Marquee-style client logos strip (name-based, no external logos to avoid IP issues)
+// Marquee-style client strip (name-based, since we don't own external logos).
+// Sourced from A2Z Plant Nutrient's official Company Profile PDF.
 export const CLIENTS = [
   "NHAI",
   "NTPC",
   "NFL",
   "BHEL",
-  "Indian Oil",
-  "Hindustan Copper",
+  "Indian Oil (IOCL)",
+  "Indian Railways",
+  "NBCC",
+  "GSECL",
+  "TCIL",
+  "Rajasthan Housing Board",
+  "Nagar Nigam Varanasi",
+  "Water Resources Dept · UP",
   "VDA · Varanasi",
-  "PSU Townships",
-  "Central Govt. Depts",
+];
+
+// Trusted-by full grid — visual cards for the homepage / dedicated section.
+// Each entry has a display name, sector chip and short context.
+// (Data pulled from A2Z's Company Profile PDF.)
+export const TRUSTED_BY = [
+  { name: "NHAI", sector: "Government", context: "National highway plantation corridors — Ayodhya, Prayagraj." },
+  { name: "NTPC", sector: "PSU · Power", context: "PSU township landscape at NTPC Dadri and other sites." },
+  { name: "NFL", sector: "PSU · Fertilizers", context: "Beautification and maintenance across NFL Madhya Pradesh." },
+  { name: "BHEL", sector: "PSU · Manufacturing", context: "Corporate campus landscape with multi-year AMC." },
+  { name: "Indian Oil (IOCL)", sector: "PSU · Oil & Gas", context: "Beautification and landscape maintenance, Odisha." },
+  { name: "Indian Railways", sector: "Government", context: "Institutional plantation and landscape works." },
+  { name: "NBCC", sector: "Navratna CPSE", context: "World Trade Center, Delhi — landscape execution." },
+  { name: "GSECL", sector: "PSU · Power", context: "Landscape works at GSECL Dhuvaran and Ukai." },
+  { name: "TCIL", sector: "PSU · Telecom", context: "Campus horticulture for Telecommunications Consultants India Ltd." },
+  { name: "Rajasthan Housing Board", sector: "Government", context: "Extensive plantation works across housing estates." },
+  { name: "Nagar Nigam Varanasi", sector: "Municipal", context: "5,000 trees with iron guard across city zones." },
+  { name: "Water Resources Dept · UP", sector: "Government", context: "State-level plantation and green-cover programs." },
 ];
 
 // Enriched institutional clients — one sentence of context per client
@@ -257,76 +312,76 @@ export const INSTITUTIONAL_CLIENTS = [
     fullName: "National Highways Authority of India",
     sector: "Government · Infrastructure",
     context:
-      "Avenue and compensatory plantation along national highway corridors, with three-year survival-linked maintenance.",
+      "Executed plantation over 10,000 plants along the Ayodhya–Basti Highway; landscape works over a 3-hectare parcel in Prayagraj.",
   },
   {
     name: "NTPC",
     fullName: "NTPC Limited",
     sector: "PSU · Power",
     context:
-      "Landscape execution for residential and administrative zones of an NTPC township — turf, ornamentals, irrigation and O&M.",
+      "Township landscape execution at NTPC Dadri — turf, ornamentals, irrigation and operations & maintenance.",
   },
   {
     name: "NFL",
     fullName: "National Fertilizers Limited",
     sector: "PSU · Fertilizers",
     context:
-      "Boundary plantation, ornamental landscaping and dust-mitigation green belts for a fertilizer plant complex.",
+      "Ongoing beautification and maintenance activities across NFL Madhya Pradesh facilities.",
   },
   {
-    name: "Indian Oil",
+    name: "Indian Oil (IOCL)",
     fullName: "Indian Oil Corporation Ltd",
     sector: "PSU · Oil & Gas",
     context:
-      "Campus greening and landscape maintenance for Indian Oil facilities — driven by ESG and biodiversity targets.",
+      "Executing beautification and landscape-maintenance works across IOCL, Odisha.",
   },
   {
     name: "BHEL",
     fullName: "Bharat Heavy Electricals Ltd",
     sector: "PSU · Manufacturing",
     context:
-      "Corporate campus landscape upgrade — feature gardens, tree-cover augmentation and multi-year AMC.",
+      "Corporate campus landscape upgrade with multi-year AMC and biodiversity-linked outcomes.",
   },
   {
-    name: "Hindustan Copper",
-    fullName: "Hindustan Copper Ltd",
-    sector: "PSU · Mining",
+    name: "NBCC",
+    fullName: "NBCC (India) Limited · A Navratna CPSE",
+    sector: "Navratna CPSE",
     context:
-      "Mine-adjacent green cover programme — native species, soil-remediation planting and biodiversity monitoring.",
+      "World Trade Center, Delhi — landscape execution for a marquee Navratna CPSE project.",
   },
 ];
 
-// Real, verifiable stats replacing vanity metrics
+// Real, verifiable stats sourced from A2Z's Company Profile PDF + user brief.
 export const STATS = [
   {
-    number: "₹6.84 Cr+",
-    title: "Active Order Book",
-    text: "Government, PSU and corporate horticulture contracts under execution.",
+    number: "10 Lakh+",
+    title: "Sq. Ft. Transformed",
+    text: "Total land landscaped, planted or maintained across projects.",
   },
   {
     number: "100+",
-    title: "Trained Workforce",
-    text: "In-house horticulturists, agronomists, gardeners and site supervisors.",
+    title: "Projects Delivered",
+    text: "Government, PSU and corporate horticulture contracts completed.",
   },
   {
-    number: "5+",
+    number: "6+",
     title: "States Operated In",
-    text: "Pan-India project footprint across northern & central India.",
+    text: "UP, MP, Odisha, Delhi, Gujarat, Rajasthan — pan-India footprint.",
   },
   {
     number: "2021",
     title: "Incorporated",
-    text: "DPIIT-recognized, Udyam-registered private limited company.",
+    text: "ISO 9001 & 14001 certified, Startup India recognised.",
   },
 ];
 
-// Leadership — brief on founder
+// Leadership — brief on founder (credentials per A2Z Company Profile).
 export const LEADERSHIP = [
   {
     name: "Abhishek Agrawal",
     role: "Founder & Chief Executive Officer",
     bio:
-      "Founder of A2Z Plant Nutrient Private Limited. CII-certified Carbon-Footprint Professional. Leads the company's EPC operations across government, PSU and corporate projects — with a mission to build India's green infrastructure at scale.",
+      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corporate projects — with a mission to build India's green infrastructure at scale.",
     initials: "AA",
   },
 ];
@@ -412,25 +467,25 @@ export const CAREERS = [
   {
     title: "Landscape Designer",
     type: "Full-time",
-    location: "Varanasi, UP",
+    location: "Varanasi, UP · Pan-India travel",
     desc: "Design large-scale landscapes for government and corporate EPC projects.",
   },
   {
     title: "Site Supervisor — EPC Projects",
     type: "Full-time",
-    location: "Multi-state",
+    location: "Multi-state · UP / MP / Odisha / Delhi",
     desc: "Lead ground execution and quality control at PSU / govt project sites across states.",
   },
   {
     title: "Agronomist / Horticulturist",
     type: "Full-time",
-    location: "Varanasi, UP",
+    location: "Varanasi, UP + Project sites",
     desc: "Species selection, soil health, pest management and multi-year maintenance planning.",
   },
   {
     title: "Mural Artist",
     type: "Contract",
-    location: "PAN India (Project-based)",
+    location: "Pan India · Project-based",
     desc: "Design and execute large-format murals integrated with our landscape projects.",
   },
 ];

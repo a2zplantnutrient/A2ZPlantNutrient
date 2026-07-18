@@ -147,7 +147,7 @@ export default function CareersPage() {
                   <Textarea required rows={4} placeholder="Tell us about yourself…" className="mt-2" />
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-md bg-stone-50 border border-dashed border-stone-300 text-stone-500 text-sm">
-                  <Upload size={16} /> Attach Resume (PDF, DOC) — demo only
+                  <Upload size={16} /> Attach Resume (PDF / DOC) — file upload coming soon
                 </div>
                 <Button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 rounded-full py-6">
                   <Send size={16} className="mr-2" /> Submit Application
