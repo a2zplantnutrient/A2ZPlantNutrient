@@ -22,7 +22,7 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
 // Actual institutional & private client logos — files live in /public/logos/
 const TRUSTED_LOGOS = [
   { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai.png" },
-  { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc.jpg" },
+  { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc.png" },
   { name: "NFL", alt: "National Fertilizers Limited", src: "/logos/nfl.jpg" },
   { name: "BHEL", alt: "Bharat Heavy Electricals Limited", src: "/logos/bhel.png" },
   { name: "IndianOil", alt: "Indian Oil Corporation Limited", src: "/logos/iocl.png" },
@@ -33,6 +33,7 @@ const TRUSTED_LOGOS = [
   { name: "Rajasthan Housing Board", alt: "Rajasthan Housing Board", src: "/logos/rajasthan-housing-board.jpg" },
   { name: "Nagar Nigam Varanasi", alt: "Nagar Nigam Varanasi", src: "/logos/nagar-nigam-varanasi.jpg" },
   { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chhavni-parishad-varanasi.png" },
+  { name: "Govt of Uttar Pradesh", alt: "Government of Uttar Pradesh", src: "/logos/up-govt.jpeg" },
   { name: "Sewa International", alt: "Sewa International", src: "/logos/sewa-international.png" },
   { name: "CSIL", alt: "C. S. Intraconstruction Limited", src: "/logos/csil.jpeg" },
   { name: "Sunbeam", alt: "Sunbeam Group of Educational Institutions", src: "/logos/sunbeam.jpeg" },
@@ -94,7 +95,7 @@ export default function TrustedBy({ onRequestProfile }) {
         {/* Proof numbers row */}
         <FadeIn delay={0.1} className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-6 py-6 border-y border-white/10">
           {[
-            { n: "18+", l: "Institutional Clients" },
+            { n: "19+", l: "Institutional Clients" },
             { n: "100+", l: "Projects Delivered" },
             { n: "6+", l: "States Served" },
             { n: "10L+", l: "Sq. Ft. Transformed" },
