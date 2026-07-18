@@ -21,14 +21,18 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setSubmitting(true);
     setError("");
-    // Server-side verification (avoids exposing the token in client JS)
-    const res = await fetch("/api/admin-auth", {
+    // Backend (FastAPI) handles password check and cookie set — ingress routes /api/* to it.
+    const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "";
+    const res = await fetch(`${backend}/api/admin-auth`, {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
     }).catch(() => null);
     if (res && res.ok) {
       router.push(nextPath);
+      // Give the cookie a beat to propagate before the middleware re-evaluates.
+      setTimeout(() => router.refresh(), 200);
     } else {
       setError("Incorrect password. Please try again.");
     }

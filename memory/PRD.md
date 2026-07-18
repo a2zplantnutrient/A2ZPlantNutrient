@@ -1,146 +1,103 @@
 # A2Z Plant Nutrient — Website PRD
 
 ## Original Problem Statement
-Rebuild the a2zplantnutrient.com website using the shared Next.js codebase and content from the live site. Add public admin pages (`/add-blog`, `/add-media`) for regularly updating content. Include real logo, images, videos and career openings. Improve UX with animations.
-
-**Follow-up brief (in-session repositioning)**: A2Z is not a small home-gardening business — it is a ₹6.84 Cr order-book, ISO 9001 & 14001 certified, DPIIT-recognized government/PSU horticulture EPC contractor with 100+ staff working across multiple states. Site must reflect that scale and credibility. Explicit asks: fix broken social/CTA links, remove or verify testimonials, add certifications strip, add CIN/GSTIN in footer, add founder section (Abhishek Agrawal), add named-project portfolio (NHAI, NTPC, NFL, BHEL, VDA, Hindustan Copper), replace vanity stats, split site into two tracks (EPC + CraftMyGarden teaser), populate real blog posts, and reflect pan-India footprint.
+Build a marketing + CMS website for A2Z Plant Nutrient Private Limited, an ISO 9001 & 14001 certified, government / PSU / corporate horticulture EPC contractor (repositioned from residential landscaper). Include a printable Company Profile PDF download for procurement officers, admin CMS pages, and multi-round audit fixes.
 
 ## Architecture
-- **Frontend**: Next.js 14 (App Router) at `/app/frontend`, port 3000, hot-reload via `yarn start` (aliased to `next dev -H 0.0.0.0 -p 3000`).
-- **Backend**: FastAPI at `/app/backend`, port 8001, prefix `/api`.
-- **DB**: MongoDB (local, `DB_NAME=test_database`). Collections: `blogs`, `media`, `careers`, `contacts`.
+- **Frontend**: Next.js 14 App Router at `/app/frontend`, port 3000 via `yarn start` (aliased to `next dev -H 0.0.0.0 -p 3000`).
+- **Backend**: FastAPI at `/app/backend`, port 8001, `/api/*` prefix (ingress-routed).
+- **DB**: MongoDB (`test_database`). Collections: `blogs`, `media`, `careers`, `contacts`, `profile_requests`.
 - **External URL**: `https://a2z-plant-dynamic.preview.emergentagent.com`
-- **Animation stack**: Framer Motion + custom `Motion.jsx` helpers (`FadeIn`, `Stagger`, `StaggerItem`, `ScaleIn`, `FloatingLeaf`) and animated `Counter` component.
-- **Content storage**: Media (images/video) and cover images stored as base64 data URIs in MongoDB, per user preference.
+- **Storage**: Media as base64 in MongoDB (per user preference).
+- **PDF asset**: `/app/frontend/public/docs/A2Z-Plant-Nutrient-Company-Profile.pdf` (13.5 MB, served as `application/pdf`).
 
 ## User Personas
-1. **PSU / Govt Procurement Officer** — needs certifications, CIN/GSTIN, past-PO evidence and financial credibility at a glance.
-2. **Corporate ESG/Facility Manager** — needs proof of scale (workforce, order book) and multi-year AMC capability.
-3. **A2Z Founder / Admin** — needs a simple, no-friction way to publish blogs and gallery items regularly.
-4. **Future residential customer** — introduced to the upcoming CraftMyGarden brand via teaser.
+1. **PSU / Government Procurement Officer** — one-click download of company profile PDF, ISO certificates, PO history.
+2. **Corporate ESG / Facility Manager** — verifies scale, workforce, AMC capability.
+3. **Admin (Founder / Team)** — logs in at `/admin-login`, publishes blogs and media via `/add-blog`, `/add-media`.
 
-## Core Requirements (static)
+## Core Requirements
 - Public marketing site with EPC positioning.
-- Public admin CMS for Blogs + Media (no auth per user request).
-- Base64 media storage in MongoDB.
-- Real logo & real client references (NHAI, NTPC, NFL, BHEL, VDA, Hindustan Copper).
-- Certifications visible (ISO 9001, ISO 14001, DPIIT, Udyam, CII Carbon-Footprint).
-- Footer with CIN, GSTIN, Udyam number (placeholder patterns — user to update with real codes).
+- Admin CMS gated by shared password.
+- Instant Company Profile PDF download flow.
+- Real content from A2Z Company Profile PDF (clients, projects, founder credentials, stats).
+- Multi-state / pan-India presence throughout.
 
-## Implemented (2026-01-13)
+## Implemented (as of iteration 3, 2026-01-18)
 ### Public pages
-- `/` Home — EPC hero, ₹6.84 Cr order-book callout, certifications strip, client marquee, real STATS (order book / workforce / states / founded), features, projects preview, about snippet, founder card (Abhishek Agrawal), EPC services grid, CraftMyGarden coming-soon teaser, dynamic blog preview (only shows if blogs exist), procurement CTA **with "Request Company Profile" modal**.
-- `/about` — Company intro, mission/vision/values, real stats, certifications, founder card.
-- `/services` — Two-track split (EPC vs CraftMyGarden teaser), 6 EPC services, why-us block with certifications.
-- `/projects` — 6 named EPC projects with metrics + **prominent "Request Company Profile" banner** at the top + secondary CTA at the bottom.
-- `/company-profile` — **Printable one-page profile** (personalised via `?for=&org=` URL params). Includes CIN/GSTIN/Udyam block, all certifications, company snapshot, leadership bio, EPC portfolio, tabular PO summary of all 6 named projects with metrics, clients strip and contact details. One-click **Download / Print PDF** via browser print (print CSS included).
-- `/gallery` — Dynamic media grid with lightbox; falls back to real static images if backend empty.
-- `/careers` — Dynamic (from `/api/careers`); 4 seeded EPC-relevant roles + application form.
-- `/blog` — Dynamic list w/ search + category filter + link to `/add-blog`.
-- `/blog/[slug]` — Full article view w/ share button.
-- `/contact` — Real address, phone, email, working hours + form posts to `/api/contact`; Google map embed.
+- `/` **Home** — 4-slide auto-playing HeroCarousel (Framer Motion, dot + arrow nav) with company snapshot side panel; `TrustedBy` client grid (12 real institutions with initials badges + sector chips + one-sentence context); features; projects preview (real projects); about snippet; founder card (Abhishek Agrawal — B.Tech Mechanical + PG Diploma in Project Management + CII); services grid with per-card Get a Quote; CraftMyGarden teaser; dynamic blog preview (only if non-empty); procurement CTA with **PDF download modal**.
+- `/about` — Mission/vision/values, real stats, certifications, founder card.
+- `/services` — Two-track split (EPC vs CraftMyGarden teaser), 6 EPC services with per-card Get a Quote, why-us block.
+- `/projects` — 8 real named projects (NHAI Ayodhya, NHAI Prayagraj, NBCC WTC Delhi, IOCL Odisha, Nagar Nigam Varanasi, Rajasthan Housing Board, NFL Madhya Pradesh, Sunbeam Group) with metrics + prominent "Download Company Profile" banner + client tags strip.
+- `/company-profile` — Printable one-page profile (in-browser fallback; the primary download is the real PDF).
+- `/gallery` — Dynamic captioned media grid + lightbox.
+- `/careers` — Dynamic (6 pan-India roles), clickable job titles scroll to apply form and pre-fill role; no more "demo only" label.
+- `/blog` — Dynamic list, search, category filter (no public "Add Blog" button).
+- `/blog/[slug]` — Full article view + share.
+- `/contact` — Address (clickable Google Maps), phone, info@a2zplantnutrient.com, hours, contact form, embedded map.
 
-### Admin pages (public — no auth)
-- `/admin` — Dashboard with tabs (Blogs / Media), delete with confirmation, links to add pages.
-- `/add-blog` — Form: title, excerpt, content, author, category, tags, cover image (upload → base64, or URL).
-- `/add-media` — Form: title, description, category, image/video toggle, upload (base64) or URL.
+### Admin (gated by Next.js middleware + FastAPI cookie)
+- `/admin-login` — Password entry (POST → FastAPI `/api/admin-auth` → sets `a2z_admin` HttpOnly cookie).
+- `/admin` — Blogs & Media dashboard with tabs, delete, links to add-blog / add-media.
+- `/add-blog` — Rich blog form (title, excerpt, content, author, category, tags, cover image base64).
+- `/add-media` — Media upload form (image/video base64 or URL).
+- Middleware `matcher: ["/admin/:path*", "/add-blog/:path*", "/add-media/:path*"]` — redirects unauthenticated to `/admin-login`.
 
-### Backend endpoints (`/api/*`)
+### Backend endpoints (`/api/*`, FastAPI)
 - `GET /` health
-- `POST/GET /blogs`, `GET /blogs/{slug}`, `PUT /blogs/{id}`, `DELETE /blogs/{id}` — with `?q=` and `?category=` filters.
-- `POST/GET /media`, `DELETE /media/{id}`.
-- `POST/GET /careers`, `DELETE /careers/{id}`.
-- `POST /contact`.
-- **`POST /profile-requests`** — captures procurement-officer leads. **`GET /profile-requests`** — lists submissions (for admin).
-- `POST /seed` — idempotent seed of 3 EPC blogs, 4 careers, 10 media (also runs auto-seed on startup if empty).
+- `POST/GET /blogs`, `GET /blogs/{slug}`, `PUT /blogs/{id}`, `DELETE /blogs/{id}` (search + category filter)
+- `POST/GET /media`, `DELETE /media/{id}`
+- `POST/GET /careers`, `DELETE /careers/{id}`
+- `POST /contact`
+- `POST/GET /profile-requests`
+- `POST /admin-auth` (password → set `a2z_admin` cookie), `DELETE /admin-auth` (logout)
+- `POST /seed` (idempotent; auto-runs on startup if collections empty)
 
-### Design
-- Font pairing: **Fraunces** (display) + **Manrope** (body) — moved off the generic Playfair/Inter default.
-- Palette: deep emerald 950 / amber accents / warm stone neutrals.
-- Micro-animations everywhere: floating hero blobs, leaf-drift decor, staggered card reveals, animated stat counters, image zooms, page-in fades.
-- Real A2Z logo (`/logo.png`) in header + footer.
-- All interactive elements have `data-testid` attributes.
+### Content sourced from A2Z Company Profile PDF
+- Client list: NHAI, NTPC, NFL, BHEL, IOCL, Indian Railways, NBCC (Navratna), GSECL, TCIL, Rajasthan Housing Board, Nagar Nigam Varanasi, Water Resources UP.
+- Named projects with real metrics: 10,000+ plants Ayodhya–Basti (NHAI), 3-hectare Prayagraj (NHAI), WTC Delhi (NBCC), Odisha AMC (IOCL), 5,000 iron-guard trees (Nagar Nigam Varanasi), Rajasthan Housing Board.
+- Founder credentials: B.Tech Mechanical + PG Diploma in Project Management + CII Carbon-Footprint Professional.
+- Stats: 10 Lakh+ sq ft transformed, 100+ projects delivered, 6+ states, incorporated 2021.
+- Real phones (+91 81605 34604 + +91 75320 71388) and info@a2zplantnutrient.com.
 
-### Content sourced from a2zplantnutrient.com
-- Logo (`/logo.png`)
-- Project images (`/project01.jpg`, `/project02.jpg`)
-- Service imagery (`/service_01.jpg` through `/service_08.jpg`)
-
-### Repositioning changes vs. shared Next.js starter
-- Nav updated: Gifting removed → replaced with **Projects**.
-- Old residential/Varanasi hero replaced with EPC positioning.
-- Vanity stats ("1000+ Landscapes, 500+ Clients, 4+ Years") **removed** and replaced with verifiable stats (₹6.84 Cr order book, 100+ workforce, 5+ states, founded 2021).
-- Unverified testimonials **removed** from site.
-- Broken `#` social icons **removed** from footer.
-- Broken "Explore More About Us" → `#` link **fixed** (points to `/about`).
-- Footer copyright uses `new Date().getFullYear()` (current year auto).
-- Added CIN / GSTIN / Udyam placeholders in footer.
-- CraftMyGarden **coming-soon** teaser section added on home and services pages.
-- Blog auto-seeded with 3 real, EPC-relevant posts (Tender Compliance, Compensatory Afforestation, PSU AMC Playbook).
-- Multi-state / pan-India language throughout copy.
-
-## Implemented (2026-01-13)
-### Public pages
-- `/` Home — EPC hero (with tagline **"From Tender to Tree"** and three CTAs: Discuss a Tender, **Get a Quote**, View Projects), ₹6.84 Cr order-book callout, certifications strip, client marquee (now includes **Indian Oil**), real STATS (order book / workforce / states / founded), features, **new "Our Institutional Clients" section with 6 named PSU/gov cards (NHAI, NTPC, NFL, Indian Oil, BHEL, Hindustan Copper) each with a sentence of context**, projects preview, about snippet, founder card (Abhishek Agrawal), EPC services grid, CraftMyGarden coming-soon teaser, dynamic blog preview (only shows if blogs exist), procurement CTA **with "Request Company Profile" modal**.
-- `/about` — Company intro, mission/vision/values, real stats, certifications, founder card.
-- `/services` — Two-track split (EPC vs CraftMyGarden teaser), 6 EPC services **each with its own "Get a Quote" button**, why-us block with certifications.
-- `/projects` — 6 named EPC projects with metrics + prominent "Request Company Profile" banner at the top + secondary CTA at the bottom.
-- `/company-profile` — Printable one-page profile (personalised via `?for=&org=` URL params). CIN/GSTIN/Udyam block, all certifications, company snapshot, leadership bio, EPC portfolio, tabular PO summary of all 6 named projects with metrics, clients strip (**incl. Indian Oil**) and contact details. One-click Download / Print PDF via browser print.
-- `/gallery` — Dynamic media grid with lightbox; falls back to **captioned real project images** (title + caption + category) if backend empty.
-- `/careers` — Dynamic (from `/api/careers`); **job titles and Apply buttons are clickable — they scroll to the application form and prefill the selected role**; contact strip uses new domain email + clickable address.
-- `/blog` — Dynamic list w/ search + category filter + link to `/add-blog`.
-- `/blog/[slug]` — Full article view w/ share button.
-- `/contact` — Real address, phone, **info@a2zplantnutrient.com** email, working hours + form posts to `/api/contact`; Google map embed.
-
-### Admin pages (public — no auth)
-- `/admin` — Dashboard with tabs (Blogs / Media), delete with confirmation, links to add pages.
-- `/add-blog` — Form: title, excerpt, content, author, category, tags, cover image (upload → base64, or URL).
-- `/add-media` — Form: title, description, category, image/video toggle, upload (base64) or URL.
-
-### Backend endpoints (`/api/*`)
-- `GET /` health
-- `POST/GET /blogs`, `GET /blogs/{slug}`, `PUT /blogs/{id}`, `DELETE /blogs/{id}` — with `?q=` and `?category=` filters.
-- `POST/GET /media`, `DELETE /media/{id}`.
-- `POST/GET /careers`, `DELETE /careers/{id}`.
-- `POST /contact`.
-- `POST /profile-requests` (captures procurement leads) · `GET /profile-requests` (lists submissions).
-- `POST /seed` — idempotent seed of 3 EPC blogs, 4 careers, 10 media (also runs auto-seed on startup if empty).
-
-### Audit fixes applied (2026-01-13, iteration 2)
-- **Tagline** globally changed from "Grow & Eat Natural" → **"From Tender to Tree"**.
-- **Email** globally changed from `a2zplantnutrient@gmail.com` → **`info@a2zplantnutrient.com`** (header, footer, contact, careers, company profile page).
-- **Mobile navigation** verified working — hamburger toggle opens full-screen nav on mobile viewport.
-- **Dead links fixed** — footer address is now a Google Maps link (opens in new tab), footer email uses new domain, careers job titles are now clickable buttons that scroll to apply form + prefill role.
-- **"Get a Quote" CTA** added on hero (secondary button) and inside every service card on `/services`.
-- **Gallery** captioned — each fallback tile now has a real title + caption + category, no empty gallery experience.
-- **Institutional Clients** dedicated homepage section built — not buried on About page, showing NHAI, NTPC, NFL, Indian Oil, BHEL, Hindustan Copper as cards with sector chips and one-sentence context each.
+### Audit fixes applied (Iteration 3)
+- **Security**: `/admin`, `/add-blog`, `/add-media` now require password (Next.js middleware + FastAPI backend). Content Dashboard footer link removed. Add-Blog button removed from public `/blog` page. Add-Media button removed from public `/gallery` page.
+- **Test junk removed** from DB (2 QA blog entries + 1 test media).
+- **Placeholder CIN/GSTIN/Udyam** replaced with "Available on request" (real numbers to be filled after user share).
+- **Broken CTA fixed**: "Request Company Profile" now triggers real PDF download of `A2Z-Plant-Nutrient-Company-Profile.pdf` via `<a download>` element.
+- **Mobile hero blank space**: replaced static hero with `HeroCarousel` component that renders correctly at 400×800 (verified).
+- **Careers "demo only"** label removed.
+- **Pan-India career locations** — 6 roles now include Delhi, Odisha, multi-state.
+- **Gallery contradiction copy** replaced with pan-India narrative.
+- **FloatingActions** sized smaller (12/14 vs 14/16) with safer positioning to prevent footer overlap on mobile.
+- **Tagline "From Tender to Tree"** applied globally.
 
 ## Testing
 - **Iteration 1** (`/app/test_reports/iteration_1.json`): 100% backend + 100% frontend pass.
-- **Iteration 2** (`/app/test_reports/iteration_2.json`): 100% backend + 100% frontend pass — all audit deltas verified (tagline, email, mobile nav, institutional-clients section, careers scroll, service quote buttons, company profile).
-- Regression tests kept at `/app/backend/tests/backend_test.py`.
+- **Iteration 2** (`/app/test_reports/iteration_2.json`): 100% backend + 100% frontend pass.
+- **Iteration 3** (`/app/test_reports/iteration_3.json`): 100% backend (7/7 pytest) + 94% frontend (16/17; 1 admin-login blocker). Blocker fixed post-iteration by moving `/api/admin-auth` from Next.js route to FastAPI. Curl verified: correct pw → 200 + `Set-Cookie a2z_admin`; wrong pw → 401. `/admin` without cookie → 307 to `/admin-login`; with valid cookie → 200 (dashboard loads).
 
 ## Prioritized Backlog
-### P0 — for user to provide
-1. **Replace registration-number placeholders** in `lib/mock.js` (`COMPANY.cin`, `gstin`, `udyamNumber`) with actual values.
-2. **Real project images** — replace `/service_XX.jpg` on `/projects` with actual site photographs of NHAI, NTPC, NFL, BHEL, VDA and Hindustan Copper deliverables.
-3. **Verifiable financial / contract details** — confirm the ₹6.84 Cr number is safe to publish (or replace with a range like "₹5–10 Cr active order book").
+### P0 — need input from user
+1. **Real registration numbers**: CIN, GSTIN, Udyam — currently "Available on request".
+2. **Real project photos per PSU** — swap generic thumbnails on `/projects`.
+3. **Attach actual ISO 9001, ISO 14001, Startup India certificates** as downloadable images/PDFs on `/company-profile`.
 
-### P1 — near-term enhancements
-4. **Auth for admin pages** — currently `/admin`, `/add-blog`, `/add-media`, and DELETE endpoints are open. Add JWT + password (or Emergent Google Auth) before this goes to production.
-5. **PDF company-profile download** on `/projects` procurement CTA — one-click PDF with ISO certificates + CIN/GSTIN + PO list.
-6. **Tender/RFP submission form** with file-upload (RFP PDF) that emails Abhishek directly.
-7. **Rich-text editor** on `/add-blog` (Tiptap or similar) instead of plain textarea.
-8. **Blog edit page** (`/admin/blog/[id]/edit`) — currently only delete + view are wired.
-9. **LinkedIn integration in footer** once profile is confirmed (Facebook/Instagram/Twitter were removed).
+### P1 — near-term
+4. **Rotate admin password** post-launch and share via secure channel.
+5. **Bcrypt-hashed multi-user admin auth** (currently a single shared password — good stop-gap).
+6. **`/admin/leads` page** listing all profile-request submissions with CSV export.
+7. **Rich-text blog editor** (Tiptap) + blog edit page.
+8. **Individual project case-study pages** with photography + timeline + outcome.
+9. **Sector filter on `/projects` and `/gallery`** (Govt / PSU / Corporate / Residential).
+10. **LinkedIn integration** once profile is confirmed.
 
-### P2 — future / CraftMyGarden brand
-10. Build the CraftMyGarden sub-site (or subdomain) with e-commerce for indoor plants / gifting.
-11. Multi-language (Hindi) toggle for government-facing pages.
+### P2 — future
+11. Build the CraftMyGarden sub-brand site.
 12. Analytics dashboard on `/admin` (traffic, most-read blogs).
-13. Client testimonials section — only re-add once real, verifiable client quotes are collected.
+13. Hindi language toggle for government-facing pages.
+14. Testimonials section — only once real client quotes are collected.
 
-## Notes / Assumptions
-- The `/gifting` page from the starter was removed since Gifting is no longer part of positioning (moves to CraftMyGarden later).
-- Emergency contact for procurement teams is displayed prominently on home + projects pages.
-- Admin dashboard link is in footer (subtle) to keep the surface professional.
+## Credentials
+- **Admin password (dev)**: `A2Z-Admin-2026-Secure` — configured via `ADMIN_TOKEN` env in `/app/backend/.env` and `/app/frontend/.env`. Rotate before public launch.
+- Session lifetime: 8 hours (HttpOnly, Secure, SameSite=lax cookie).

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi import FastAPI, APIRouter, HTTPException, Query, Response, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -258,6 +258,39 @@ async def list_profile_requests():
     return docs
 
 
+# ---------- Admin auth (shared password, session cookie) ----------
+class AdminLoginPayload(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    password: str
+
+
+@api_router.post("/admin-auth")
+async def admin_login(payload: AdminLoginPayload, response: Response):
+    expected = os.environ.get("ADMIN_TOKEN", "")
+    if not expected:
+        raise HTTPException(status_code=500, detail="admin-not-configured")
+    if not payload.password or payload.password != expected:
+        raise HTTPException(status_code=401, detail="invalid-credentials")
+
+    # Set HttpOnly cookie that the Next.js middleware verifies.
+    response.set_cookie(
+        key="a2z_admin",
+        value=expected,
+        max_age=60 * 60 * 8,
+        httponly=True,
+        secure=True,
+        samesite="lax",
+        path="/",
+    )
+    return {"ok": True}
+
+
+@api_router.delete("/admin-auth")
+async def admin_logout(response: Response):
+    response.delete_cookie("a2z_admin", path="/")
+    return {"ok": True}
+
+
 # ---------- Seed (idempotent) ----------
 @api_router.post("/seed")
 async def seed():
@@ -352,6 +385,37 @@ async def seed():
             seeded["media"] += 1
 
     return {"ok": True, "seeded": seeded}
+
+
+app.include_router(api_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+
+@app.on_event("startup")
+async def startup_seed():
+    """Auto-seed initial content on startup if collections are empty."""
+    try:
+        if await db.blogs.count_documents({}) == 0:
+            from fastapi import Request  # noqa
+            await seed()
+            logger.info("Auto-seed completed.")
+    except Exception as e:
+        logger.error(f"Auto-seed failed: {e}")
+
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    client.close()
 
 
 app.include_router(api_router)
