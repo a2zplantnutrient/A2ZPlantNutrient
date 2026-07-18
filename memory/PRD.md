@@ -72,10 +72,18 @@ Build a marketing + CMS website for A2Z Plant Nutrient Private Limited, an ISO 9
 - **FloatingActions** sized smaller (12/14 vs 14/16) with safer positioning to prevent footer overlap on mobile.
 - **Tagline "From Tender to Tree"** applied globally.
 
+### Iteration 4 — Trusted-By section overhaul (2026-01-18)
+- **New premium headline**: *"The institutions that build India trust A2Z with their green mandate."* (replaces the utility phrase "Trusted by India's institutions").
+- **Wordmark logo cards** (`ClientLogo.jsx`) replace initials — each institution now renders as a branded tile with its **real name in a distinctive typographic treatment**, **brand-matched color**, and a **sector-appropriate icon** (Landmark for NHAI, Zap for NTPC/GSECL, Factory for BHEL, Fuel for IOCL, Sprout for NFL, TrainTrack for Indian Railways, Building2 for NBCC/VDA, RadioTower for TCIL, Home for RHB, Droplets for Jal Shakti/Water Resources UP). Tiles animate with hover lift + scale.
+- **Right-rail Proof Points card** — 12+ Institutional Clients · 100+ Projects Delivered · 6+ States Served + full certifications strip. Emerald-950 gradient card, prominent on desktop.
+- **Featured Delivery callout** — highlights the NHAI Ayodhya–Basti flagship (10,000+ plants · Native species · 3-yr survival AMC) with prominent Download Company Profile CTA.
+- Projects page client tags strip also switched from initials → `ClientLogo` (size sm) for consistency.
+
 ## Testing
-- **Iteration 1** (`/app/test_reports/iteration_1.json`): 100% backend + 100% frontend pass.
-- **Iteration 2** (`/app/test_reports/iteration_2.json`): 100% backend + 100% frontend pass.
-- **Iteration 3** (`/app/test_reports/iteration_3.json`): 100% backend (7/7 pytest) + 94% frontend (16/17; 1 admin-login blocker). Blocker fixed post-iteration by moving `/api/admin-auth` from Next.js route to FastAPI. Curl verified: correct pw → 200 + `Set-Cookie a2z_admin`; wrong pw → 401. `/admin` without cookie → 307 to `/admin-login`; with valid cookie → 200 (dashboard loads).
+- Iteration 1: 100/100 backend + frontend.
+- Iteration 2: 100/100.
+- Iteration 3: 100 backend / 94 frontend → fixed the routing blocker post-report (moved /api/admin-auth to FastAPI); curl-verified end-to-end.
+- Iteration 4 (this): visual refresh only — TrustedBy component. No backend changes. Screenshot-verified.
 
 ## Prioritized Backlog
 ### P0 — need input from user

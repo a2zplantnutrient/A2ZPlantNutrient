@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
 import ProfileRequestModal from "@/components/ProfileRequestModal";
+import ClientLogo from "@/components/ClientLogo";
 import { PROJECTS, CERTIFICATIONS, TRUSTED_BY, CLIENTS } from "@/lib/mock";
 
 export default function ProjectsPage() {
@@ -67,30 +68,21 @@ export default function ProjectsPage() {
           </Card>
         </FadeIn>
 
-        {/* Trusted-by clients grid (full list from Company Profile) */}
+        {/* Trusted-by clients grid (real wordmark logos) */}
         <div className="mt-10">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs uppercase tracking-[0.28em] text-stone-500 font-semibold">
-              Clients Include
+              Institutional clients
             </span>
             <div className="flex-1 h-px bg-stone-200" />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {TRUSTED_BY.slice(0, 12).map((c) => (
               <div
                 key={c.name}
-                className="p-3 rounded-xl border border-stone-200 bg-white hover:border-emerald-300 transition-all flex items-center gap-2.5"
                 data-testid={`projects-client-tag-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
               >
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-700 to-emerald-900 text-white font-serif text-xs font-bold flex items-center justify-center shrink-0">
-                  {c.name.replace(/\(.*?\)/g, "").split(/[\s·]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase()}
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-serif font-semibold text-emerald-950 truncate">
-                    {c.name}
-                  </div>
-                  <div className="text-[10px] text-stone-500 truncate">{c.sector}</div>
-                </div>
+                <ClientLogo name={c.name} size="sm" />
               </div>
             ))}
           </div>
