@@ -9,32 +9,26 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
-import ClientLogo from "@/components/ClientLogo";
-import { TRUSTED_BY, CERTIFICATIONS } from "@/lib/mock";
 
 /**
  * TrustedBy — premium dark-emerald logo wall.
- * One brand color, uniform tile geometry, monochromatic wordmarks.
- * Follows the Vercel / Linear / Anthropic pattern.
+ * Uses actual institutional client logos (Govt / PSU / Municipal) on light
+ * tiles that read cleanly against the dark emerald surface.
  */
 
-// Short label for the wordmark + short sector subtitle for compactness.
-const TRUSTED_DISPLAY = {
-  "NHAI": { label: "NHAI", sub: "Government" },
-  "NTPC": { label: "NTPC", sub: "PSU · Power" },
-  "NFL": { label: "NFL", sub: "PSU · Fertilizers" },
-  "BHEL": { label: "BHEL", sub: "PSU · Manufacturing" },
-  "Indian Oil (IOCL)": { label: "IndianOil", sub: "PSU · Oil & Gas" },
-  "Indian Railways": { label: "Indian Railways", sub: "Government" },
-  "NBCC": { label: "NBCC", sub: "Navratna CPSE" },
-  "GSECL": { label: "GSECL", sub: "PSU · Power" },
-  "TCIL": { label: "TCIL", sub: "PSU · Telecom" },
-  "Rajasthan Housing Board": { label: "Rajasthan HB", sub: "Government" },
-  "Nagar Nigam Varanasi": { label: "Nagar Nigam", sub: "Municipal · Varanasi" },
-  "Water Resources Dept · UP": { label: "Jal Shakti · UP", sub: "Government" },
-};
+// Actual institutional client logos — files live in /public/logos/
+const TRUSTED_LOGOS = [
+  { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai.png" },
+  { name: "BHEL", alt: "Bharat Heavy Electricals Limited", src: "/logos/bhel.png" },
+  { name: "IndianOil", alt: "Indian Oil Corporation Limited", src: "/logos/iocl.png" },
+  { name: "Indian Railways", alt: "Indian Railways", src: "/logos/indian-railways.png" },
+  { name: "NBCC", alt: "National Buildings Construction Corporation", src: "/logos/nbcc.png" },
+  { name: "TCIL", alt: "Telecommunications Consultants India Ltd.", src: "/logos/tcil.png" },
+  { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chhavni-parishad-varanasi.png" },
+];
 
 export default function TrustedBy({ onRequestProfile }) {
   return (
@@ -107,29 +101,31 @@ export default function TrustedBy({ onRequestProfile }) {
           ))}
         </FadeIn>
 
-        {/* Logo wall — uniform, monochromatic, on-brand */}
+        {/* Logo wall — actual institutional client logos on light tiles */}
         <Stagger
-          className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
+          className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
           data-testid="trusted-by-grid"
         >
-          {TRUSTED_BY.map((c) => {
-            const d =
-              TRUSTED_DISPLAY[c.name] || {
-                label: c.name,
-                sub: c.sector?.split(" · ")[0] || "Client",
-              };
-            return (
-              <StaggerItem key={c.name}>
-                <motion.div
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  data-testid={`trust-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                >
-                  <ClientLogo label={d.label} subtitle={d.sub} />
-                </motion.div>
-              </StaggerItem>
-            );
-          })}
+          {TRUSTED_LOGOS.map((c) => (
+            <StaggerItem key={c.name}>
+              <motion.div
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                data-testid={`trust-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                className="group relative h-28 md:h-32 rounded-2xl bg-white ring-1 ring-white/10 hover:ring-amber-300/70 shadow-sm hover:shadow-lg transition-all duration-500 flex items-center justify-center p-5"
+                title={c.alt}
+                aria-label={c.alt}
+              >
+                <Image
+                  src={c.src}
+                  alt={c.alt}
+                  fill
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"
+                  className="object-contain p-5"
+                />
+              </motion.div>
+            </StaggerItem>
+          ))}
         </Stagger>
 
         {/* Featured project + CTA — inside the dark section for continuity */}
