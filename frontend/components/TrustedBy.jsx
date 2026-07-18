@@ -19,7 +19,7 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
  * tiles that read cleanly against the dark emerald surface.
  */
 
-// Actual institutional client logos — files live in /public/logos/
+// Actual institutional & private client logos — files live in /public/logos/
 const TRUSTED_LOGOS = [
   { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai.png" },
   { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc.jpg" },
@@ -33,6 +33,12 @@ const TRUSTED_LOGOS = [
   { name: "Rajasthan Housing Board", alt: "Rajasthan Housing Board", src: "/logos/rajasthan-housing-board.jpg" },
   { name: "Nagar Nigam Varanasi", alt: "Nagar Nigam Varanasi", src: "/logos/nagar-nigam-varanasi.jpg" },
   { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chhavni-parishad-varanasi.png" },
+  { name: "Sewa International", alt: "Sewa International", src: "/logos/sewa-international.png" },
+  { name: "CSIL", alt: "C. S. Intraconstruction Limited", src: "/logos/csil.jpeg" },
+  { name: "Sunbeam", alt: "Sunbeam Group of Educational Institutions", src: "/logos/sunbeam.jpeg" },
+  { name: "Shaparth", alt: "Shaparth — Dream · Innovate · Build", src: "/logos/shaparth.jpeg" },
+  { name: "Shivalik", alt: "Shivalik", src: "/logos/shivalik.jpeg" },
+  { name: "Castillo", alt: "Castillo", src: "/logos/castillo.jpeg" },
 ];
 
 export default function TrustedBy({ onRequestProfile }) {
@@ -88,7 +94,7 @@ export default function TrustedBy({ onRequestProfile }) {
         {/* Proof numbers row */}
         <FadeIn delay={0.1} className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-6 py-6 border-y border-white/10">
           {[
-            { n: "12+", l: "Institutional Clients" },
+            { n: "18+", l: "Institutional Clients" },
             { n: "100+", l: "Projects Delivered" },
             { n: "6+", l: "States Served" },
             { n: "10L+", l: "Sq. Ft. Transformed" },
@@ -108,7 +114,7 @@ export default function TrustedBy({ onRequestProfile }) {
 
         {/* Logo wall — actual institutional client logos on light tiles */}
         <Stagger
-          className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
           data-testid="trusted-by-grid"
         >
           {TRUSTED_LOGOS.map((c) => (
@@ -117,17 +123,19 @@ export default function TrustedBy({ onRequestProfile }) {
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 data-testid={`trust-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className="group relative h-28 md:h-32 rounded-2xl bg-white ring-1 ring-white/10 hover:ring-amber-300/70 shadow-sm hover:shadow-lg transition-all duration-500 flex items-center justify-center p-5"
+                className="group relative h-28 md:h-32 rounded-2xl bg-white ring-1 ring-white/10 hover:ring-amber-300/70 shadow-sm hover:shadow-lg transition-all duration-500 flex items-center justify-center overflow-hidden"
                 title={c.alt}
                 aria-label={c.alt}
               >
-                <Image
-                  src={c.src}
-                  alt={c.alt}
-                  fill
-                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"
-                  className="object-contain p-5"
-                />
+                <div className="relative w-full h-full p-4 md:p-5">
+                  <Image
+                    src={c.src}
+                    alt={c.alt}
+                    fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 16vw"
+                    className="object-contain"
+                  />
+                </div>
               </motion.div>
             </StaggerItem>
           ))}
