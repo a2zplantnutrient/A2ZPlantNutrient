@@ -111,7 +111,7 @@ class Contact(ContactCreate):
 class ProfileRequestCreate(BaseModel):
     model_config = ConfigDict(extra="ignore")
     name: str
-    organization: str
+    organization: Optional[str] = ""
     designation: Optional[str] = ""
     email: str
     phone: Optional[str] = ""

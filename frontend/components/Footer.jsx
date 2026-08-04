@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-emerald-200/80 text-sm leading-relaxed mb-4">
-              An ISO 9001 &amp; 14001 certified, DPIIT-recognized horticulture EPC contractor delivering
+              An ISO 9001 &amp; 14001 certified, DPIIT-recognized horticulture EPC partner delivering
               landscape, plantation and maintenance projects for government, PSUs and corporates
               across India.
             </p>
@@ -111,7 +111,7 @@ export default function Footer() {
               <li className="pt-2 flex items-start gap-3">
                 <ShieldCheck size={16} className="text-amber-300 mt-0.5 shrink-0" />
                 <span className="text-xs">
-                  ISO 9001 &amp; 14001 · DPIIT · Udyam · CII Carbon-Footprint Professional
+                  ISO 9001 &amp; 14001 · DPIIT · Udyam
                 </span>
               </li>
             </ul>

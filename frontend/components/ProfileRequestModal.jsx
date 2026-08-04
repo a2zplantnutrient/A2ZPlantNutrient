@@ -118,7 +118,7 @@ export default function ProfileRequestModal({ open, onClose }) {
                   </div>
                   <div>
                     <Label className="text-stone-700 text-sm">Organization (optional)</Label>
-                    <Input required name="organization" placeholder="e.g. NHAI · Regional Office (optional)" className="mt-1.5" data-testid="pr-org" />
+                    <Input name="organization" placeholder="e.g. NHAI · Regional Office (optional)" className="mt-1.5" data-testid="pr-org" />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -169,14 +169,6 @@ export default function ProfileRequestModal({ open, onClose }) {
                     <Download size={16} className="mr-2" />
                     {submitting ? "Preparing…" : "Download Company Profile"}
                   </Button>
-                  <a
-                    href={COMPANY.companyProfilePdf}
-                    download={COMPANY.companyProfilePdfName}
-                    className="text-sm text-emerald-700 hover:text-emerald-900 underline underline-offset-4"
-                    data-testid="pr-direct-download"
-                  >
-                    or download directly
-                  </a>
                 </div>
               </form>
             </Card>

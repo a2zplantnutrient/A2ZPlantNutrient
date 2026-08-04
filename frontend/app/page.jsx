@@ -60,7 +60,7 @@ export default function HomePage() {
         <FadeIn className="text-center max-w-2xl mx-auto mb-12">
           <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Why A2Z</p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            EPC-grade horticulture, executed reliably
+            EPC-Grade Horticulture, Executed Reliably
           </h2>
         </FadeIn>
         <Stagger className="grid md:grid-cols-3 gap-6">
@@ -149,10 +149,10 @@ export default function HomePage() {
         <FadeIn>
           <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Who We Are</p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            An EPC contractor built for India&apos;s green mandates
+            An EPC Partner Built For India&apos;s Green Mandates
           </h2>
           <p className="mt-5 text-stone-600 leading-relaxed">
-            A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC contractor headquartered in Varanasi and operating across multiple In[...]
+            A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC partner headquartered in Varanasi and operating across multiple Indian states.
           </p>
           <p className="mt-4 text-stone-600 leading-relaxed">
             Since incorporation in 2021, we&apos;ve delivered 100+ projects — with named work for NHAI, NTPC, NBCC, Indian Oil, BHEL, NFL and the Rajasthan Housing Board.

@@ -1,12 +1,12 @@
 // Site content for A2Z Plant Nutrient Private Limited
-// Repositioned as an EPC horticulture contractor serving government, PSUs and corporates
+// Repositioned as an EPC horticulture partner serving government, PSUs and corporates
 // across India — not just residential landscaping in Varanasi.
 
 export const COMPANY = {
   name: "A2Z Plant Nutrient",
   legalName: "A2Z Plant Nutrient Private Limited",
   tagline: "From Tender to Tree",
-  positioning: "Government / PSU / Corporate Horticulture EPC Contractor",
+  positioning: "Government / PSU / Corporate Horticulture EPC Partner",
   founded: 2021,
   phone: "+91 81605 34604",
   phoneRaw: "+918160534604",
@@ -42,9 +42,9 @@ export const NAV = [
 export const HERO = {
   kicker: "Government · PSU · Corporate Horticulture EPC",
   title:
-    "Building India's green infrastructure — one project at a time.",
+    "Building India's Green Infrastructure — One Project At A Time.",
   description:
-    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC contractor. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
+    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC partner. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
   image: "/project01.jpg",
 };
 
@@ -62,7 +62,7 @@ export const FEATURES = [
   {
     icon: "Leaf",
     title: "Compliance & Sustainability",
-    text: "ISO 9001 & 14001, DPIIT, Udyam and CII Carbon-Footprint credentials — sustainability is baked into every project.",
+    text: "ISO 9001 & 14001, DPIIT and Udyam credentials — sustainability is baked into every project.",
   },
 ];
 
@@ -92,12 +92,7 @@ export const CERTIFICATIONS = [
     code: "Udyam",
     name: "Registered MSME",
     color: "amber",
-  },
-  {
-    code: "CII",
-    name: "Certified Carbon-Footprint Professional",
-    color: "emerald",
-  },
+  }
 ];
 
 // Split into two clear tracks per positioning brief
@@ -381,7 +376,7 @@ export const LEADERSHIP = [
     name: "Abhishek Agrawal",
     role: "Founder & Chief Executive Officer",
     bio:
-      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corporate projects — with a mission to build India's green infrastructure at scale.",
+      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corporate projects — with a mission to build India's green infrastructure at scale.",
     initials: "AA",
   },
 ];

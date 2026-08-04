@@ -77,18 +77,18 @@ export default function TrustedBy({ onRequestProfile }) {
               <Sparkles size={10} /> Since 2021
             </span>
             <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.24em] bg-white/10 text-emerald-200 px-3 py-1.5 rounded-full ring-1 ring-white/10">
-              <ShieldCheck size={10} /> Pan-India Delivery
+              <ShieldCheck size={10} /> Pan-India Operations
             </span>
           </div>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-            The institutions that build India{" "}
-            <span className="italic text-amber-300">trust A2Z</span> with their
-            green mandate.
+            The Institutions That Build India{" "}
+            <span className="italic text-amber-300">Trust A2Z</span> With Their
+            Green Mandate.
           </h2>
           <p className="mt-5 text-lg text-emerald-100/80 leading-relaxed max-w-2xl">
-            From national highway corridors to Navratna CPSE campuses — A2Z Plant
-            Nutrient is the preferred horticulture EPC partner for India&apos;s
-            most-scrutinised procurement teams.
+            From National Highway Corridors To Navratna CPSE Campuses — A2Z Plant
+            Nutrient Is The Preferred Horticulture EPC Partner For India&apos;s
+            Most-Scrutinised Procurement Teams.
           </p>
         </FadeIn>
 
@@ -152,7 +152,7 @@ export default function TrustedBy({ onRequestProfile }) {
                 </span>
               </div>
               <h3 className="font-serif text-2xl md:text-3xl font-semibold leading-tight">
-                10,000+ plants installed along the Ayodhya–Basti national highway.
+                10,000+ Plants Installed Along The Ayodhya–Basti National Highway.
               </h3>
               <p className="mt-3 text-emerald-100/75 leading-relaxed">
                 Delivered for the National Highways Authority of India with
@@ -166,24 +166,6 @@ export default function TrustedBy({ onRequestProfile }) {
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
                     Plants Installed
-                  </div>
-                </div>
-                <div className="w-px h-10 bg-white/15" />
-                <div>
-                  <div className="font-serif text-2xl text-amber-300 font-semibold">
-                    Native
-                  </div>
-                  <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
-                    Species Palette
-                  </div>
-                </div>
-                <div className="w-px h-10 bg-white/15" />
-                <div>
-                  <div className="font-serif text-2xl text-amber-300 font-semibold">
-                    3 yr
-                  </div>
-                  <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
-                    Survival AMC
                   </div>
                 </div>
               </div>

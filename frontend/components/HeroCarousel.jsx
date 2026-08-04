@@ -18,9 +18,9 @@ const SLIDES = [
   {
     id: "epc",
     kicker: "Government · PSU · Corporate Horticulture EPC",
-    title: "Building India's green infrastructure — one project at a time.",
+    title: "Building India's Green Infrastructure — One Project At A Time.",
     subtitle:
-      "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, Startup India-recognised horticulture EPC contractor delivering large-scale landscaping, plantation, lawn development and multi-year maintenance across multiple Indian states.",
+      "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, Startup India-recognised horticulture EPC partner delivering large-scale landscaping, plantation, lawn development and multi-year maintenance across multiple Indian states.",
     image: "/project01.jpg",
     accent: "emerald",
     primaryCta: { label: "Discuss a Tender", href: "/contact" },
@@ -40,7 +40,7 @@ const SLIDES = [
   {
     id: "credentials",
     kicker: "Compliance-first",
-    title: "ISO 9001 · ISO 14001 · Startup India · Udyam · CII",
+    title: "ISO 9001 · ISO 14001 · Startup India · Udyam",
     subtitle:
       "Every credential a tender committee looks for — plus an in-house team, transparent PO summary and a printable Company Profile that lands in your inbox within seconds.",
     image: "/service_01.jpg",
@@ -50,7 +50,7 @@ const SLIDES = [
   },
   {
     id: "scale",
-    kicker: "Pan-India Delivery",
+    kicker: "Pan-India Operations",
     title: "10 Lakh+ sq. ft. transformed. 100+ projects delivered.",
     subtitle:
       "A field-tested EPC playbook running across Uttar Pradesh, Madhya Pradesh, Odisha, Delhi, Gujarat and Rajasthan — with sector-specific expertise in highways, PSU townships, hospitality and CSR.",
