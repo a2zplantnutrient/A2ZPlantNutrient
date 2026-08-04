@@ -20,7 +20,6 @@ import {
   ABOUT_IMAGES,
   STATS,
   CERTIFICATIONS,
-  LEADERSHIP,
   COMPANY,
 } from "@/lib/mock";
 
@@ -139,33 +138,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-16 bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <FadeIn className="text-center max-w-2xl mx-auto mb-10">
-            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Leadership</p>
-            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-              Meet the founder
-            </h2>
-          </FadeIn>
-          <div className="grid gap-6 max-w-3xl mx-auto">
-            {LEADERSHIP.map((l, i) => (
-              <FadeIn key={i}>
-                <Card className="p-8 border-stone-200 bg-white flex flex-col sm:flex-row items-start gap-6">
-                  <div className="w-20 h-20 rounded-full bg-emerald-700 text-white font-serif text-2xl font-semibold flex items-center justify-center shrink-0">
-                    {l.initials}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-semibold text-emerald-950">{l.name}</h3>
-                    <div className="text-sm text-emerald-700 font-medium mt-1">{l.role}</div>
-                    <p className="mt-3 text-stone-600 leading-relaxed">{l.bio}</p>
-                  </div>
-                </Card>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
