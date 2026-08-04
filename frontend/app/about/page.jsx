@@ -20,6 +20,7 @@ import {
   ABOUT_IMAGES,
   STATS,
   CERTIFICATIONS,
+  CRAFTMYGARDEN,
   COMPANY,
 } from "@/lib/mock";
 
@@ -92,6 +93,38 @@ export default function AboutPage() {
         </FadeIn>
       </section>
 
+      {/* CraftMyGarden: integrated into About */}
+      <section className="py-16 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="mb-8 text-center">
+            <p className="uppercase tracking-[0.25em] text-amber-700 text-xs font-semibold">CraftMyGarden</p>
+            <h2 className="font-serif text-2xl md:text-4xl text-emerald-950 font-semibold mt-2">Residential &amp; D2C landscaping</h2>
+            <p className="mt-3 text-stone-600 max-w-2xl mx-auto">{CRAFTMYGARDEN.description}</p>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <Card className="p-8 bg-white border-stone-200 shadow-lg">
+              <h3 className="font-serif text-xl text-emerald-950 font-semibold">{CRAFTMYGARDEN.name}</h3>
+              <p className="mt-2 italic text-emerald-700">{CRAFTMYGARDEN.tagline}</p>
+              <p className="mt-4 text-stone-600 leading-relaxed">{CRAFTMYGARDEN.description}</p>
+              <div className="mt-6 flex gap-3">
+                <Button asChild className="bg-emerald-700 hover:bg-emerald-800 rounded-full">
+                  <Link href="/contact">Get notified at launch <ArrowRight size={14} className="ml-1" /></Link>
+                </Button>
+                <Link href="/gallery" className="inline-flex items-center text-emerald-700 font-medium">See samples <ArrowRight size={14} className="ml-1" /></Link>
+              </div>
+            </Card>
+
+            <div className="grid grid-cols-2 gap-3">
+              <img src="/service_02.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/service_08.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/service_05.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/service_03.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission / Vision / Values */}
       <section className="py-16 bg-emerald-50/50">
         <div className="max-w-7xl mx-auto px-6">
@@ -129,7 +162,7 @@ export default function AboutPage() {
                 {i === 0 ? <Building2 size={26} /> : i === 1 ? <Users size={26} /> : i === 2 ? <Leaf size={26} /> : <ShieldCheck size={26} />}
               </div>
               <div className="font-serif text-3xl lg:text-4xl text-emerald-800 font-semibold">
-                {/^\d/.test(s.number) && !s.number.includes("₹") ? <Counter to={s.number} /> : s.number}
+                {/^^\d/.test(s.number) && !s.number.includes("₹") ? <Counter to={s.number} /> : s.number}
               </div>
               <div className="mt-2 font-serif text-lg text-emerald-950">{s.title}</div>
               <p className="mt-2 text-stone-600 text-sm">{s.text}</p>
