@@ -117,14 +117,14 @@ export default function ProfileRequestModal({ open, onClose }) {
                     <Input required name="name" placeholder="Priya Sharma" className="mt-1.5" data-testid="pr-name" />
                   </div>
                   <div>
-                    <Label className="text-stone-700 text-sm">Organization *</Label>
-                    <Input required name="organization" placeholder="e.g. NHAI · Regional Office" className="mt-1.5" data-testid="pr-org" />
+                    <Label className="text-stone-700 text-sm">Organization (optional)</Label>
+                    <Input required name="organization" placeholder="e.g. NHAI · Regional Office (optional)" className="mt-1.5" data-testid="pr-org" />
                   </div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-stone-700 text-sm">Designation</Label>
-                    <Input name="designation" placeholder="Procurement Officer" className="mt-1.5" />
+                    <Label className="text-stone-700 text-sm">Designation (optional)</Label>
+                    <Input name="designation" placeholder="Procurement Officer (optional)" className="mt-1.5" />
                   </div>
                   <div>
                     <Label className="text-stone-700 text-sm">Tender / RFP Ref (optional)</Label>
@@ -133,7 +133,7 @@ export default function ProfileRequestModal({ open, onClose }) {
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-stone-700 text-sm">Official Email *</Label>
+                    <Label className="text-stone-700 text-sm">Email Address *</Label>
                     <Input required type="email" name="email" placeholder="you@org.gov.in" className="mt-1.5" data-testid="pr-email" />
                   </div>
                   <div>
