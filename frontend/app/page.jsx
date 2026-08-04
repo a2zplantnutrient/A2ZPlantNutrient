@@ -30,7 +30,6 @@ import {
   SERVICES,
   STATS,
   PROJECTS,
-  LEADERSHIP,
   CRAFTMYGARDEN,
   COMPANY,
 } from "@/lib/mock";
@@ -153,7 +152,7 @@ export default function HomePage() {
             An EPC contractor built for India&apos;s green mandates
           </h2>
           <p className="mt-5 text-stone-600 leading-relaxed">
-            A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC contractor headquartered in Varanasi and operating across multiple Indian states. We work primarily with government bodies, PSUs and corporates on landscape, plantation and long-term maintenance mandates.
+            A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC contractor headquartered in Varanasi and operating across multiple In[...]
           </p>
           <p className="mt-4 text-stone-600 leading-relaxed">
             Since incorporation in 2021, we&apos;ve delivered 100+ projects — with named work for NHAI, NTPC, NBCC, Indian Oil, BHEL, NFL and the Rajasthan Housing Board.
@@ -162,32 +161,6 @@ export default function HomePage() {
             <Link href="/about">Learn More About Us <ArrowRight size={18} className="ml-1" /></Link>
           </Button>
         </FadeIn>
-      </section>
-
-      {/* LEADERSHIP */}
-      <section className="py-16 bg-emerald-50/40" data-testid="leadership-section">
-        <div className="max-w-5xl mx-auto px-6">
-          <FadeIn className="text-center max-w-2xl mx-auto mb-10">
-            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Leadership</p>
-            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Meet the founder</h2>
-          </FadeIn>
-          <Stagger className="grid md:grid-cols-1 gap-6 max-w-3xl mx-auto">
-            {LEADERSHIP.map((l, i) => (
-              <StaggerItem key={i}>
-                <Card className="p-8 border-stone-200 bg-white flex flex-col sm:flex-row items-start gap-6">
-                  <div className="w-20 h-20 rounded-full bg-emerald-700 text-white font-serif text-2xl font-semibold flex items-center justify-center shrink-0">
-                    {l.initials}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-2xl font-semibold text-emerald-950">{l.name}</h3>
-                    <div className="text-sm text-emerald-700 font-medium mt-1">{l.role}</div>
-                    <p className="mt-3 text-stone-600 leading-relaxed">{l.bio}</p>
-                  </div>
-                </Card>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
       </section>
 
       {/* SERVICES */}
