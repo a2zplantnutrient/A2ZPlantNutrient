@@ -122,7 +122,7 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} {COMPANY.legalName}. All rights reserved.
           </p>
-          <p>Designed with care · Pan-India delivery</p>
+          <p>Designed with care · Pan-India Operations</p>
         </div>
       </div>
     </footer>

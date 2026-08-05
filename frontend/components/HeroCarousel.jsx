@@ -213,7 +213,7 @@ export default function HeroCarousel({ onRequestProfile }) {
               <div className="mt-6 pt-5 border-t border-white/15 text-sm text-emerald-100/80">
                 <div className="font-serif text-white text-lg">{COMPANY.tagline}</div>
                 <div className="text-xs text-emerald-200/80 mt-1">
-                  Est. {COMPANY.founded} · Headquartered in Varanasi · Pan-India delivery
+                  Est. {COMPANY.founded} · Headquartered in Varanasi · Pan-India Operations
                 </div>
               </div>
             </motion.div>
