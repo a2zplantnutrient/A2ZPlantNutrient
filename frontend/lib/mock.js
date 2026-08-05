@@ -44,7 +44,7 @@ export const HERO = {
   title:
     "Building India's green infrastructure — one project at a time.",
   description:
-    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC contractor. We deliver large-scale landscaping, plantation, lawn development and maintenance projects for government bodies, PSUs and corporates across multiple Indian states.",
+    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC contractor. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
   image: "/project01.jpg",
 };
 
@@ -56,7 +56,7 @@ export const FEATURES = [
   },
   {
     icon: "Hammer",
-    title: "Pan-India Deployment",
+    title: "Pan-India Operations",
     text: "100+ trained field workforce, mobilised across states to execute projects for PSUs, government agencies and corporate campuses.",
   },
   {
@@ -381,7 +381,7 @@ export const LEADERSHIP = [
     name: "Abhishek Agrawal",
     role: "Founder & Chief Executive Officer",
     bio:
-      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corporate projects — with a mission to build India's green infrastructure at scale.",
+      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corp[...]
     initials: "AA",
   },
 ];
