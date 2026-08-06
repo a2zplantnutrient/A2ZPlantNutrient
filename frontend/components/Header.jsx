@@ -37,13 +37,13 @@ export default function Header() {
           onClick={() => setOpen(false)}
           data-testid="logo-link"
         >
-          <div className="relative w-12 h-12 rounded-full overflow-hidden bg-emerald-50 ring-1 ring-emerald-100 group-hover:scale-105 transition-transform">
+          <div className="relative w-16 h-16 group-hover:scale-105 transition-transform">
             <Image
               src={COMPANY.logo}
               alt={COMPANY.name}
               fill
-              sizes="48px"
-              className="object-contain p-1"
+              sizes="64px"
+              className="object-contain"
               priority
             />
           </div>

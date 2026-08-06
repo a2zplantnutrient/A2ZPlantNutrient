@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* FEATURES */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <FadeIn className="text-center max-w-2xl mx-auto mb-12">
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-sm font-semibold">Why A2Z</p>
+          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Why A2Z</span>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
             EPC-Grade Horticulture, Executed Reliably
           </h2>
@@ -86,7 +86,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
             <div>
-              <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Selected Work</p>
+              <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Selected Work</span>
               <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
                 Government &amp; PSU Projects
               </h2>
@@ -147,7 +147,7 @@ export default function HomePage() {
           </div>
         </ScaleIn>
         <FadeIn>
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Who We Are</p>
+          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Who We Are</span>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
             An EPC Partner Built For India&apos;s Green Mandates
           </h2>
@@ -167,7 +167,7 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
-            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">What We Do</p>
+            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">What We Do</span>
             <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Our EPC Service Portfolio</h2>
             <p className="mt-4 text-stone-600">End-to-end horticulture contracting for public and private institutions.</p>
           </FadeIn>
@@ -236,7 +236,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
               <div>
-                <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">From Our Blog</p>
+                <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">From Our Blog</span>
                 <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Insights &amp; Expert Notes</h2>
               </div>
               <Button asChild variant="outline" className="rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50 self-start md:self-auto">
