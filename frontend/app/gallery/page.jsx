@@ -7,6 +7,14 @@ import { motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/Motion";
+import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
 import { fetchMedia } from "@/lib/api";
 import { GALLERY as FALLBACK_GALLERY } from "@/lib/mock";
 
@@ -37,8 +45,14 @@ export default function GalleryPage() {
   return (
     <div data-testid="gallery-page">
       <PageHero title="Gallery" subtitle="Our Projects" />
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-12">
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchRight className="absolute -right-20 top-20 w-80 h-[500px] hidden md:block" opacity={0.05} />
+        <LeafVeinPattern opacity={0.015} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-12">
           <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
             Our Work
           </p>
@@ -112,6 +126,7 @@ export default function GalleryPage() {
             ))}
           </div>
         )}
+        </div>
 
         {active && (
           <div

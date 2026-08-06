@@ -8,6 +8,14 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
+import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
 import { fetchBlogs } from "@/lib/api";
 
 const KNOWN_CATEGORIES = [
@@ -56,7 +64,13 @@ export default function BlogPage() {
   return (
     <div data-testid="blog-page">
       <PageHero title="Blog" subtitle="Our Latest Articles" />
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-10">
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchRight className="absolute -right-20 top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <LeafVeinPattern opacity={0.015} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2">
           <FadeIn className="flex items-center justify-between mb-6 flex-wrap gap-3">
             <p className="text-stone-600 text-sm">
@@ -185,6 +199,7 @@ export default function BlogPage() {
             </Button>
           </Card>
         </aside>
+        </div>
       </section>
     </div>
   );

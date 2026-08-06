@@ -10,6 +10,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
+import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
 import { useToast } from "@/hooks/use-toast";
 import { fetchCareers } from "@/lib/api";
 import { CAREERS as FALLBACK_CAREERS, COMPANY } from "@/lib/mock";
@@ -47,8 +55,14 @@ export default function CareersPage() {
     <div data-testid="careers-page">
       <PageHero title="Careers" subtitle="Join Our Team" />
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-14">
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchRight className="absolute -right-20 top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <LeafVeinPattern opacity={0.015} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-14">
           <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Open Positions</p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Grow your career with us</h2>
           <p className="mt-4 text-stone-600">We&apos;re always on the lookout for passionate, plant-loving folks. Find a role that fits you below.</p>
@@ -155,6 +169,7 @@ export default function CareersPage() {
               </form>
             </Card>
           </FadeIn>
+        </div>
         </div>
       </section>
     </div>
