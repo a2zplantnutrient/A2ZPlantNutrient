@@ -24,7 +24,7 @@ export default function GalleryPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchMedia()
+    fetchMedia({ limit: 500 })
       .then((d) => setMedia(d || []))
       .catch(() => setMedia([]))
       .finally(() => setLoading(false));
