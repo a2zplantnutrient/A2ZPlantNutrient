@@ -16,25 +16,25 @@ import { useEffect, useState } from "react";
 
 // Actual institutional & private client logos — files live in /public/logos/
 const TRUSTED_LOGOS = [
-  { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai-logo.png", x: 56, y: -74, size: 139 },
-  { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc-logo.png", x: -321, y: 27, size: 110 },
-  { name: "NFL", alt: "National Fertilizers Limited", src: "/logos/nfl-logo.png", x: 296, y: -84, size: 146 },
-  { name: "BHEL", alt: "Bharat Heavy Electricals Limited", src: "/logos/bhel-logo.png", x: 64, y: -202, size: 122 },
-  { name: "IndianOil", alt: "Indian Oil Corporation Limited", src: "/logos/indian-oil-logo.png", x: -180, y: -152, size: 107 },
-  { name: "Indian Railways", alt: "Indian Railways", src: "/logos/indian-railways-logo.png", x: -124, y: -42, size: 148 },
-  { name: "NBCC", alt: "National Buildings Construction Corporation", src: "/logos/nbcc-logo.png", x: 78, y: 63, size: 139 },
-  { name: "GSECL", alt: "Gujarat State Electricity Corporation Ltd.", src: "/logos/gsecl.png", x: -246, y: -56, size: 112 },
-  { name: "TCIL", alt: "Telecommunications Consultants India Ltd.", src: "/logos/tcil-logo.png", x: 170, y: -136, size: 124 },
-  { name: "Rajasthan Housing Board", alt: "Rajasthan Housing Board", src: "/logos/rhb-logo.png", x: -55, y: -156, size: 132 },
-  { name: "Nagar Nigam Varanasi", alt: "Nagar Nigam Varanasi", src: "/logos/nagar-nigam-varanasi.jpg", x: -98, y: 69, size: 96 },
-  { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chavani-logo.png", x: 69, y: 192, size: 126 },
-  { name: "Govt of Uttar Pradesh", alt: "Government of Uttar Pradesh", src: "/logos/up-logo.png", x: -21, y: 122, size: 100 },
-  { name: "Sewa International", alt: "Sewa International", src: "/logos/sewa-international.png", x: 185, y: 128, size: 124 },
-  { name: "CSIL", alt: "C. S. Intraconstruction Limited", src: "/logos/csil.png", x: 179, y: -8, size: 131 },
-  { name: "Sunbeam", alt: "Sunbeam Group of Educational Institutions", src: "/logos/sunbeam.png", x: 295, y: 59, size: 134 },
-  { name: "Shaparth", alt: "Shaparth", src: "/logos/shapearth.png", x: -20, y: 11, size: 112 },
-  { name: "Shivalik", alt: "Shivalik", src: "/logos/shivalik.png", x: -209, y: 76, size: 136 },
-  { name: "Castillo", alt: "Castillo", src: "/logos/castillo.png", x: -118, y: 164, size: 103 },
+  { name: "NHAI", alt: "National Highways Authority of India", src: "/logos/nhai-logo.png", x: -257, y: 248, size: 154 },
+  { name: "NTPC", alt: "NTPC Limited", src: "/logos/ntpc-logo.png", x: -331, y: 77, size: 158 },
+  { name: "NFL", alt: "National Fertilizers Limited", src: "/logos/nfl-logo.png", x: 386, y: 7, size: 174 },
+  { name: "BHEL", alt: "Bharat Heavy Electricals Limited", src: "/logos/bhel-logo.png", x: 167, y: 267, size: 177 },
+  { name: "IndianOil", alt: "Indian Oil Corporation Limited", src: "/logos/indian-oil-logo.png", x: 367, y: 209, size: 174 },
+  { name: "Indian Railways", alt: "Indian Railways", src: "/logos/indian-railways-logo.png", x: 147, y: -69, size: 168 },
+  { name: "NBCC", alt: "National Buildings Construction Corporation", src: "/logos/nbcc-logo.png", x: -262, y: -268, size: 165 },
+  { name: "GSECL", alt: "Gujarat State Electricity Corporation Ltd.", src: "/logos/gsecl.png", x: -394, y: -125, size: 146 },
+  { name: "TCIL", alt: "Telecommunications Consultants India Ltd.", src: "/logos/tcil-logo.png", x: 228, y: 89, size: 137 },
+  { name: "Rajasthan Housing Board", alt: "Rajasthan Housing Board", src: "/logos/rhb-logo.png", x: 491, y: -136, size: 130 },
+  { name: "Nagar Nigam Varanasi", alt: "Nagar Nigam Varanasi", src: "/logos/nagar-nigam-varanasi.jpg", x: -75, y: -220, size: 157 },
+  { name: "Chhavni Parishad Varanasi", alt: "Cantonment Board Varanasi", src: "/logos/chavani-logo.png", x: -211, y: -79, size: 182 },
+  { name: "Govt of Uttar Pradesh", alt: "Government of Uttar Pradesh", src: "/logos/up-logo.png", x: -42, y: 279, size: 173 },
+  { name: "Sewa International", alt: "Sewa International", src: "/logos/sewa-international.png", x: -138, y: 101, size: 175 },
+  { name: "CSIL", alt: "C. S. Intraconstruction Limited", src: "/logos/csil.png", x: 309, y: -190, size: 187 },
+  { name: "Sunbeam", alt: "Sunbeam Group of Educational Institutions", src: "/logos/sunbeam.png", x: 54, y: 103, size: 175 },
+  { name: "Shaparth", alt: "Shaparth", src: "/logos/shapearth.png", x: -31, y: -53, size: 135 },
+  { name: "Shivalik", alt: "Shivalik", src: "/logos/shivalik.png", x: -513, y: 20, size: 169 },
+  { name: "Castillo", alt: "Castillo", src: "/logos/castillo.png", x: 112, y: -260, size: 170 },
 ];
 
 export default function TrustedBy({ onRequestProfile }) {
@@ -45,10 +45,11 @@ export default function TrustedBy({ onRequestProfile }) {
     setIsMounted(true);
     const handleResize = () => {
       const width = window.innerWidth;
-      // Adjust scale to ensure the 800px wide cluster fits
-      if (width < 640) setScale(0.45);
-      else if (width < 768) setScale(0.65);
-      else if (width < 1024) setScale(0.85);
+      // Adjust scale to ensure the 1200px wide cluster fits
+      if (width < 640) setScale(0.3);
+      else if (width < 768) setScale(0.5);
+      else if (width < 1024) setScale(0.7);
+      else if (width < 1280) setScale(0.85);
       else setScale(1);
     };
     
@@ -107,9 +108,9 @@ export default function TrustedBy({ onRequestProfile }) {
         </FadeIn>
 
         {/* Animated Premium Logo Scatter Layout */}
-        <div className="relative w-full h-[400px] md:h-[550px] flex items-center justify-center mt-16 md:mt-24 mb-10">
+        <div className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center mt-12 md:mt-24 mb-10">
           <div 
-            className="absolute w-[800px] h-[500px] flex items-center justify-center transition-transform duration-300 origin-center"
+            className="absolute w-[1200px] h-[700px] flex items-center justify-center transition-transform duration-300 origin-center"
             style={{ transform: `scale(${scale})` }}
           >
             {/* Scattered Logos */}
@@ -138,20 +139,21 @@ export default function TrustedBy({ onRequestProfile }) {
               >
                 <motion.div
                   animate={{ 
-                    y: [-6, 6, -6],
-                    rotate: [-2, 2, -2]
+                    y: [-8, 8, -8],
+                    rotate: [-1.5, 1.5, -1.5]
                   }}
                   transition={{ 
-                    duration: 5 + (i % 3), 
+                    duration: 5 + (i % 4), 
                     repeat: Infinity, 
                     ease: "easeInOut",
                     delay: (i % 2) * 0.5 
                   }}
-                  className="w-full h-full rounded-full bg-white hover:scale-105 shadow-[0_8px_30px_rgb(0,0,0,0.4)] flex items-center justify-center overflow-hidden p-5 transition-all duration-300 group cursor-pointer"
+                  className="w-full h-full rounded-full bg-white hover:scale-105 shadow-[0_12px_40px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden transition-all duration-300 group cursor-pointer"
                   title={logo.alt}
                 >
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    {/* Using standard img with mix-blend-multiply so white backgrounds merge seamlessly with the white circle */}
+                  {/* Made the inner container wider to allow the logo to be very visible */}
+                  <div className="relative w-[85%] h-[85%] flex items-center justify-center">
+                    {/* mix-blend-multiply merges white background cleanly with the white tile */}
                     <img
                       src={logo.src}
                       alt={logo.alt}
