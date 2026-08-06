@@ -147,15 +147,15 @@ export default function TrustedBy({ onRequestProfile }) {
                     ease: "easeInOut",
                     delay: (i % 2) * 0.5 
                   }}
-                  className="w-full h-full rounded-full bg-[#111111] hover:bg-[#1a1a1a] shadow-xl border border-white/5 flex items-center justify-center overflow-hidden p-6 transition-colors duration-300 group cursor-pointer"
+                  className="w-full h-full rounded-full bg-white hover:scale-105 shadow-[0_8px_30px_rgb(0,0,0,0.4)] flex items-center justify-center overflow-hidden p-5 transition-all duration-300 group cursor-pointer"
                   title={logo.alt}
                 >
-                  <div className="relative w-full h-full">
-                    {/* Using next/img directly to ensure it loads reliably, with proper filters to make them white */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    {/* Using standard img with mix-blend-multiply so white backgrounds merge seamlessly with the white circle */}
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="w-full h-full object-contain filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                 </motion.div>
