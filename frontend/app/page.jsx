@@ -279,7 +279,7 @@ export default function HomePage() {
                 <Link href="/blog">View All Articles <ArrowRight size={16} className="ml-1" /></Link>
               </Button>
             </FadeIn>
-            <Stagger className="grid md:grid-cols-3 gap-6" data-testid="home-blog-list">
+            <Stagger className="grid md:grid-cols-3 gap-6" data-testid="home-blog-list" animate="show">
               {blogs.map((b) => (
                 <StaggerItem key={b.id}>
                   <Card className="group overflow-hidden border-stone-200 hover:shadow-2xl transition-all hover:-translate-y-1 h-full">

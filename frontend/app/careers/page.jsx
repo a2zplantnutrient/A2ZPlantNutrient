@@ -73,7 +73,7 @@ export default function CareersPage() {
             <Loader2 className="animate-spin" size={18} /> Loading roles…
           </div>
         ) : (
-          <Stagger className="grid md:grid-cols-2 gap-6" data-testid="careers-list">
+          <Stagger className="grid md:grid-cols-2 gap-6" data-testid="careers-list" animate="show">
             {careers.map((c, i) => (
               <StaggerItem key={c.id || i}>
                 <Card className="p-7 border-stone-200 hover:shadow-xl hover:border-emerald-200 transition-all h-full">

@@ -69,7 +69,7 @@ export default function Header() {
                 href={n.path}
                 data-testid={`nav-${n.label.toLowerCase()}`}
                 className={cn(
-                  "relative text-sm font-medium transition-colors hover:text-emerald-700 py-1",
+                  "relative text-sm font-medium transition-colors hover:text-emerald-700 py-1 group",
                   active ? "text-emerald-700" : "text-stone-700"
                 )}
               >

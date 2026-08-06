@@ -97,7 +97,7 @@ export default function BlogPage() {
             </Card>
           )}
 
-          <Stagger className="grid sm:grid-cols-2 gap-6" data-testid="blog-list">
+          <Stagger className="grid sm:grid-cols-2 gap-6" data-testid="blog-list" animate="show">
             {filtered.map((b) => (
               <StaggerItem key={b.id}>
                 <Card className="group overflow-hidden border-stone-200 hover:shadow-xl transition-all hover:-translate-y-1 h-full" data-testid={`blog-card-${b.slug}`}>

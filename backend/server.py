@@ -305,7 +305,7 @@ async def seed():
             "author": "A2Z Team",
             "category": "EPC Insights",
             "tags": ["tender", "compliance", "epc"],
-            "cover_image": "/service_01.jpg",
+            "cover_image": "/real-township-avenue-install.jpg",
         },
         {
             "title": "Compensatory Afforestation Done Right — Lessons from Highway Corridors",
@@ -314,7 +314,7 @@ async def seed():
             "author": "A2Z Team",
             "category": "Sustainability",
             "tags": ["afforestation", "nhai", "esg"],
-            "cover_image": "/service_02.jpg",
+            "cover_image": "/real-iocl-odisha-maintenance.jpg",
         },
         {
             "title": "Multi-Year AMC for PSU Townships: A Playbook",
@@ -323,7 +323,7 @@ async def seed():
             "author": "A2Z Team",
             "category": "EPC Insights",
             "tags": ["amc", "psu", "operations"],
-            "cover_image": "/service_06.jpg",
+            "cover_image": "/real-nursery-delivery.jpg",
         },
     ]
     for b in initial_blogs:
