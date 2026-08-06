@@ -71,12 +71,31 @@ img {
   background-size: 24px 24px;
 }
 
-/* Page enter transition */
-@keyframes pageIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Premium Page Transitions */
+@keyframes premiumPageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
 }
 
-main > div, main > article {
-  animation: pageIn 0.5s ease-out;
+.premium-page-transition {
+  animation: premiumPageEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+/* Reduced Motion Fallback for Transitions */
+@media (prefers-reduced-motion: reduce) {
+  .premium-page-transition {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }

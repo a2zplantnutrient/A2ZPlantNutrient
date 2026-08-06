@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   ShieldCheck,
@@ -24,13 +24,12 @@ import {
   LEADERSHIP,
 } from "@/lib/mock";
 
-export default function CompanyProfilePage() {
+function ProfileContent() {
   const search = useSearchParams();
   const requestedBy = search.get("for") || "";
   const org = search.get("org") || "";
 
   useEffect(() => {
-    // Auto-scroll to top for print rendering
     window.scrollTo(0, 0);
   }, []);
 
@@ -39,8 +38,7 @@ export default function CompanyProfilePage() {
   };
 
   return (
-    <div className="bg-white text-stone-800 min-h-screen" data-testid="company-profile-page">
-      {/* Print controls — hidden when printing */}
+    <>
       <div className="print:hidden bg-emerald-950 text-white sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -65,7 +63,6 @@ export default function CompanyProfilePage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-8 md:px-14 py-12 print:py-8">
-        {/* Header */}
         <header className="flex items-start justify-between gap-6 pb-8 border-b-2 border-emerald-950">
           <div className="flex items-center gap-4">
             <div className="relative w-20 h-20 rounded-full overflow-hidden bg-emerald-50 ring-2 ring-emerald-100 shrink-0">
@@ -95,7 +92,6 @@ export default function CompanyProfilePage() {
           </div>
         </header>
 
-        {/* Registration */}
         <section className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { label: "CIN", value: COMPANY.cin },
@@ -111,7 +107,6 @@ export default function CompanyProfilePage() {
           ))}
         </section>
 
-        {/* Certifications */}
         <section className="mt-10">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             Certifications & Recognitions
@@ -134,7 +129,6 @@ export default function CompanyProfilePage() {
           </div>
         </section>
 
-        {/* Snapshot */}
         <section className="mt-10">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             Company Snapshot
@@ -152,7 +146,6 @@ export default function CompanyProfilePage() {
           </div>
         </section>
 
-        {/* Leadership */}
         <section className="mt-10">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             Leadership
@@ -171,7 +164,6 @@ export default function CompanyProfilePage() {
           ))}
         </section>
 
-        {/* Services */}
         <section className="mt-10">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             EPC Service Portfolio
@@ -186,7 +178,6 @@ export default function CompanyProfilePage() {
           </div>
         </section>
 
-        {/* Named Projects / PO summary */}
         <section className="mt-10 page-break">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             Selected Purchase Orders &amp; Projects
@@ -224,7 +215,6 @@ export default function CompanyProfilePage() {
           </p>
         </section>
 
-        {/* Clients strip */}
         <section className="mt-10">
           <h2 className="font-serif text-2xl text-emerald-950 font-semibold mb-4 border-l-4 border-amber-400 pl-3">
             Clients Served
@@ -241,7 +231,6 @@ export default function CompanyProfilePage() {
           </div>
         </section>
 
-        {/* Contact */}
         <section className="mt-10 p-6 rounded-lg bg-emerald-950 text-white grid md:grid-cols-3 gap-5">
           <div>
             <div className="text-xs uppercase tracking-wider text-amber-300 font-semibold">Registered Office</div>
@@ -272,6 +261,16 @@ export default function CompanyProfilePage() {
           <div>a2zplantnutrient.com</div>
         </footer>
       </div>
+    </>
+  );
+}
+
+export default function CompanyProfilePage() {
+  return (
+    <div className="bg-white text-stone-800 min-h-screen" data-testid="company-profile-page">
+      <Suspense fallback={<div className="p-8 text-center text-stone-500">Loading Profile...</div>}>
+        <ProfileContent />
+      </Suspense>
 
       <style jsx global>{`
         @media print {

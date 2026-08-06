@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ShieldCheck, LogIn, Leaf } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { COMPANY } from "@/lib/mock";
 
-export default function AdminLoginPage() {
+function AdminLoginForm() {
   const router = useRouter();
   const params = useSearchParams();
   const nextPath = params.get("next") || "/admin";
@@ -40,6 +40,39 @@ export default function AdminLoginPage() {
   };
 
   return (
+    <form onSubmit={handleSubmit} className="space-y-4" data-testid="admin-login-form">
+      <div>
+        <Label className="text-stone-700 text-sm">Admin password</Label>
+        <Input
+          required
+          type="password"
+          autoFocus
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter admin password"
+          className="mt-2"
+          data-testid="admin-password-input"
+        />
+      </div>
+      {error && (
+        <div className="text-sm text-red-600" data-testid="admin-login-error">
+          {error}
+        </div>
+      )}
+      <Button
+        type="submit"
+        disabled={submitting || !password}
+        className="w-full bg-emerald-700 hover:bg-emerald-800 rounded-full py-6"
+        data-testid="admin-login-submit"
+      >
+        <LogIn size={16} className="mr-2" /> {submitting ? "Signing in…" : "Sign In"}
+      </Button>
+    </form>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
     <div className="min-h-[80vh] flex items-center justify-center px-6 py-14 bg-gradient-to-br from-emerald-50 via-stone-50 to-amber-50">
       <Card className="w-full max-w-md p-8 md:p-10 border-stone-200 shadow-xl" data-testid="admin-login-card">
         <div className="flex items-center gap-3 mb-6">
@@ -59,34 +92,9 @@ export default function AdminLoginPage() {
           <span>Authorised access only. This dashboard manages public site content.</span>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4" data-testid="admin-login-form">
-          <div>
-            <Label className="text-stone-700 text-sm">Admin password</Label>
-            <Input
-              required
-              type="password"
-              autoFocus
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter admin password"
-              className="mt-2"
-              data-testid="admin-password-input"
-            />
-          </div>
-          {error && (
-            <div className="text-sm text-red-600" data-testid="admin-login-error">
-              {error}
-            </div>
-          )}
-          <Button
-            type="submit"
-            disabled={submitting || !password}
-            className="w-full bg-emerald-700 hover:bg-emerald-800 rounded-full py-6"
-            data-testid="admin-login-submit"
-          >
-            <LogIn size={16} className="mr-2" /> {submitting ? "Signing in…" : "Sign In"}
-          </Button>
-        </form>
+        <Suspense fallback={<div className="text-stone-500 text-sm py-4">Loading login form...</div>}>
+          <AdminLoginForm />
+        </Suspense>
       </Card>
     </div>
   );
