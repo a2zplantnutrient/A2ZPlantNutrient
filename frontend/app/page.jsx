@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* FEATURES */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <FadeIn className="text-center max-w-2xl mx-auto mb-12">
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Why A2Z</p>
+          <p className="uppercase tracking-[0.25em] text-emerald-700 text-sm font-semibold">Why A2Z</p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
             EPC-Grade Horticulture, Executed Reliably
           </h2>
@@ -88,7 +88,7 @@ export default function HomePage() {
             <div>
               <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Selected Work</p>
               <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-                Government &amp; PSU projects
+                Government &amp; PSU Projects
               </h2>
               <p className="mt-3 text-stone-600 max-w-xl">
                 A snapshot of horticulture EPC contracts we&apos;ve executed for national agencies and corporate clients.
@@ -237,7 +237,7 @@ export default function HomePage() {
             <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
               <div>
                 <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">From Our Blog</p>
-                <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Insights &amp; expert notes</h2>
+                <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Insights &amp; Expert Notes</h2>
               </div>
               <Button asChild variant="outline" className="rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50 self-start md:self-auto">
                 <Link href="/blog">View All Articles <ArrowRight size={16} className="ml-1" /></Link>

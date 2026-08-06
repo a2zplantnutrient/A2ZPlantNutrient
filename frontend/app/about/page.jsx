@@ -87,7 +87,7 @@ export default function AboutPage() {
           </div>
           <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
             <Link href="/projects">
-              See our Projects <ArrowRight size={18} className="ml-1" />
+              See Our Projects <ArrowRight size={18} className="ml-1" />
             </Link>
           </Button>
         </FadeIn>
