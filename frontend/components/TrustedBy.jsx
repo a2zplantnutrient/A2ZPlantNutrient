@@ -244,7 +244,7 @@ export default function TrustedBy({ onRequestProfile }) {
                 href="/projects"
                 className="text-center text-sm text-emerald-200 hover:text-amber-200 font-medium inline-flex items-center justify-center gap-1 transition-colors"
               >
-                View all named projects <ArrowRight size={14} />
+                View All Named Projects <ArrowRight size={14} />
               </a>
               <p className="text-xs text-emerald-200/60 mt-2 leading-relaxed text-center">
                 Full A2Z profile with ISO certificates, client list &amp; PO

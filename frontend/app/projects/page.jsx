@@ -67,7 +67,7 @@ export default function ProjectsPage() {
             Government · PSU · Corporate
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            Green infrastructure at scale.
+            Green Infrastructure At Scale.
           </h2>
           <p className="mt-5 text-stone-600 leading-relaxed">
             A snapshot of horticulture EPC contracts A2Z Plant Nutrient has executed for
@@ -93,7 +93,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
               <h3 className="font-serif text-2xl md:text-3xl text-emerald-950 font-semibold leading-tight">
-                Instantly download our full company profile
+                Instantly Download Our Full Company Profile
               </h3>
               <p className="mt-2 text-stone-600 text-sm md:text-base">
                 CIN, GSTIN, Udyam Registration, ISO 9001 &amp; 14001 references, DPIIT recognition,
@@ -114,7 +114,7 @@ export default function ProjectsPage() {
         <div className="mt-10">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs uppercase tracking-[0.28em] text-stone-500 font-semibold">
-              Institutional clients
+              Institutional Clients
             </span>
             <div className="flex-1 h-px bg-stone-200" />
           </div>
@@ -213,7 +213,7 @@ export default function ProjectsPage() {
               Empanelment / Vendor Onboarding
             </span>
             <h3 className="font-serif text-3xl md:text-4xl font-semibold mt-4 leading-tight">
-              Evaluating vendors for a horticulture tender?
+              Evaluating Vendors For A Horticulture Tender?
             </h3>
             <p className="mt-3 text-emerald-200/85">
               We share our full profile — ISO certificates, DPIIT recognition, GSTIN, PO copies,

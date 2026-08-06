@@ -5,6 +5,7 @@
 :root {
   --foreground: #1c1917;
   --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-hero: "Playfair Display", Georgia, serif;
   --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -22,6 +23,10 @@ body {
   font-family: var(--font-display);
   font-feature-settings: "ss01", "ss02";
   letter-spacing: -0.01em;
+}
+
+.font-hero {
+  font-family: var(--font-hero);
 }
 
 img {

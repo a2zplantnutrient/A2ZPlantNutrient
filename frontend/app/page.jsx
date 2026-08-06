@@ -187,10 +187,10 @@ export default function HomePage() {
                     <p className="text-stone-600 text-sm leading-relaxed line-clamp-3">{s.description}</p>
                     <div className="mt-4 flex items-center justify-between gap-3">
                       <Link href="/services" className="inline-flex items-center gap-1 text-emerald-700 font-medium text-sm">
-                        Learn more <ArrowRight size={14} />
+                        Learn More <ArrowRight size={14} />
                       </Link>
                       <Button asChild size="sm" className="bg-emerald-700 hover:bg-emerald-800 rounded-full">
-                        <Link href="/contact">Get a Quote</Link>
+                        <Link href="/contact">Get A Quote</Link>
                       </Button>
                     </div>
                   </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
                 <p className="mt-3 font-serif italic text-emerald-700 text-lg">{CRAFTMYGARDEN.tagline}</p>
                 <p className="mt-4 text-stone-600 leading-relaxed">{CRAFTMYGARDEN.description}</p>
                 <Button asChild className="mt-6 bg-emerald-700 hover:bg-emerald-800 rounded-full">
-                  <Link href="/contact">Get notified at launch <ArrowRight size={16} className="ml-1" /></Link>
+                  <Link href="/contact">Get Notified At Launch <ArrowRight size={16} className="ml-1" /></Link>
                 </Button>
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -259,7 +259,7 @@ export default function HomePage() {
                       </div>
                       <h3 className="font-serif text-xl font-semibold text-emerald-950 leading-snug group-hover:text-emerald-700 transition-colors">{b.title}</h3>
                       <p className="mt-3 text-stone-600 text-sm leading-relaxed line-clamp-2">{b.excerpt}</p>
-                      <Link href={`/blog/${b.slug}`} className="mt-4 inline-flex items-center gap-1 text-emerald-700 font-medium text-sm">Read more <ArrowRight size={14} /></Link>
+                      <Link href={`/blog/${b.slug}`} className="mt-4 inline-flex items-center gap-1 text-emerald-700 font-medium text-sm">Read More <ArrowRight size={14} /></Link>
                     </div>
                   </Card>
                 </StaggerItem>
@@ -277,7 +277,7 @@ export default function HomePage() {
               For Procurement Officers
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold mt-4 leading-tight">
-              Need credentials for a tender or RFP?
+              Need Credentials For A Tender Or RFP?
             </h2>
             <p className="mt-4 text-emerald-100/85 leading-relaxed">
               Instantly download the official A2Z Company Profile PDF — ISO certificates,

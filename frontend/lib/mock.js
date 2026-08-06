@@ -5,7 +5,7 @@
 export const COMPANY = {
   name: "A2Z Plant Nutrient",
   legalName: "A2Z Plant Nutrient Private Limited",
-  tagline: "From Tender to Tree",
+  tagline: "From Tender To Tree",
   positioning: "Government / PSU / Corporate Horticulture EPC Partner",
   founded: 2021,
   phone: "+91 81605 34604",

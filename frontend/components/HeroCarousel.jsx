@@ -18,20 +18,20 @@ const SLIDES = [
   {
     id: "epc",
     kicker: "Government · PSU · Corporate Horticulture EPC",
-    title: "Building India's Green Infrastructure — One Project At A Time.",
+    title: "Engineering Sustainable Landscapes For India's Future.",
     subtitle:
-      "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, Startup India-recognised horticulture EPC partner delivering large-scale landscaping, plantation, lawn development and multi-year maintenance across multiple Indian states.",
+      "We architect and maintain world-class green spaces that elevate institutional campuses, national corridors, and urban environments through sustainable horticulture and precision execution.",
     image: "/project01.jpg",
     accent: "emerald",
-    primaryCta: { label: "Discuss a Tender", href: "/contact" },
+    primaryCta: { label: "Discuss A Tender", href: "/contact" },
     secondaryCta: { label: "View Projects", href: "/projects" },
   },
   {
     id: "trusted",
-    kicker: "Trusted by India's Institutions",
-    title: "Delivered for NHAI · NTPC · NBCC · IOCL · BHEL · NFL",
+    kicker: "Trusted By India's Institutions",
+    title: "Partnering With India's Most Prestigious Institutions.",
     subtitle:
-      "From 10,000+ plants along the Ayodhya–Basti highway to the World Trade Center landscape under NBCC — A2Z is the horticulture EPC partner for India's most-scrutinised procurement teams.",
+      "Empowering Navratna CPSEs, government ministries, and leading corporations to realize their environmental mandates with uncompromising quality and scale.",
     image: "/service_02.jpg",
     accent: "amber",
     primaryCta: { label: "See Our Clients", href: "/#trusted-by" },
@@ -39,10 +39,10 @@ const SLIDES = [
   },
   {
     id: "credentials",
-    kicker: "Compliance-first",
-    title: "ISO 9001 · ISO 14001 · Startup India · Udyam",
+    kicker: "Compliance-First",
+    title: "Certified Excellence And Unwavering Compliance.",
     subtitle:
-      "Every credential a tender committee looks for — plus an in-house team, transparent PO summary and a printable Company Profile that lands in your inbox within seconds.",
+      "Backed by rigorous ISO certifications and government recognition, we bring transparency, accountability, and robust governance to every horticultural endeavor.",
     image: "/service_01.jpg",
     accent: "emerald",
     primaryCta: { label: "Download Company Profile", href: "#request-profile", modal: true },
@@ -51,12 +51,12 @@ const SLIDES = [
   {
     id: "scale",
     kicker: "Pan-India Operations",
-    title: "10 Lakh+ sq. ft. transformed. 100+ projects delivered.",
+    title: "A Legacy Of Transformative Green Infrastructure.",
     subtitle:
-      "A field-tested EPC playbook running across Uttar Pradesh, Madhya Pradesh, Odisha, Delhi, Gujarat and Rajasthan — with sector-specific expertise in highways, PSU townships, hospitality and CSR.",
+      "Deploying an extensive pan-India workforce to cultivate millions of square feet of ecological value, ensuring enduring resilience and aesthetic brilliance.",
     image: "/project02.jpg",
     accent: "amber",
-    primaryCta: { label: "Get a Quote", href: "/contact" },
+    primaryCta: { label: "Get A Quote", href: "/contact" },
     secondaryCta: { label: "See Services", href: "/services" },
   },
 ];
@@ -136,7 +136,7 @@ export default function HeroCarousel({ onRequestProfile }) {
                 >
                   <ShieldCheck size={14} /> {slide.kicker}
                 </span>
-                <h1 className="mt-6 font-serif text-4xl md:text-6xl text-white font-semibold leading-[1.05]">
+                <h1 className="mt-6 font-hero text-4xl md:text-5xl lg:text-6xl text-white font-semibold leading-[1.05] tracking-tight">
                   {slide.title}
                 </h1>
                 <p className="mt-6 text-lg text-emerald-100/85 leading-relaxed max-w-2xl">
@@ -196,7 +196,7 @@ export default function HeroCarousel({ onRequestProfile }) {
               className="rounded-3xl bg-white/10 backdrop-blur ring-1 ring-white/15 p-8 shadow-2xl"
             >
               <div className="flex items-center gap-2 text-amber-300 text-xs uppercase tracking-[0.22em] font-semibold">
-                <Sparkles size={14} /> Company snapshot
+                <Sparkles size={14} /> Company Snapshot
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
                 {STATS.map((s, i) => (

@@ -123,7 +123,7 @@ export default function BlogPage() {
                       href={`/blog/${b.slug}`}
                       className="mt-4 inline-flex items-center gap-1 text-emerald-700 font-medium text-sm"
                     >
-                      Read more <ArrowRight size={14} />
+                      Read More <ArrowRight size={14} />
                     </Link>
                   </div>
                 </Card>

@@ -1,17 +1,17 @@
-## user_problem_statement: there is no project named "Water Resources Dept…" and instead keep the other items like "Private Institutions", CSIL(sewa internationals). And in the later section, include the cards for NTPC, Sewa Internationals, Castillo, Shivalik,
+## user_problem_statement: Convert all headings, titles, labels, and important phrases to Title Case. Capitalize the first letter of each significant word. for the hero banner of homepage, please change the style of showing heading for ex: Building India's Green Infrastructure — One Project At A Time change the font family, rephrase it, we are already having multiple places where we are showing the project details/descriptions, instead show something more premium content
 ## frontend:
-  - task: "Update Projects page with OCR data and new client tags"
+  - task: "Convert phrases to Title Case and redesign Hero content/font"
     implemented: true
     working: "NA"
-    file: "/app/frontend/lib/mock.js, /app/frontend/app/projects/page.jsx"
+    file: "/app/frontend/app/layout.jsx, globals.css, components/HeroCarousel.jsx, components/TrustedBy.jsx, app/**/*.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: true
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Updated TRUSTED_BY in mock.js to remove Water Resources Dept and include Private Institutions, CSIL, Sewa International, Shivalik, Castillo. Added 4 new project cards for NTPC, Sewa International, Shivalik, and Castillo in the PROJECTS array. Re-rendered the Projects page to show 19 client tags instead of 12. Waiting for testing agent."
+        -comment: "Added Playfair Display font as '--font-hero' in layout.jsx and globals.css. Rewrote HeroCarousel.jsx SLIDES data with premium phrasing (e.g., 'Engineering Sustainable Landscapes For India's Future.') without project details. Changed hero h1 to use font-hero. Ran python script to update exact string matches across all page.jsx and component files to Title Case. Waiting for testing agent."
 
 agent_communication:
     -agent: "main"
-    -message: "Please test the Projects page (/projects). Verify that the Institutional Clients grid at the top has been expanded to show 19 buttons including Sewa International, Shivalik, Castillo, and CSIL. Verify that clicking on one of the new client tags smoothly scrolls to a project card below."
+    -message: "Please test the homepage and other pages. Verify that the Hero carousel now uses a new premium serif font (Playfair Display, via 'font-hero' class) for the main headings, and that the content reflects high-end positioning rather than listing project details. Also verify that major headings and buttons (e.g., 'Get A Quote', 'Government & PSU Projects') are using Title Case."

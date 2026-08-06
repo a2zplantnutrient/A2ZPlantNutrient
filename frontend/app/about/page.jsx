@@ -109,7 +109,7 @@ export default function AboutPage() {
               <p className="mt-4 text-stone-600 leading-relaxed">{CRAFTMYGARDEN.description}</p>
               <div className="mt-6 flex gap-3">
                 <Button asChild className="bg-emerald-700 hover:bg-emerald-800 rounded-full">
-                  <Link href="/contact">Get notified at launch <ArrowRight size={14} className="ml-1" /></Link>
+                  <Link href="/contact">Get Notified At Launch <ArrowRight size={14} className="ml-1" /></Link>
                 </Button>
                 <Link href="/gallery" className="inline-flex items-center text-emerald-700 font-medium">See samples <ArrowRight size={14} className="ml-1" /></Link>
               </div>

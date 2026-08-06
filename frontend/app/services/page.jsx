@@ -23,9 +23,9 @@ export default function ServicesPage() {
 
       <section className="max-w-7xl mx-auto px-6 py-14">
         <FadeIn className="max-w-3xl">
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Two clear tracks</p>
+          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Two Clear Tracks</p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            EPC for institutions. A dedicated brand for homes.
+            EPC For Institutions. A Dedicated Brand For Homes.
           </h2>
           <p className="mt-5 text-stone-600 leading-relaxed">
             Our core business is horticulture EPC for government, PSU and corporate clients. Residential
@@ -49,7 +49,7 @@ export default function ServicesPage() {
                 and long-term SLAs.
               </p>
               <Button asChild className="mt-6 bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full">
-                <Link href="/projects">See projects <ArrowRight size={16} className="ml-1" /></Link>
+                <Link href="/projects">See Projects <ArrowRight size={16} className="ml-1" /></Link>
               </Button>
             </Card>
           </FadeIn>
@@ -67,7 +67,7 @@ export default function ServicesPage() {
                 gifting and garden care.
               </p>
               <Button asChild variant="outline" className="mt-6 rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50">
-                <Link href="/contact">Get launch updates <ArrowRight size={16} className="ml-1" /></Link>
+                <Link href="/contact">Get Launch Updates <ArrowRight size={16} className="ml-1" /></Link>
               </Button>
             </Card>
           </FadeIn>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
                   <p className="text-stone-600 leading-relaxed text-[15px]">{s.description}</p>
                   <div className="mt-5 flex items-center justify-between gap-3">
                     <Link href="/contact" className="inline-flex items-center gap-1 text-emerald-700 font-medium text-sm">
-                      Learn more <ArrowRight size={14} />
+                      Learn More <ArrowRight size={14} />
                     </Link>
                     <Button
                       asChild
@@ -108,7 +108,7 @@ export default function ServicesPage() {
                       className="bg-emerald-700 hover:bg-emerald-800 rounded-full"
                       data-testid={`service-quote-${s.slug}`}
                     >
-                      <Link href="/contact">Get a Quote</Link>
+                      <Link href="/contact">Get A Quote</Link>
                     </Button>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
           <FadeIn>
             <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Why Procurement Teams Choose Us</p>
             <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-              Audit-ready. Tender-compliant. Field-proven.
+              Audit-Ready. Tender-Compliant. Field-Proven.
             </h2>
             <p className="mt-5 text-stone-600 leading-relaxed">
               We combine horticultural expertise with the paperwork and process discipline that
@@ -152,7 +152,7 @@ export default function ServicesPage() {
               ))}
             </div>
             <Button asChild className="mt-8 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
-              <Link href="/contact">Start a conversation <ArrowRight size={18} className="ml-1" /></Link>
+              <Link href="/contact">Start A Conversation <ArrowRight size={18} className="ml-1" /></Link>
             </Button>
           </FadeIn>
           <FadeIn className="grid grid-cols-2 gap-4">
