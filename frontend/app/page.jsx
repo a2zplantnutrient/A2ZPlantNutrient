@@ -25,6 +25,14 @@ import HeroCarousel from "@/components/HeroCarousel";
 import TrustedBy from "@/components/TrustedBy";
 import ProfileRequestModal from "@/components/ProfileRequestModal";
 import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
+import {
   FEATURES,
   ABOUT_IMAGES,
   SERVICES,
@@ -56,34 +64,44 @@ export default function HomePage() {
       <TrustedBy onRequestProfile={() => setProfileOpen(true)} />
 
       {/* FEATURES */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Why A2Z</span>
-          <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            EPC-Grade Horticulture, Executed Reliably
-          </h2>
-        </FadeIn>
-        <Stagger className="grid md:grid-cols-3 gap-6">
-          {FEATURES.map((f, i) => {
-            const Icon = iconMap[f.icon] || Leaf;
-            return (
-              <StaggerItem key={i}>
-                <Card className="group p-8 border-stone-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-50 group-hover:bg-emerald-100 flex items-center justify-center text-emerald-700 mb-5 transition-colors group-hover:rotate-6">
-                    <Icon size={26} />
-                  </div>
-                  <h3 className="font-serif text-xl font-semibold text-emerald-950 mb-3">{f.title}</h3>
-                  <p className="text-stone-600 leading-relaxed text-[15px]">{f.text}</p>
-                </Card>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Why A2Z</span>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              EPC-Grade Horticulture, Executed Reliably
+            </h2>
+          </FadeIn>
+          <Stagger className="grid md:grid-cols-3 gap-6">
+            {FEATURES.map((f, i) => {
+              const Icon = iconMap[f.icon] || Leaf;
+              return (
+                <StaggerItem key={i}>
+                  <Card className="group p-8 border-stone-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-white h-full">
+                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 group-hover:bg-emerald-100 flex items-center justify-center text-emerald-700 mb-5 transition-colors group-hover:rotate-6">
+                      <Icon size={26} />
+                    </div>
+                    <h3 className="font-serif text-xl font-semibold text-emerald-950 mb-3">{f.title}</h3>
+                    <p className="text-stone-600 leading-relaxed text-[15px]">{f.text}</p>
+                  </Card>
+                </StaggerItem>
+              );
+            })}
+          </Stagger>
+        </div>
       </section>
 
       {/* PROJECTS PREVIEW */}
-      <section className="py-20 bg-stone-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-20 bg-stone-50 relative overflow-hidden">
+        {/* Subtle Botanical Texture and Waves */}
+        <LeafVeinPattern opacity={0.03} />
+        <WatercolorLeafSingle className="absolute -left-20 top-20 w-72 h-72 hidden md:block" opacity={0.04} rotate={15} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
             <div>
               <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Selected Work</span>
@@ -127,45 +145,57 @@ export default function HomePage() {
             ))}
           </Stagger>
         </div>
+        {/* Organic Section Transition */}
+        <OrganicWaveSeparator className="absolute bottom-0 left-0 w-full h-16" opacity={0.05} />
       </section>
 
       {/* ABOUT */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
-        <ScaleIn className="relative">
-          <div className="grid grid-cols-2 gap-4">
-            <img src={ABOUT_IMAGES.one} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover w-full" />
-            <img src={ABOUT_IMAGES.two} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover w-full mt-8" />
-          </div>
-          <div className="absolute -bottom-6 left-6 bg-white shadow-xl rounded-2xl px-6 py-4 flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-emerald-700 flex items-center justify-center text-white">
-              <Users size={22} />
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Corner Elements */}
+        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.05} />
+        <WatercolorLeafSingle className="absolute -left-20 bottom-10 w-64 h-64 hidden md:block" opacity={0.04} rotate={-30} />
+
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center relative z-10">
+          <ScaleIn className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              <img src={ABOUT_IMAGES.one} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover w-full" />
+              <img src={ABOUT_IMAGES.two} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover w-full mt-8" />
             </div>
-            <div>
-              <div className="font-serif text-2xl text-emerald-900 font-bold">100+</div>
-              <div className="text-xs uppercase tracking-wider text-stone-500">Projects Delivered</div>
+            <div className="absolute -bottom-6 left-6 bg-white shadow-xl rounded-2xl px-6 py-4 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-emerald-700 flex items-center justify-center text-white">
+                <Users size={22} />
+              </div>
+              <div>
+                <div className="font-serif text-2xl text-emerald-900 font-bold">100+</div>
+                <div className="text-xs uppercase tracking-wider text-stone-500">Projects Delivered</div>
+              </div>
             </div>
-          </div>
-        </ScaleIn>
-        <FadeIn>
-          <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Who We Are</span>
-          <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            An EPC Partner Built For India&apos;s Green Mandates
-          </h2>
-          <p className="mt-5 text-stone-600 leading-relaxed">
-            A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC partner headquartered in Varanasi and operating across multiple Indian states.
-          </p>
-          <p className="mt-4 text-stone-600 leading-relaxed">
-            Since incorporation in 2021, we&apos;ve delivered 100+ projects — with named work for NHAI, NTPC, NBCC, Indian Oil, BHEL, NFL and the Rajasthan Housing Board.
-          </p>
-          <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
-            <Link href="/about">Learn More About Us <ArrowRight size={18} className="ml-1" /></Link>
-          </Button>
-        </FadeIn>
+          </ScaleIn>
+          <FadeIn>
+            <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Who We Are</span>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              An EPC Partner Built For India&apos;s Green Mandates
+            </h2>
+            <p className="mt-5 text-stone-600 leading-relaxed">
+              A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC partner headquartered in Varanasi and operating across multiple Indian states.
+            </p>
+            <p className="mt-4 text-stone-600 leading-relaxed">
+              Since incorporation in 2021, we&apos;ve delivered 100+ projects — with named work for NHAI, NTPC, NBCC, Indian Oil, BHEL, NFL and the Rajasthan Housing Board.
+            </p>
+            <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
+              <Link href="/about">Learn More About Us <ArrowRight size={18} className="ml-1" /></Link>
+            </Button>
+          </FadeIn>
+        </div>
       </section>
 
       {/* SERVICES */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchRight className="absolute -left-16 -top-20 w-80 h-[600px] hidden md:block scale-x-[-1]" opacity={0.04} />
+        <LeafOutlineCorner className="absolute -right-20 -bottom-20 w-96 h-96 hidden md:block" opacity={0.04} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">What We Do</span>
             <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Our EPC Service Portfolio</h2>
@@ -202,8 +232,10 @@ export default function HomePage() {
       </section>
 
       {/* CRAFTMYGARDEN TEASER */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50" data-testid="craftmygarden-teaser">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50 relative overflow-hidden" data-testid="craftmygarden-teaser">
+        {/* Subtle Floating Leaf */}
+        <WatercolorLeafSingle className="absolute right-10 top-10 w-48 h-48 hidden md:block" opacity={0.05} rotate={60} />
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <FadeIn>
             <Card className="relative overflow-hidden p-10 md:p-14 border-none shadow-lg grid md:grid-cols-2 gap-8 items-center bg-white">
               <div>
@@ -232,8 +264,12 @@ export default function HomePage() {
 
       {/* BLOG — only rendered if blogs exist */}
       {blogs.length > 0 && (
-        <section className="py-20 bg-stone-50">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-20 bg-stone-50 relative overflow-hidden">
+          {/* Subtle Botanical Texture */}
+          <LeafVeinPattern opacity={0.02} />
+          <WatercolorBranchLeft className="absolute -right-16 -bottom-20 w-72 h-[500px] hidden md:block" opacity={0.04} />
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
               <div>
                 <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">From Our Blog</span>

@@ -17,6 +17,14 @@ import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem, ScaleIn } from "@/components/Motion";
 import Counter from "@/components/Counter";
 import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
+import {
   ABOUT_IMAGES,
   STATS,
   CERTIFICATIONS,
@@ -48,54 +56,62 @@ export default function AboutPage() {
       <PageHero title="About A2Z Plant Nutrient" subtitle="Who We Are" />
 
       {/* Intro */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
-        <ScaleIn className="grid grid-cols-2 gap-4">
-          <img src={ABOUT_IMAGES.one} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover" />
-          <img src={ABOUT_IMAGES.two} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover mt-10" />
-        </ScaleIn>
-        <FadeIn>
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
-            About the Company
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            A horticulture EPC partner — built for India&apos;s scale.
-          </h2>
-          <p className="mt-5 text-stone-600 leading-relaxed">
-            <strong>{COMPANY.legalName}</strong> is a DPIIT-recognized, ISO 9001 &amp; 14001 certified private
-            limited company incorporated in {COMPANY.founded}. Headquartered in Varanasi and operating across
-            multiple Indian states, we deliver end-to-end horticulture contracts — landscaping, plantation, turf,
-            mural art and multi-year maintenance — for government departments, PSUs and corporate campuses.
-          </p>
-          <p className="mt-4 text-stone-600 leading-relaxed">
-            Our in-house team of 100+ horticulturists, agronomists, gardeners and site supervisors is the
-            engine behind on-time, tender-spec delivery. We are proud to have executed work for national
-            agencies including NHAI, NTPC, NFL, BHEL, VDA and Hindustan Copper.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {CERTIFICATIONS.map((c) => (
-              <span
-                key={c.code}
-                className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full ${
-                  c.color === "amber"
-                    ? "bg-amber-100 text-amber-800"
-                    : "bg-emerald-100 text-emerald-800"
-                }`}
-              >
-                <ShieldCheck size={12} /> {c.code} · {c.name}
-              </span>
-            ))}
-          </div>
-          <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
-            <Link href="/projects">
-              See Our Projects <ArrowRight size={18} className="ml-1" />
-            </Link>
-          </Button>
-        </FadeIn>
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center relative z-10">
+          <ScaleIn className="grid grid-cols-2 gap-4">
+            <img src={ABOUT_IMAGES.one} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover" />
+            <img src={ABOUT_IMAGES.two} alt="Project site" className="rounded-3xl aspect-[3/4] object-cover mt-10" />
+          </ScaleIn>
+          <FadeIn>
+            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
+              About the Company
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              A horticulture EPC partner — built for India&apos;s scale.
+            </h2>
+            <p className="mt-5 text-stone-600 leading-relaxed">
+              <strong>{COMPANY.legalName}</strong> is a DPIIT-recognized, ISO 9001 &amp; 14001 certified private
+              limited company incorporated in {COMPANY.founded}. Headquartered in Varanasi and operating across
+              multiple Indian states, we deliver end-to-end horticulture contracts — landscaping, plantation, turf,
+              mural art and multi-year maintenance — for government departments, PSUs and corporate campuses.
+            </p>
+            <p className="mt-4 text-stone-600 leading-relaxed">
+              Our in-house team of 100+ horticulturists, agronomists, gardeners and site supervisors is the
+              engine behind on-time, tender-spec delivery. We are proud to have executed work for national
+              agencies including NHAI, NTPC, NFL, BHEL, VDA and Hindustan Copper.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {CERTIFICATIONS.map((c) => (
+                <span
+                  key={c.code}
+                  className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full ${
+                    c.color === "amber"
+                      ? "bg-amber-100 text-amber-800"
+                      : "bg-emerald-100 text-emerald-800"
+                  }`}
+                >
+                  <ShieldCheck size={12} /> {c.code} · {c.name}
+                </span>
+              ))}
+            </div>
+            <Button asChild className="mt-7 bg-emerald-700 hover:bg-emerald-800 rounded-full px-7 py-6 text-white">
+              <Link href="/projects">
+                See Our Projects <ArrowRight size={18} className="ml-1" />
+              </Link>
+            </Button>
+          </FadeIn>
+        </div>
       </section>
 
       {/* CraftMyGarden: integrated into About */}
-      <section className="py-16 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50 relative overflow-hidden">
+        {/* Subtle Floating Leaf */}
+        <WatercolorLeafSingle className="absolute left-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.04} rotate={-15} />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="mb-8 text-center">
             <p className="uppercase tracking-[0.25em] text-amber-700 text-xs font-semibold">CraftMyGarden</p>
             <h2 className="font-serif text-2xl md:text-4xl text-emerald-950 font-semibold mt-2">Residential &amp; D2C landscaping</h2>
@@ -126,8 +142,12 @@ export default function AboutPage() {
       </section>
 
       {/* Mission / Vision / Values */}
-      <section className="py-16 bg-emerald-50/50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 bg-emerald-50/50 relative overflow-hidden">
+        {/* Subtle Botanical Texture */}
+        <LeafVeinPattern opacity={0.02} />
+        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.05} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
             <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">Our North Star</p>
             <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
@@ -154,10 +174,14 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6">
+      <section className="py-20 relative overflow-hidden bg-white">
+        {/* Organic Wave Transition */}
+        <OrganicWaveSeparator className="absolute top-0 left-0 w-full h-12" opacity={0.04} />
+        <WatercolorLeafSingle className="absolute right-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.03} rotate={120} />
+
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 relative z-10">
           {STATS.map((s, i) => (
-            <FadeIn key={i} delay={i * 0.05} className="text-center p-8 rounded-3xl bg-white border border-stone-200">
+            <FadeIn key={i} delay={i * 0.05} className="text-center p-8 rounded-3xl bg-white border border-stone-200 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-700 mb-5">
                 {i === 0 ? <Building2 size={26} /> : i === 1 ? <Users size={26} /> : i === 2 ? <Leaf size={26} /> : <ShieldCheck size={26} />}
               </div>

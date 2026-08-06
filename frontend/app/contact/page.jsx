@@ -9,6 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
+import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
 import { useToast } from "@/hooks/use-toast";
 import { COMPANY } from "@/lib/mock";
 import { sendContact } from "@/lib/api";
@@ -58,8 +66,14 @@ export default function ContactPage() {
     <div data-testid="contact-page">
       <PageHero title="Get in Touch" subtitle="Contact Us" />
 
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-3 gap-10">
+      <section className="relative overflow-hidden py-20 bg-white">
+        {/* Subtle Botanical Accents */}
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.05} />
+        <WatercolorLeafSingle className="absolute right-10 top-10 w-64 h-64 hidden md:block" opacity={0.04} rotate={30} />
+        <LeafVeinPattern opacity={0.015} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-3 gap-10">
           <Stagger className="lg:col-span-1 space-y-5">
             {contactInfo.map((info, i) => {
               const Icon = info.icon;
@@ -140,6 +154,7 @@ export default function ContactPage() {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </FadeIn>
+        </div>
       </section>
     </div>
   );

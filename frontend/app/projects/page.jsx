@@ -8,6 +8,14 @@ import PageHero from "@/components/PageHero";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/Motion";
+import {
+  WatercolorBranchLeft,
+  WatercolorBranchRight,
+  LeafOutlineCorner,
+  LeafVeinPattern,
+  OrganicWaveSeparator,
+  WatercolorLeafSingle,
+} from "@/components/BotanicalPatterns";
 import ProfileRequestModal from "@/components/ProfileRequestModal";
 import ClientLogo from "@/components/ClientLogo";
 import { PROJECTS, CERTIFICATIONS, TRUSTED_BY, CLIENTS } from "@/lib/mock";
@@ -61,20 +69,27 @@ export default function ProjectsPage() {
     <div data-testid="projects-page">
       <PageHero title="Projects & Portfolio" subtitle="Selected EPC Work" />
 
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <FadeIn className="max-w-3xl">
-          <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
-            Government · PSU · Corporate
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            Green Infrastructure At Scale.
-          </h2>
-          <p className="mt-5 text-stone-600 leading-relaxed">
-            A snapshot of horticulture EPC contracts A2Z Plant Nutrient has executed for
-            national agencies, PSUs and corporate clients across multiple Indian states.
-            Full case studies and PO copies are shared with procurement teams on request.
-          </p>
-        </FadeIn>
+      <section className="relative overflow-hidden py-14 bg-white">
+        {/* Subtle Botanical Background elements */}
+        <WatercolorBranchLeft className="absolute -left-20 top-20 w-80 h-[600px] hidden md:block" opacity={0.04} />
+        <WatercolorBranchRight className="absolute -right-20 top-[350px] w-80 h-[600px] hidden md:block" opacity={0.04} />
+        <LeafOutlineCorner className="absolute -left-20 bottom-10 w-96 h-96 hidden md:block" opacity={0.03} />
+        <LeafVeinPattern opacity={0.015} />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="max-w-3xl">
+            <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
+              Government · PSU · Corporate
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              Green Infrastructure At Scale.
+            </h2>
+            <p className="mt-5 text-stone-600 leading-relaxed">
+              A snapshot of horticulture EPC contracts A2Z Plant Nutrient has executed for
+              national agencies, PSUs and corporate clients across multiple Indian states.
+              Full case studies and PO copies are shared with procurement teams on request.
+            </p>
+          </FadeIn>
 
         {/* Procurement quick-request banner */}
         <FadeIn className="mt-10">
@@ -235,6 +250,7 @@ export default function ProjectsPage() {
             </Button>
           </div>
         </motion.div>
+        </div>
       </section>
 
       <ProfileRequestModal open={modalOpen} onClose={() => setModalOpen(false)} />
