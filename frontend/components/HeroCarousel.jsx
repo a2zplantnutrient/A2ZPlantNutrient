@@ -21,7 +21,7 @@ const SLIDES = [
     title: "Engineering Sustainable Landscapes For India's Future.",
     subtitle:
       "We architect and maintain world-class green spaces that elevate institutional campuses, national corridors, and urban environments through sustainable horticulture and precision execution.",
-    image: "/project01.jpg",
+    image: "/real-avenue-hedge-palms.jpg",
     accent: "emerald",
     primaryCta: { label: "Discuss A Tender", href: "/contact" },
     secondaryCta: { label: "View Projects", href: "/projects" },
@@ -32,7 +32,7 @@ const SLIDES = [
     title: "Partnering With India's Most Prestigious Institutions.",
     subtitle:
       "Empowering Navratna CPSEs, government ministries, and leading corporations to realize their environmental mandates with uncompromising quality and scale.",
-    image: "/service_02.jpg",
+    image: "/real-parkgate-varanasi.jpg",
     accent: "amber",
     primaryCta: { label: "See Our Clients", href: "/#trusted-by" },
     secondaryCta: { label: "View Projects", href: "/projects" },
@@ -43,7 +43,7 @@ const SLIDES = [
     title: "Certified Excellence And Unwavering Compliance.",
     subtitle:
       "Backed by rigorous ISO certifications and government recognition, we bring transparency, accountability, and robust governance to every horticultural endeavor.",
-    image: "/service_01.jpg",
+    image: "/real-nightlighting-nagarnigam.jpg",
     accent: "emerald",
     primaryCta: { label: "Download Company Profile", href: "#request-profile", modal: true },
     secondaryCta: { label: "Learn About Us", href: "/about" },
@@ -54,7 +54,7 @@ const SLIDES = [
     title: "A Legacy Of Transformative Green Infrastructure.",
     subtitle:
       "Deploying an extensive pan-India workforce to cultivate millions of square feet of ecological value, ensuring enduring resilience and aesthetic brilliance.",
-    image: "/project02.jpg",
+    image: "/real-hedge-road-riverside.jpg",
     accent: "amber",
     primaryCta: { label: "Get A Quote", href: "/contact" },
     secondaryCta: { label: "See Services", href: "/services" },

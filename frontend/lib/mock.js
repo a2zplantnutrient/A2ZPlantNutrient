@@ -45,7 +45,7 @@ export const HERO = {
     "Building India's Green Infrastructure — One Project At A Time.",
   description:
     "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC partner. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
-  image: "/project01.jpg",
+  image: "/real-avenue-hedge-palms.jpg",
 };
 
 export const FEATURES = [
@@ -67,8 +67,8 @@ export const FEATURES = [
 ];
 
 export const ABOUT_IMAGES = {
-  one: "/project01.jpg",
-  two: "/project02.jpg",
+  one: "/real-township-avenue-install.jpg",
+  two: "/real-paver-walkway2.jpg",
 };
 
 // Real, verifiable credentials
@@ -101,7 +101,7 @@ export const SERVICES = [
     slug: "horticulture-landscaping",
     title: "Horticulture & Landscaping",
     track: "Government / PSU / Corporate",
-    image: "/service_01.jpg",
+    image: "/real-hedge-road-wide.jpg",
     description:
       "End-to-end landscape execution for government installations, PSU townships and corporate campuses.",
   },
@@ -109,7 +109,7 @@ export const SERVICES = [
     slug: "turnkey-projects",
     title: "Turnkey Projects",
     track: "Government / PSU / Corporate",
-    image: "/project01.jpg",
+    image: "/real-avenue-install-day.jpg",
     description:
       "Complete EPC (Engineering, Procurement, and Construction) services delivering ready-to-use green infrastructure.",
   },
@@ -117,7 +117,7 @@ export const SERVICES = [
     slug: "arboriculture",
     title: "Arboriculture",
     track: "Government / PSU / Corporate",
-    image: "/service_02.jpg",
+    image: "/real-tree-pruning-work.jpg",
     description:
       "Professional cultivation, management, and study of individual trees, shrubs, vines, and other perennial woody plants.",
   },
@@ -125,7 +125,7 @@ export const SERVICES = [
     slug: "urban-beautification",
     title: "Urban Beautification",
     track: "Government / PSU / Corporate",
-    image: "/service_03.jpg",
+    image: "/real-mural-park-art.jpg",
     description:
       "Transforming cityscapes through strategic plantation, murals, and environmental art for public spaces.",
   },
@@ -133,7 +133,7 @@ export const SERVICES = [
     slug: "park-development",
     title: "Park Development",
     track: "Government / PSU / Corporate",
-    image: "/service_04.jpg",
+    image: "/real-playground-gym.jpg",
     description:
       "Designing and constructing community parks, recreational areas, and ecological zones with sustainable infrastructure.",
   },
@@ -141,7 +141,7 @@ export const SERVICES = [
     slug: "hardscaping",
     title: "Hardscaping",
     track: "Government / PSU / Corporate",
-    image: "/service_05.jpg",
+    image: "/real-paver-walkway.jpg",
     description:
       "Integration of non-living elements like pathways, retaining walls, and outdoor structures into the landscape design.",
   },
@@ -149,7 +149,7 @@ export const SERVICES = [
     slug: "beautification-gardening",
     title: "Beautification & Gardening",
     track: "Government / PSU / Corporate",
-    image: "/service_06.jpg",
+    image: "/real-flowerbed-roadside.jpg",
     description:
       "Aesthetic enhancement of corporate campuses and institutional facilities through expert gardening solutions.",
   },
@@ -157,7 +157,7 @@ export const SERVICES = [
     slug: "greenery-solutions",
     title: "Greenery Solutions",
     track: "Government / PSU / Corporate",
-    image: "/service_07.jpg",
+    image: "/real-vertical-garden.jpg",
     description:
       "Customized green interventions including indoor plantations and climate-resilient outdoor vegetative planning.",
   },
@@ -165,7 +165,7 @@ export const SERVICES = [
     slug: "epc",
     title: "EPC Services",
     track: "Government / PSU / Corporate",
-    image: "/project02.jpg",
+    image: "/real-apartment-landscape.jpg",
     description:
       "Comprehensive Engineering, Procurement, and Construction capabilities for large-scale environmental mandates.",
   },
@@ -173,7 +173,7 @@ export const SERVICES = [
     slug: "plantation-maintenance",
     title: "Plantation & Maintenance",
     track: "Government / PSU / Corporate",
-    image: "/service_08.jpg",
+    image: "/real-iocl-odisha-maintenance.jpg",
     description:
       "Bulk avenue plantation drives and multi-year comprehensive maintenance (AMC) contracts.",
   },
@@ -181,7 +181,7 @@ export const SERVICES = [
     slug: "private-projects",
     title: "Private Projects",
     track: "Corporate / Private",
-    image: "/service_01.jpg",
+    image: "/real-private-garden.jpg",
     description:
       "Tailored landscaping and horticulture services for private estates, educational institutions, and hospitality.",
   },
@@ -189,7 +189,7 @@ export const SERVICES = [
     slug: "outdoor-court-planning",
     title: "Outdoor Court Planning",
     track: "Government / PSU / Corporate",
-    image: "/service_04.jpg",
+    image: "/real-playground-gym2.jpg",
     description:
       "Sports court and recreation-space planning for schools, campuses, PSU townships and community centres.",
   },
@@ -197,7 +197,7 @@ export const SERVICES = [
     slug: "government-municipal",
     title: "Government & Municipal",
     track: "Government",
-    image: "/service_02.jpg",
+    image: "/real-parkgate-varanasi.jpg",
     description:
       "Execution of large-scale tenders for municipal corporations, urban local bodies, and state departments.",
   },
@@ -205,7 +205,7 @@ export const SERVICES = [
     slug: "green-belt-development",
     title: "Green Belt Development",
     track: "Government / PSU / Corporate",
-    image: "/project01.jpg",
+    image: "/real-hedge-road-riverside.jpg",
     description:
       "Establishing buffer zones and green belts around industrial areas and highways for environmental compliance.",
   },
@@ -213,7 +213,7 @@ export const SERVICES = [
     slug: "lawn-turf-solutions",
     title: "Lawn & Turf Solutions",
     track: "Government / PSU / Corporate",
-    image: "/service_06.jpg",
+    image: "/real-park-worker-spray.jpg",
     description:
       "New lawn creation and reconditioning with premium turf varieties and automated irrigation systems.",
   },
@@ -221,7 +221,7 @@ export const SERVICES = [
     slug: "civil-projects",
     title: "Civil Projects",
     track: "Government / PSU / Corporate",
-    image: "/service_03.jpg",
+    image: "/real-paver-walkway2.jpg",
     description:
       "Civil works complementary to landscaping, ensuring structural integrity of outdoor environments.",
   },
@@ -229,7 +229,7 @@ export const SERVICES = [
     slug: "vertical-gardens",
     title: "Vertical Gardens & Green Walls",
     track: "Corporate / Institutional",
-    image: "/service_05.jpg",
+    image: "/real-vertical-garden.jpg",
     description:
       "Space-efficient bio-walls and vertical gardens for modern corporate interiors and urban facades.",
   }
@@ -249,7 +249,7 @@ export const PROJECTS = [
       { label: "Plants Installed", value: "10,000+" },
       { label: "Corridor", value: "Ayodhya–Basti" },
     ],
-    image: "/service_02.jpg",
+    image: "/real-avenue-hedge-palms.jpg",
   },
   {
     slug: "nhai-prayagraj",
@@ -263,7 +263,7 @@ export const PROJECTS = [
       { label: "Land Parcel", value: "3 hectares" },
       { label: "Client", value: "NHAI" },
     ],
-    image: "/service_01.jpg",
+    image: "/real-hedge-road-wide.jpg",
   },
   {
     slug: "nfl-madhya-pradesh",
@@ -277,7 +277,7 @@ export const PROJECTS = [
       { label: "Client", value: "NFL" },
       { label: "State", value: "Madhya Pradesh" },
     ],
-    image: "/service_08.jpg",
+    image: "/real-park-worker-spray.jpg",
   },
   {
     slug: "iocl-odisha",
@@ -291,7 +291,7 @@ export const PROJECTS = [
       { label: "Client", value: "IOCL" },
       { label: "Scope", value: "Maintenance AMC" },
     ],
-    image: "/service_06.jpg",
+    image: "/real-iocl-odisha-maintenance.jpg",
   },
   {
     slug: "pwd-varanasi",
@@ -305,7 +305,7 @@ export const PROJECTS = [
       { label: "Client", value: "PWD / CSIL" },
       { label: "Focus", value: "Divider Landscaping" },
     ],
-    image: "/project02.jpg",
+    image: "/real-hedge-road-riverside.jpg",
   },
   {
     slug: "nbcc-wtc-delhi",
@@ -319,7 +319,7 @@ export const PROJECTS = [
       { label: "Client", value: "NBCC" },
       { label: "Site", value: "WTC Delhi" },
     ],
-    image: "/service_04.jpg",
+    image: "/real-apartment-landscape.jpg",
   },
   {
     slug: "nagar-nigam-varanasi",
@@ -333,7 +333,7 @@ export const PROJECTS = [
       { label: "Trees Planted", value: "5,000" },
       { label: "Protection", value: "Iron Tree Guards" },
     ],
-    image: "/service_03.jpg",
+    image: "/real-nightlighting-nagarnigam.jpg",
   },
   {
     slug: "rajasthan-housing-board",
@@ -347,7 +347,7 @@ export const PROJECTS = [
       { label: "Client", value: "RHB" },
       { label: "Location", value: "Dausa" },
     ],
-    image: "/service_07.jpg",
+    image: "/real-rajasthan-site-road.jpg",
   },
   {
     slug: "sunbeam-varanasi",
@@ -361,7 +361,7 @@ export const PROJECTS = [
       { label: "Sector", value: "Education" },
       { label: "Scope", value: "Full landscape" },
     ],
-    image: "/service_05.jpg",
+    image: "/real-courtyard-garden.jpg",
   },
   {
     slug: "csr-initiatives",
@@ -375,7 +375,7 @@ export const PROJECTS = [
       { label: "Focus", value: "CSR" },
       { label: "Plants", value: "10,000+" },
     ],
-    image: "/project01.jpg",
+    image: "/real-csr-tree-planting.jpg",
   },
   {
     slug: "ntpc-dadri",
@@ -389,7 +389,7 @@ export const PROJECTS = [
       { label: "Client", value: "NTPC" },
       { label: "Scope", value: "Landscape & O&M" },
     ],
-    image: "/service_02.jpg",
+    image: "/real-township-avenue-install.jpg",
   },
   {
     slug: "shivalik-corporates",
@@ -403,7 +403,7 @@ export const PROJECTS = [
       { label: "Client", value: "Shivalik" },
       { label: "Sector", value: "Corporate" },
     ],
-    image: "/service_04.jpg",
+    image: "/real-vertical-garden.jpg",
   },
   {
     slug: "castillo-hospitality",
@@ -417,7 +417,7 @@ export const PROJECTS = [
       { label: "Client", value: "Castillo" },
       { label: "Sector", value: "Hospitality" },
     ],
-    image: "/service_06.jpg",
+    image: "/real-apartment-landscape2.jpg",
   }
 ];
 
@@ -546,67 +546,67 @@ export const LEADERSHIP = [
   },
 ];
 
-// Gallery uses locally-hosted real project images (from a2zplantnutrient.com).
+// Gallery uses locally-hosted real A2Z site photos (site visits, WhatsApp field photos).
 // Each item is captioned to give context — top-nav gallery is now content-rich, not empty.
 export const GALLERY = [
   {
-    src: "/service_01.jpg",
-    title: "Campus Landscape · PSU",
-    caption: "Feature landscape and turf development for a PSU corporate campus.",
-    category: "Landscaping",
-  },
-  {
-    src: "/service_02.jpg",
-    title: "Avenue Plantation · Highway Corridor",
-    caption: "Bulk avenue plantation with native species along a national highway.",
+    src: "/real-avenue-install-day.jpg",
+    title: "Avenue Plantation · Installation",
+    caption: "Palm and ornamental avenue plantation being installed along a project corridor.",
     category: "Plantation",
   },
   {
-    src: "/service_03.jpg",
-    title: "Lawn Reconditioning",
-    caption: "Restoration of an institutional lawn with premium turf and irrigation.",
+    src: "/real-avenue-hedge-palms.jpg",
+    title: "Avenue Plantation · Established",
+    caption: "Established avenue planting with clipped hedges and ornamental palms.",
+    category: "Plantation",
+  },
+  {
+    src: "/real-park-worker-spray.jpg",
+    title: "Lawn & Turf Maintenance",
+    caption: "Routine lawn maintenance and plant health spraying at a client site.",
     category: "Lawn Care",
   },
   {
-    src: "/service_04.jpg",
-    title: "Outdoor Court Planning",
-    caption: "Sports and recreation-space planning for a PSU township.",
+    src: "/real-playground-gym2.jpg",
+    title: "Outdoor Court & Recreation Planning",
+    caption: "Outdoor recreation and open-gym installation within a public park.",
     category: "Facilities",
   },
   {
-    src: "/service_05.jpg",
+    src: "/real-mural-park-art.jpg",
     title: "Mural & Environmental Art",
-    caption: "Large-format wall mural integrated with the landscape design.",
+    caption: "Large-format wall mural integrated with a public park landscape.",
     category: "Mural Art",
   },
   {
-    src: "/service_06.jpg",
-    title: "Lawn Development · New Build",
-    caption: "New lawn creation across a large administrative campus.",
+    src: "/real-hedge-road-wide.jpg",
+    title: "Roadside Hedge Development",
+    caption: "New hedge and shrub development along a road corridor.",
     category: "Lawn Care",
   },
   {
-    src: "/service_07.jpg",
+    src: "/real-iocl-odisha-maintenance.jpg",
     title: "Multi-Year AMC in Action",
-    caption: "Routine horticulture maintenance under a multi-year AMC contract.",
+    caption: "On-ground maintenance crew at an IOCL facility, Odisha, under a multi-year AMC contract.",
     category: "Maintenance",
   },
   {
-    src: "/service_08.jpg",
-    title: "Indoor Plants Deployment",
-    caption: "Bulk indoor-plant deployment across an office campus.",
+    src: "/real-private-garden.jpg",
+    title: "Indoor & Balcony Plants",
+    caption: "Curated indoor and balcony plant deployment for a private client.",
     category: "Indoor Plants",
   },
   {
-    src: "/project01.jpg",
-    title: "Featured Project · Site 01",
-    caption: "Signature institutional landscape delivered by A2Z Plant Nutrient.",
+    src: "/real-nightlighting-nagarnigam.jpg",
+    title: "Featured Project · Nagar Nigam Varanasi",
+    caption: "Landscape lighting and beautification delivered for Nagar Nigam Varanasi.",
     category: "Featured",
   },
   {
-    src: "/project02.jpg",
-    title: "Featured Project · Site 02",
-    caption: "Landscape and plantation work completed for a PSU client.",
+    src: "/real-rajasthan-site-road.jpg",
+    title: "Featured Project · Rajasthan Site",
+    caption: "Site development and roadside greening on a Rajasthan project site.",
     category: "Featured",
   },
 ];

@@ -220,10 +220,10 @@ export default function HomePage() {
                 </Button>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <img src="/service_02.jpg" alt="Plants" className="rounded-2xl aspect-square object-cover" />
-                <img src="/service_08.jpg" alt="Indoor plants" className="rounded-2xl aspect-square object-cover mt-6" />
-                <img src="/service_05.jpg" alt="Garden" className="rounded-2xl aspect-square object-cover" />
-                <img src="/service_03.jpg" alt="Garden" className="rounded-2xl aspect-square object-cover mt-6" />
+                <img src="/real-courtyard-garden.jpg" alt="Courtyard garden" className="rounded-2xl aspect-square object-cover" />
+                <img src="/real-private-garden.jpg" alt="Indoor plants" className="rounded-2xl aspect-square object-cover mt-6" />
+                <img src="/real-vertical-garden.jpg" alt="Vertical garden" className="rounded-2xl aspect-square object-cover" />
+                <img src="/real-flowerbed-roadside.jpg" alt="Garden" className="rounded-2xl aspect-square object-cover mt-6" />
               </div>
             </Card>
           </FadeIn>

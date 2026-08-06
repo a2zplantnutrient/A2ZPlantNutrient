@@ -116,10 +116,10 @@ export default function AboutPage() {
             </Card>
 
             <div className="grid grid-cols-2 gap-3">
-              <img src="/service_02.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
-              <img src="/service_08.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
-              <img src="/service_05.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
-              <img src="/service_03.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/real-courtyard-garden.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/real-private-garden.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/real-vertical-garden.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
+              <img src="/real-nursery-delivery.jpg" alt="CraftMyGarden sample" className="rounded-2xl aspect-square object-cover" />
             </div>
           </div>
         </div>
