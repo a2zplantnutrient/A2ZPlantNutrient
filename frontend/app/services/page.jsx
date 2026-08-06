@@ -31,8 +31,8 @@ export default function ServicesPage() {
 
       <section className="relative overflow-hidden py-14 bg-white">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[500px] hidden md:block" opacity={0.05} />
-        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[500px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[500px] hidden md:block" opacity={0.15} />
+        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[500px] hidden md:block" opacity={0.15} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="max-w-3xl">
@@ -91,8 +91,8 @@ export default function ServicesPage() {
       {/* EPC Services grid */}
       <section className="relative overflow-hidden py-20 bg-stone-50/50">
         {/* Subtle Background Texture */}
-        <LeafVeinPattern opacity={0.02} />
-        <WatercolorLeafSingle className="absolute -left-10 bottom-10 w-52 h-52 hidden md:block" opacity={0.04} rotate={30} />
+        <LeafVeinPattern opacity={0.08} />
+        <WatercolorLeafSingle className="absolute -left-10 bottom-10 w-52 h-52 hidden md:block" opacity={0.12} rotate={30} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
@@ -137,14 +137,14 @@ export default function ServicesPage() {
           </Stagger>
         </div>
         {/* Elegant Wavy Section Splitter */}
-        <OrganicWaveSeparator className="absolute bottom-0 left-0 w-full h-16" opacity={0.04} />
+        <OrganicWaveSeparator className="absolute bottom-0 left-0 w-full h-16" opacity={0.12} />
       </section>
 
       {/* Why Us */}
       <section className="relative overflow-hidden py-20 bg-emerald-50/40">
         {/* Corner Leaf Outline */}
-        <LeafOutlineCorner className="absolute -right-20 -bottom-20 w-96 h-96 hidden md:block" opacity={0.05} />
-        <WatercolorLeafSingle className="absolute -left-20 bottom-10 w-64 h-64 hidden md:block" opacity={0.04} rotate={-45} />
+        <LeafOutlineCorner className="absolute -right-20 -bottom-20 w-96 h-96 hidden md:block" opacity={0.15} />
+        <WatercolorLeafSingle className="absolute -left-20 bottom-10 w-64 h-64 hidden md:block" opacity={0.12} rotate={-45} />
 
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center relative z-10">
           <FadeIn>

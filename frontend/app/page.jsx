@@ -66,8 +66,8 @@ export default function HomePage() {
       {/* FEATURES */}
       <section className="relative overflow-hidden py-20 bg-white">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
-        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.15} />
+        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.15} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
@@ -98,8 +98,8 @@ export default function HomePage() {
       {/* PROJECTS PREVIEW */}
       <section className="py-20 bg-stone-50 relative overflow-hidden">
         {/* Subtle Botanical Texture and Waves */}
-        <LeafVeinPattern opacity={0.03} />
-        <WatercolorLeafSingle className="absolute -left-20 top-20 w-72 h-72 hidden md:block" opacity={0.04} rotate={15} />
+        <LeafVeinPattern opacity={0.08} />
+        <WatercolorLeafSingle className="absolute -left-20 top-20 w-72 h-72 hidden md:block" opacity={0.12} rotate={15} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
@@ -146,14 +146,14 @@ export default function HomePage() {
           </Stagger>
         </div>
         {/* Organic Section Transition */}
-        <OrganicWaveSeparator className="absolute bottom-0 left-0 w-full h-16" opacity={0.05} />
+        <OrganicWaveSeparator className="absolute bottom-0 left-0 w-full h-16" opacity={0.12} />
       </section>
 
       {/* ABOUT */}
       <section className="relative overflow-hidden py-20 bg-white">
         {/* Subtle Botanical Corner Elements */}
-        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.05} />
-        <WatercolorLeafSingle className="absolute -left-20 bottom-10 w-64 h-64 hidden md:block" opacity={0.04} rotate={-30} />
+        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.15} />
+        <WatercolorLeafSingle className="absolute -left-20 bottom-10 w-64 h-64 hidden md:block" opacity={0.12} rotate={-30} />
 
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center relative z-10">
           <ScaleIn className="relative">
@@ -192,8 +192,8 @@ export default function HomePage() {
       {/* SERVICES */}
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchRight className="absolute -left-16 -top-20 w-80 h-[600px] hidden md:block scale-x-[-1]" opacity={0.04} />
-        <LeafOutlineCorner className="absolute -right-20 -bottom-20 w-96 h-96 hidden md:block" opacity={0.04} />
+        <WatercolorBranchRight className="absolute -left-16 -top-20 w-80 h-[600px] hidden md:block scale-x-[-1]" opacity={0.15} />
+        <LeafOutlineCorner className="absolute -right-20 -bottom-20 w-96 h-96 hidden md:block" opacity={0.15} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
@@ -234,7 +234,7 @@ export default function HomePage() {
       {/* CRAFTMYGARDEN TEASER */}
       <section className="py-20 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50 relative overflow-hidden" data-testid="craftmygarden-teaser">
         {/* Subtle Floating Leaf */}
-        <WatercolorLeafSingle className="absolute right-10 top-10 w-48 h-48 hidden md:block" opacity={0.05} rotate={60} />
+        <WatercolorLeafSingle className="absolute right-10 top-10 w-48 h-48 hidden md:block" opacity={0.12} rotate={60} />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <FadeIn>
             <Card className="relative overflow-hidden p-10 md:p-14 border-none shadow-lg grid md:grid-cols-2 gap-8 items-center bg-white">
@@ -266,8 +266,8 @@ export default function HomePage() {
       {blogs.length > 0 && (
         <section className="py-20 bg-stone-50 relative overflow-hidden">
           {/* Subtle Botanical Texture */}
-          <LeafVeinPattern opacity={0.02} />
-          <WatercolorBranchLeft className="absolute -right-16 -bottom-20 w-72 h-[500px] hidden md:block" opacity={0.04} />
+          <LeafVeinPattern opacity={0.08} />
+          <WatercolorBranchLeft className="absolute -right-16 -bottom-20 w-72 h-[500px] hidden md:block" opacity={0.15} />
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">

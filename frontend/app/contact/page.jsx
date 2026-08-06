@@ -68,9 +68,9 @@ export default function ContactPage() {
 
       <section className="relative overflow-hidden py-20 bg-white">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.05} />
-        <WatercolorLeafSingle className="absolute right-10 top-10 w-64 h-64 hidden md:block" opacity={0.04} rotate={30} />
-        <LeafVeinPattern opacity={0.015} />
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.15} />
+        <WatercolorLeafSingle className="absolute right-10 top-10 w-64 h-64 hidden md:block" opacity={0.12} rotate={30} />
+        <LeafVeinPattern opacity={0.08} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-3 gap-10">

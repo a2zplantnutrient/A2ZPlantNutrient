@@ -58,8 +58,8 @@ export default function AboutPage() {
       {/* Intro */}
       <section className="relative overflow-hidden py-20 bg-white">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
-        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.05} />
+        <WatercolorBranchLeft className="absolute -left-20 -bottom-20 w-80 h-[600px] hidden md:block" opacity={0.15} />
+        <WatercolorBranchRight className="absolute -right-20 -top-20 w-80 h-[600px] hidden md:block" opacity={0.15} />
 
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center relative z-10">
           <ScaleIn className="grid grid-cols-2 gap-4">
@@ -110,7 +110,7 @@ export default function AboutPage() {
       {/* CraftMyGarden: integrated into About */}
       <section className="py-16 bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50 relative overflow-hidden">
         {/* Subtle Floating Leaf */}
-        <WatercolorLeafSingle className="absolute left-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.04} rotate={-15} />
+        <WatercolorLeafSingle className="absolute left-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.12} rotate={-15} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="mb-8 text-center">
             <p className="uppercase tracking-[0.25em] text-amber-700 text-xs font-semibold">CraftMyGarden</p>
@@ -144,8 +144,8 @@ export default function AboutPage() {
       {/* Mission / Vision / Values */}
       <section className="py-16 bg-emerald-50/50 relative overflow-hidden">
         {/* Subtle Botanical Texture */}
-        <LeafVeinPattern opacity={0.02} />
-        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.05} />
+        <LeafVeinPattern opacity={0.08} />
+        <LeafOutlineCorner className="absolute -right-16 -bottom-16 w-80 h-80 hidden md:block" opacity={0.15} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
@@ -176,8 +176,8 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-20 relative overflow-hidden bg-white">
         {/* Organic Wave Transition */}
-        <OrganicWaveSeparator className="absolute top-0 left-0 w-full h-12" opacity={0.04} />
-        <WatercolorLeafSingle className="absolute right-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.03} rotate={120} />
+        <OrganicWaveSeparator className="absolute top-0 left-0 w-full h-12" opacity={0.12} />
+        <WatercolorLeafSingle className="absolute right-10 bottom-10 w-48 h-48 hidden md:block" opacity={0.12} rotate={120} />
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 relative z-10">
           {STATS.map((s, i) => (

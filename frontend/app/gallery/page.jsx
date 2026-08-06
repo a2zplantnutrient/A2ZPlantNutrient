@@ -47,9 +47,9 @@ export default function GalleryPage() {
       <PageHero title="Gallery" subtitle="Our Projects" />
       <section className="relative overflow-hidden py-20 bg-white">
         {/* Subtle Botanical Accents */}
-        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.05} />
-        <WatercolorBranchRight className="absolute -right-20 top-20 w-80 h-[500px] hidden md:block" opacity={0.05} />
-        <LeafVeinPattern opacity={0.015} />
+        <WatercolorBranchLeft className="absolute -left-20 bottom-10 w-80 h-[500px] hidden md:block" opacity={0.15} />
+        <WatercolorBranchRight className="absolute -right-20 top-20 w-80 h-[500px] hidden md:block" opacity={0.15} />
+        <LeafVeinPattern opacity={0.08} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">

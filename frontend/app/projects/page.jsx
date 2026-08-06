@@ -71,10 +71,10 @@ export default function ProjectsPage() {
 
       <section className="relative overflow-hidden py-14 bg-white">
         {/* Subtle Botanical Background elements */}
-        <WatercolorBranchLeft className="absolute -left-20 top-20 w-80 h-[600px] hidden md:block" opacity={0.04} />
-        <WatercolorBranchRight className="absolute -right-20 top-[350px] w-80 h-[600px] hidden md:block" opacity={0.04} />
-        <LeafOutlineCorner className="absolute -left-20 bottom-10 w-96 h-96 hidden md:block" opacity={0.03} />
-        <LeafVeinPattern opacity={0.015} />
+        <WatercolorBranchLeft className="absolute -left-20 top-20 w-80 h-[600px] hidden md:block" opacity={0.15} />
+        <WatercolorBranchRight className="absolute -right-20 top-[350px] w-80 h-[600px] hidden md:block" opacity={0.15} />
+        <LeafOutlineCorner className="absolute -left-20 bottom-10 w-96 h-96 hidden md:block" opacity={0.15} />
+        <LeafVeinPattern opacity={0.08} />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="max-w-3xl">
