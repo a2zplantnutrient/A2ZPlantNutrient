@@ -244,7 +244,7 @@ export const PROJECTS = [
     location: "Ayodhya, Uttar Pradesh",
     year: "2024",
     scope:
-      "Execution of avenue plantation along the Ayodhya–Basti national highway corridor with native species and survival-linked maintenance.",
+      "Executed Plantation of over 10,000 Plants along the Ayodhya-Basti Highway, complemented with HDPE tree guards for enhanced safety and protection.",
     metrics: [
       { label: "Plants Installed", value: "10,000+" },
       { label: "Corridor", value: "Ayodhya–Basti" },
@@ -258,7 +258,7 @@ export const PROJECTS = [
     location: "Prayagraj, Uttar Pradesh",
     year: "2024",
     scope:
-      "Beautification and landscape works undertaken across a large parcel adjacent to the highway.",
+      "Undertaking beautification and landscaping works over a 3-hectare land parcel at Hanumanganj Toll Plaza, located near the UP-MP border in Prayagraj.",
     metrics: [
       { label: "Land Parcel", value: "3 hectares" },
       { label: "Client", value: "NHAI" },
@@ -266,32 +266,60 @@ export const PROJECTS = [
     image: "/service_01.jpg",
   },
   {
-    slug: "nbcc-wtc-delhi",
-    client: "NBCC · Navratna CPSE",
-    title: "World Trade Center Landscape · Delhi",
-    location: "New Delhi",
+    slug: "nfl-madhya-pradesh",
+    client: "NFL",
+    title: "Plant Beautification · Madhya Pradesh",
+    location: "Madhya Pradesh",
     year: "2024",
     scope:
-      "Landscape execution for the World Trade Center under NBCC — one of A2Z's most notable Navratna CPSE projects.",
+      "Carrying out ongoing beautification and landscape maintenance activities at NFL facilities in Madhya Pradesh, focusing on sustainable greenery enhancement and upkeep of landscaped areas.",
     metrics: [
-      { label: "Client", value: "NBCC (Navratna)" },
-      { label: "Site", value: "WTC Delhi" },
+      { label: "Client", value: "NFL" },
+      { label: "State", value: "Madhya Pradesh" },
     ],
-    image: "/service_04.jpg",
+    image: "/service_08.jpg",
   },
   {
     slug: "iocl-odisha",
     client: "Indian Oil (IOCL)",
-    title: "Campus Landscape Maintenance · Odisha",
-    location: "Odisha",
+    title: "Pipeline & Colony Landscape · Odisha",
+    location: "Paradeep, Odisha",
     year: "2024",
     scope:
-      "Executing beautification and multi-year landscape maintenance works across IOCL facilities in Odisha.",
+      "Executing beautification and landscape maintenance works at IOCL Pipeline and IOCL Colony, Paradeep, Odisha.",
     metrics: [
       { label: "Client", value: "IOCL" },
       { label: "Scope", value: "Maintenance AMC" },
     ],
     image: "/service_06.jpg",
+  },
+  {
+    slug: "pwd-varanasi",
+    client: "PWD",
+    title: "Roadside Greenery Improvement · Varanasi",
+    location: "Varanasi, Uttar Pradesh",
+    year: "2023",
+    scope:
+      "Executed plantation and beautification works under CSIL for newly developed and extended PWD roads, focusing on divider landscaping and sustainable roadside greenery improvement.",
+    metrics: [
+      { label: "Client", value: "PWD / CSIL" },
+      { label: "Focus", value: "Divider Landscaping" },
+    ],
+    image: "/project02.jpg",
+  },
+  {
+    slug: "nbcc-wtc-delhi",
+    client: "NBCC",
+    title: "World Trade Center Landscape · Delhi",
+    location: "New Delhi",
+    year: "2024",
+    scope:
+      "One of our notable projects includes the World Trade Centre, Nauroji Nagar, New Delhi, where we showcased our expertise by beautifying the corporate premises and developing vibrant green spaces.",
+    metrics: [
+      { label: "Client", value: "NBCC" },
+      { label: "Site", value: "WTC Delhi" },
+    ],
+    image: "/service_04.jpg",
   },
   {
     slug: "nagar-nigam-varanasi",
@@ -300,10 +328,10 @@ export const PROJECTS = [
     location: "Varanasi, Uttar Pradesh",
     year: "2023",
     scope:
-      "Comprehensive plantation works across city zones with iron-guard protection for durability.",
+      "Carrying out large-scale plantation works across multiple zones and colonies in Varanasi, involving 5,000 Trees with Iron Tree Guards to ensure long-term protection and sustainable urban greening.",
     metrics: [
       { label: "Trees Planted", value: "5,000" },
-      { label: "Iron-Guard Protected", value: "100%" },
+      { label: "Protection", value: "Iron Tree Guards" },
     ],
     image: "/service_03.jpg",
   },
@@ -311,44 +339,86 @@ export const PROJECTS = [
     slug: "rajasthan-housing-board",
     client: "Rajasthan Housing Board",
     title: "Housing Estate Plantation · Rajasthan",
-    location: "Rajasthan",
+    location: "Dausa, Rajasthan",
     year: "2023",
     scope:
-      "Completed extensive plantation works across Rajasthan Housing Board estates.",
+      "Completed extensive Plantation works with Cemented Tree Guards for the Rajasthan Housing Board in Dausa and continuing regular maintenance to ensure healthy plant growth and sustained greenery.",
     metrics: [
       { label: "Client", value: "RHB" },
-      { label: "State", value: "Rajasthan" },
+      { label: "Location", value: "Dausa" },
     ],
     image: "/service_07.jpg",
   },
   {
-    slug: "nfl-madhya-pradesh",
-    client: "NFL",
-    title: "Plant Beautification · Madhya Pradesh",
-    location: "Madhya Pradesh",
-    year: "2023",
-    scope:
-      "Ongoing beautification and maintenance activities across National Fertilizers Limited facilities in MP.",
-    metrics: [
-      { label: "Client", value: "NFL" },
-      { label: "State", value: "Madhya Pradesh" },
-    ],
-    image: "/service_08.jpg",
-  },
-  {
     slug: "sunbeam-varanasi",
-    client: "Sunbeam Group of Educational Institutions",
+    client: "Sunbeam Group",
     title: "Campus Horticulture · Varanasi",
     location: "Varanasi, Uttar Pradesh",
     year: "2023",
     scope:
-      "Comprehensive horticulture and landscape development works across Sunbeam Group campuses.",
+      "Executed comprehensive horticulture and landscape development works for the Sunbeam Group, including Farmhouse Beautification, Lawn Development, and Greening of Private Properties and School Campuses, enhancing overall aesthetic and environmental value.",
     metrics: [
       { label: "Sector", value: "Education" },
       { label: "Scope", value: "Full landscape" },
     ],
     image: "/service_05.jpg",
   },
+  {
+    slug: "csr-initiatives",
+    client: "Sewa International",
+    title: "CSR Green Development",
+    location: "Various Locations",
+    year: "2023-2024",
+    scope:
+      "Executed impactful CSR-based horticultural projects involving beautification of School Campuses and Government Parks, as well as Plantation of over 10,000 Plants, promoting environmental sustainability and community green development.",
+    metrics: [
+      { label: "Focus", value: "CSR" },
+      { label: "Plants", value: "10,000+" },
+    ],
+    image: "/project01.jpg",
+  },
+  {
+    slug: "ntpc-dadri",
+    client: "NTPC",
+    title: "PSU Township Landscape",
+    location: "NTPC Dadri",
+    year: "2024",
+    scope:
+      "Township landscape execution at NTPC Dadri — turf, ornamentals, irrigation and operations & maintenance.",
+    metrics: [
+      { label: "Client", value: "NTPC" },
+      { label: "Scope", value: "Landscape & O&M" },
+    ],
+    image: "/service_02.jpg",
+  },
+  {
+    slug: "shivalik-corporates",
+    client: "Shivalik",
+    title: "Corporate Campus Beautification",
+    location: "Uttar Pradesh",
+    year: "2024",
+    scope:
+      "Implemented extensive horticulture and landscape development works for Corporate Offices and Commercial Campuses, enhancing surroundings through Vertical Gardens, Indoor Plantation, and Green Beautification to promote a pleasant and sustainable work environment.",
+    metrics: [
+      { label: "Client", value: "Shivalik" },
+      { label: "Sector", value: "Corporate" },
+    ],
+    image: "/service_04.jpg",
+  },
+  {
+    slug: "castillo-hospitality",
+    client: "Castillo",
+    title: "Hotels and Hospitality Landscapes",
+    location: "Varanasi",
+    year: "2024",
+    scope:
+      "Undertook comprehensive horticulture and landscape development works for Hotel and Hospitality Campuses, enhancing outdoor aesthetics through Plantation, Lawn Development, and Green Beautification to create welcoming and sustainable environments.",
+    metrics: [
+      { label: "Client", value: "Castillo" },
+      { label: "Sector", value: "Hospitality" },
+    ],
+    image: "/service_06.jpg",
+  }
 ];
 
 // Marquee-style client strip (name-based, since we don't own external logos).
@@ -377,14 +447,21 @@ export const TRUSTED_BY = [
   { name: "NTPC", sector: "PSU · Power", context: "PSU township landscape at NTPC Dadri and other sites." },
   { name: "NFL", sector: "PSU · Fertilizers", context: "Beautification and maintenance across NFL Madhya Pradesh." },
   { name: "BHEL", sector: "PSU · Manufacturing", context: "Corporate campus landscape with multi-year AMC." },
-  { name: "Indian Oil (IOCL)", sector: "PSU · Oil & Gas", context: "Beautification and landscape maintenance, Odisha." },
+  { name: "Indian Oil", sector: "PSU · Oil & Gas", context: "Beautification and landscape maintenance, Odisha." },
   { name: "Indian Railways", sector: "Government", context: "Institutional plantation and landscape works." },
   { name: "NBCC", sector: "Navratna CPSE", context: "World Trade Center, Delhi — landscape execution." },
   { name: "GSECL", sector: "PSU · Power", context: "Landscape works at GSECL Dhuvaran and Ukai." },
   { name: "TCIL", sector: "PSU · Telecom", context: "Campus horticulture for Telecommunications Consultants India Ltd." },
   { name: "Rajasthan Housing Board", sector: "Government", context: "Extensive plantation works across housing estates." },
   { name: "Nagar Nigam Varanasi", sector: "Municipal", context: "5,000 trees with iron guard across city zones." },
-  { name: "Water Resources Dept · UP", sector: "Government", context: "State-level plantation and green-cover programs." },
+  { name: "Chhavni Parishad", sector: "Municipal", context: "Cantonment board landscaping." },
+  { name: "Govt of Uttar Pradesh", sector: "Government", context: "State-level plantation programs." },
+  { name: "Sewa International", sector: "CSR · NGO", context: "CSR green development." },
+  { name: "CSIL", sector: "Corporate", context: "Corporate greening initiatives." },
+  { name: "Sunbeam", sector: "Private Institutions", context: "Educational campus landscapes." },
+  { name: "Shaparth", sector: "Real Estate", context: "Residential landscaping." },
+  { name: "Shivalik", sector: "Corporate", context: "Corporate offices and commercial campuses." },
+  { name: "Castillo", sector: "Hospitality", context: "Hotels and hospitality landscapes." },
 ];
 
 // Enriched institutional clients — one sentence of context per client

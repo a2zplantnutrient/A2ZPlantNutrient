@@ -15,6 +15,48 @@ import { PROJECTS, CERTIFICATIONS, TRUSTED_BY, CLIENTS } from "@/lib/mock";
 export default function ProjectsPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const handleClientClick = (clientName) => {
+    // Standardize client name for matching
+    const standardName = clientName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    
+    // Check if there are projects matching this client
+    let targetProject = null;
+    
+    // First pass: try to match by client name
+    for (let i = 0; i < PROJECTS.length; i++) {
+      if (PROJECTS[i].client.toLowerCase().includes(clientName.toLowerCase()) || 
+          clientName.toLowerCase().includes(PROJECTS[i].client.toLowerCase())) {
+        targetProject = PROJECTS[i];
+        break;
+      }
+    }
+    
+    // Second pass: try to match by specific mappings if exact match fails
+    if (!targetProject) {
+      if (standardName.includes('nhai')) targetProject = PROJECTS.find(p => p.client === 'NHAI');
+      else if (standardName.includes('ntpc')) targetProject = PROJECTS.find(p => p.client === 'NTPC');
+      else if (standardName.includes('nfl')) targetProject = PROJECTS.find(p => p.client === 'NFL');
+      else if (standardName.includes('iocl') || standardName.includes('indian-oil')) targetProject = PROJECTS.find(p => p.client === 'Indian Oil (IOCL)');
+      else if (standardName.includes('nbcc')) targetProject = PROJECTS.find(p => p.client === 'NBCC');
+    }
+    
+    if (targetProject) {
+      const el = document.getElementById(`project-${targetProject.slug}`);
+      if (el) {
+        // Calculate offset to account for sticky header
+        const y = el.getBoundingClientRect().top + window.scrollY - 100;
+        
+        // Add a highlight animation class temporarily
+        el.classList.add('ring-4', 'ring-emerald-500', 'ring-offset-4', 'scale-[1.02]');
+        setTimeout(() => {
+          el.classList.remove('ring-4', 'ring-emerald-500', 'ring-offset-4', 'scale-[1.02]');
+        }, 2000);
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <div data-testid="projects-page">
       <PageHero title="Projects & Portfolio" subtitle="Selected EPC Work" />
@@ -77,13 +119,14 @@ export default function ProjectsPage() {
             <div className="flex-1 h-px bg-stone-200" />
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {TRUSTED_BY.slice(0, 12).map((c) => {
+            {TRUSTED_BY.slice(0, 19).map((c) => {
               const label = c.name.replace(/\(.*?\)/g, "").trim();
               const short = c.sector?.split(" · ")[0] || "Client";
               return (
-                <div
+                <button
                   key={c.name}
-                  className="rounded-xl bg-emerald-950 ring-1 ring-emerald-900 hover:ring-amber-300/50 transition-all px-3 py-4 text-center"
+                  onClick={() => handleClientClick(c.name)}
+                  className="w-full rounded-xl bg-emerald-950 ring-1 ring-emerald-900 hover:ring-amber-300 hover:bg-emerald-900 transition-all px-3 py-4 text-center cursor-pointer transform hover:-translate-y-1 active:scale-95"
                   data-testid={`projects-client-tag-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 >
                   <div className="font-serif text-white text-lg font-semibold leading-none tracking-tight">
@@ -92,7 +135,7 @@ export default function ProjectsPage() {
                   <div className="text-[10px] uppercase tracking-[0.16em] text-emerald-300/70 mt-2 font-semibold">
                     {short}
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
@@ -102,7 +145,11 @@ export default function ProjectsPage() {
         <Stagger className="grid md:grid-cols-2 gap-6 mt-14" data-testid="projects-grid">
           {PROJECTS.map((p) => (
             <StaggerItem key={p.slug}>
-              <Card className="group overflow-hidden border-stone-200 hover:shadow-2xl transition-all hover:-translate-y-1 h-full bg-white" data-testid={`project-${p.slug}`}>
+              <Card 
+                id={`project-${p.slug}`}
+                className="group overflow-hidden border-stone-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 h-full bg-white relative z-10" 
+                data-testid={`project-${p.slug}`}
+              >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={p.image}
