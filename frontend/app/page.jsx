@@ -113,9 +113,9 @@ export default function HomePage() {
                     <div className="text-xs text-stone-500 uppercase tracking-wider">{p.location} · {p.year}</div>
                     <h3 className="mt-2 font-serif text-xl font-semibold text-emerald-950">{p.title}</h3>
                     <p className="mt-2 text-stone-600 text-sm line-clamp-2">{p.scope}</p>
-                    <div className="mt-4 flex flex-wrap gap-4">
+                    <div className="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between gap-4">
                       {p.metrics.map((m, i) => (
-                        <div key={i}>
+                        <div key={i} className={i === p.metrics.length - 1 ? "text-right" : "text-left"}>
                           <div className="font-serif text-lg text-emerald-800 font-semibold">{m.value}</div>
                           <div className="text-[10px] uppercase tracking-wider text-stone-500">{m.label}</div>
                         </div>

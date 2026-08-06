@@ -1,22 +1,22 @@
-## user_problem_statement: this looks good, but I feel the icons are very small, so not readable and also the circles are very close, keep some space to make it more aesthetic and premium
+## user_problem_statement: we are already mentioning 10,000+ plants installed in the description, no need to mention again in this card at bottom, instead use some other pointers and keep 3. And in the "Government & PSU projects" section, inside the cards, keep the bottom content in the corner of card(space between).
 ## frontend:
-  - task: "Increase logo size and spacing in TrustedBy section"
+  - task: "Refine metrics display in Featured Project and PSU projects"
     implemented: true
     working: true
-    file: "/app/frontend/components/TrustedBy.jsx"
+    file: "/app/frontend/app/page.jsx, /app/frontend/components/TrustedBy.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Updated layout for TrustedBy section to increase circle sizes (up to 180px) and provide more spacing between them by widening the cluster container to 1200x700. Also reduced padding so logos take up 85% of the circle, making them much more readable."
+        -comment: "Updated TrustedBy.jsx to remove redundant 10,000+ stat and replace it with three pointers (Native Species, 3 Years AMC, NHAI Mandate). Updated page.jsx to push project metrics to corners using justify-between and text alignment. Waiting for testing agent."
         -working: true
         -agent: "testing"
-        -comment: "✅ VERIFIED - All 19 logos are displaying correctly with significantly larger sizes (130-187px, avg 163px). Spacing between logos averages 415px providing excellent aesthetic separation. Premium scattered layout maintained with 1200×700 container. Logos are highly readable at 85% of circle size. White circular backgrounds with shadows create premium look. Minor: Hover test failed due to continuous floating animation making elements 'not stable' for Playwright, but hover CSS (scale-105) is properly implemented - this is not a functional issue."
+        -comment: "Tested both components successfully. TrustedBy Featured Delivery card displays all 3 new metrics correctly: 'Native' (Species Installed), '3 Years' (Survival AMC), and 'NHAI' (Project Mandate). Government & PSU project cards have metrics properly aligned to opposite corners using justify-between, text-left, and text-right classes. No console errors or failed requests. All tests passed."
 
 agent_communication:
     -agent: "main"
-    -message: "Please test the TrustedBy component on the homepage (scroll down). Verify that the logos are now larger, more readable, and have better spacing between the circles, maintaining a premium scattered layout."
+    -message: "Please test the TrustedBy component and Government & PSU projects section on the homepage. Verify the Featured Delivery card has 3 new metrics (Native Species, 3 Years, NHAI). Verify the project cards in Government & PSU projects section have their metrics aligned to opposite corners (left and right)."
     -agent: "testing"
-    -message: "✅ Testing complete. TrustedBy component is working perfectly. All user requirements met: logos are significantly larger (130-187px range), spacing is excellent (avg 415px between logos), and premium scattered layout is maintained. All 19 institutional logos are clearly visible and readable. Ready for user review."
+    -message: "Testing complete. Both components working correctly. TrustedBy component shows 3 new metrics as requested. Project cards have metrics aligned to opposite corners. Ready for summary and finish."

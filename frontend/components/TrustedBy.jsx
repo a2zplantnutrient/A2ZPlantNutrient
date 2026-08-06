@@ -204,13 +204,29 @@ export default function TrustedBy({ onRequestProfile }) {
                 survival-linked maintenance — one of a dozen active mandates A2Z
                 executes for the country&apos;s ministries and Navratna CPSEs.
               </p>
-              <div className="mt-5 flex flex-wrap items-center gap-4">
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between gap-4">
                 <div>
-                  <div className="font-serif text-2xl text-amber-300 font-semibold">
-                    10,000+
+                  <div className="font-serif text-xl md:text-2xl text-amber-300 font-semibold">
+                    Native
                   </div>
                   <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
-                    Plants Installed
+                    Species Installed
+                  </div>
+                </div>
+                <div>
+                  <div className="font-serif text-xl md:text-2xl text-amber-300 font-semibold">
+                    3 Years
+                  </div>
+                  <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
+                    Survival AMC
+                  </div>
+                </div>
+                <div>
+                  <div className="font-serif text-xl md:text-2xl text-amber-300 font-semibold">
+                    NHAI
+                  </div>
+                  <div className="text-[10px] uppercase tracking-wider text-emerald-200/70">
+                    Project Mandate
                   </div>
                 </div>
               </div>
