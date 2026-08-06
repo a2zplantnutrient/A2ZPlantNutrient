@@ -172,7 +172,7 @@ export default function HomePage() {
             <p className="mt-4 text-stone-600">End-to-end horticulture contracting for public and private institutions.</p>
           </FadeIn>
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((s) => (
+            {SERVICES.slice(0, 6).map((s) => (
               <StaggerItem key={s.slug}>
                 <Card className="group overflow-hidden border-stone-200 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full">
                   <div className="relative aspect-[4/3] overflow-hidden">

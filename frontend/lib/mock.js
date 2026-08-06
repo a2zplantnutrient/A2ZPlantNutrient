@@ -98,53 +98,141 @@ export const CERTIFICATIONS = [
 // Split into two clear tracks per positioning brief
 export const SERVICES = [
   {
-    slug: "epc-landscaping",
-    title: "EPC Landscaping",
+    slug: "horticulture-landscaping",
+    title: "Horticulture & Landscaping",
     track: "Government / PSU / Corporate",
     image: "/service_01.jpg",
     description:
-      "End-to-end landscape execution for government installations, PSU townships and corporate campuses — from design & procurement to multi-year O&M.",
+      "End-to-end landscape execution for government installations, PSU townships and corporate campuses.",
   },
   {
-    slug: "large-scale-plantation",
-    title: "Large-Scale Plantation",
+    slug: "turnkey-projects",
+    title: "Turnkey Projects",
+    track: "Government / PSU / Corporate",
+    image: "/project01.jpg",
+    description:
+      "Complete EPC (Engineering, Procurement, and Construction) services delivering ready-to-use green infrastructure.",
+  },
+  {
+    slug: "arboriculture",
+    title: "Arboriculture",
     track: "Government / PSU / Corporate",
     image: "/service_02.jpg",
     description:
-      "Bulk avenue, boundary and compensatory plantation drives with native and climate-resilient species. Delivered against tender-defined specs.",
+      "Professional cultivation, management, and study of individual trees, shrubs, vines, and other perennial woody plants.",
   },
   {
-    slug: "lawn-development",
-    title: "Lawn Development & Turf",
+    slug: "urban-beautification",
+    title: "Urban Beautification",
+    track: "Government / PSU / Corporate",
+    image: "/service_03.jpg",
+    description:
+      "Transforming cityscapes through strategic plantation, murals, and environmental art for public spaces.",
+  },
+  {
+    slug: "park-development",
+    title: "Park Development",
+    track: "Government / PSU / Corporate",
+    image: "/service_04.jpg",
+    description:
+      "Designing and constructing community parks, recreational areas, and ecological zones with sustainable infrastructure.",
+  },
+  {
+    slug: "hardscaping",
+    title: "Hardscaping",
+    track: "Government / PSU / Corporate",
+    image: "/service_05.jpg",
+    description:
+      "Integration of non-living elements like pathways, retaining walls, and outdoor structures into the landscape design.",
+  },
+  {
+    slug: "beautification-gardening",
+    title: "Beautification & Gardening",
     track: "Government / PSU / Corporate",
     image: "/service_06.jpg",
     description:
-      "New lawn creation and reconditioning across large campuses, sports facilities and public spaces with premium turf and irrigation.",
+      "Aesthetic enhancement of corporate campuses and institutional facilities through expert gardening solutions.",
   },
   {
-    slug: "horticulture-maintenance",
-    title: "Multi-Year Maintenance",
+    slug: "greenery-solutions",
+    title: "Greenery Solutions",
     track: "Government / PSU / Corporate",
     image: "/service_07.jpg",
     description:
-      "Comprehensive annual maintenance contracts (AMC) — pruning, fertigation, pest management and health audits, with digital reporting.",
+      "Customized green interventions including indoor plantations and climate-resilient outdoor vegetative planning.",
   },
   {
-    slug: "outdoor-courts",
-    title: "Outdoor Court Development",
+    slug: "epc",
+    title: "EPC Services",
+    track: "Government / PSU / Corporate",
+    image: "/project02.jpg",
+    description:
+      "Comprehensive Engineering, Procurement, and Construction capabilities for large-scale environmental mandates.",
+  },
+  {
+    slug: "plantation-maintenance",
+    title: "Plantation & Maintenance",
+    track: "Government / PSU / Corporate",
+    image: "/service_08.jpg",
+    description:
+      "Bulk avenue plantation drives and multi-year comprehensive maintenance (AMC) contracts.",
+  },
+  {
+    slug: "private-projects",
+    title: "Private Projects",
+    track: "Corporate / Private",
+    image: "/service_01.jpg",
+    description:
+      "Tailored landscaping and horticulture services for private estates, educational institutions, and hospitality.",
+  },
+  {
+    slug: "outdoor-court-planning",
+    title: "Outdoor Court Planning",
     track: "Government / PSU / Corporate",
     image: "/service_04.jpg",
     description:
       "Sports court and recreation-space planning for schools, campuses, PSU townships and community centres.",
   },
   {
-    slug: "mural-art",
-    title: "Mural & Environmental Art",
+    slug: "government-municipal",
+    title: "Government & Municipal",
+    track: "Government",
+    image: "/service_02.jpg",
+    description:
+      "Execution of large-scale tenders for municipal corporations, urban local bodies, and state departments.",
+  },
+  {
+    slug: "green-belt-development",
+    title: "Green Belt Development",
     track: "Government / PSU / Corporate",
+    image: "/project01.jpg",
+    description:
+      "Establishing buffer zones and green belts around industrial areas and highways for environmental compliance.",
+  },
+  {
+    slug: "lawn-turf-solutions",
+    title: "Lawn & Turf Solutions",
+    track: "Government / PSU / Corporate",
+    image: "/service_06.jpg",
+    description:
+      "New lawn creation and reconditioning with premium turf varieties and automated irrigation systems.",
+  },
+  {
+    slug: "civil-projects",
+    title: "Civil Projects",
+    track: "Government / PSU / Corporate",
+    image: "/service_03.jpg",
+    description:
+      "Civil works complementary to landscaping, ensuring structural integrity of outdoor environments.",
+  },
+  {
+    slug: "vertical-gardens",
+    title: "Vertical Gardens & Green Walls",
+    track: "Corporate / Institutional",
     image: "/service_05.jpg",
     description:
-      "Large-format wall murals and public-art commissions integrated with landscape design — for campuses, stations and public infrastructure.",
-  },
+      "Space-efficient bio-walls and vertical gardens for modern corporate interiors and urban facades.",
+  }
 ];
 
 // Named projects sourced from A2Z's Company Profile PDF — real, dated, verifiable.
