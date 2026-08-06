@@ -30,16 +30,17 @@ export default function GalleryPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  // Fallback to stock images if backend has nothing
+  // Fallback to local images if backend has nothing
   const items =
     media.length > 0
       ? media
-      : FALLBACK_GALLERY.map((src, i) => ({
+      : FALLBACK_GALLERY.map((item, i) => ({
           id: `f-${i}`,
-          title: `Project ${i + 1}`,
-          data: src,
+          title: item.title || `Project ${i + 1}`,
+          data: item.src || item,
           media_type: "image",
-          category: "Gallery",
+          category: item.category || "Gallery",
+          description: item.caption || "",
         }));
 
   return (

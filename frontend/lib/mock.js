@@ -609,6 +609,90 @@ export const GALLERY = [
     caption: "Site development and roadside greening on a Rajasthan project site.",
     category: "Featured",
   },
+  {
+    src: "/real-apartment-landscape.jpg",
+    title: "Apartment Landscape",
+    caption: "Comprehensive landscaping for a modern residential complex.",
+    category: "Landscaping",
+  },
+  {
+    src: "/real-apartment-landscape2.jpg",
+    title: "Residential Landscaping",
+    caption: "Lush green spaces designed for apartment complexes.",
+    category: "Landscaping",
+  },
+  {
+    src: "/real-courtyard-garden.jpg",
+    title: "Courtyard Garden",
+    caption: "A beautifully curated private courtyard garden.",
+    category: "Private Garden",
+  },
+  {
+    src: "/real-csr-tree-planting.jpg",
+    title: "CSR Tree Planting",
+    caption: "Community tree planting initiative as part of CSR.",
+    category: "CSR",
+  },
+  {
+    src: "/real-flowerbed-roadside.jpg",
+    title: "Roadside Flowerbed",
+    caption: "Vibrant flowerbed landscaping along a public road.",
+    category: "Beautification",
+  },
+  {
+    src: "/real-hedge-road-riverside.jpg",
+    title: "Riverside Road Hedge",
+    caption: "Greenery enhancement along a riverside road.",
+    category: "Landscaping",
+  },
+  {
+    src: "/real-nursery-delivery.jpg",
+    title: "Nursery Delivery",
+    caption: "Fresh plants ready for delivery and installation.",
+    category: "Operations",
+  },
+  {
+    src: "/real-parkgate-varanasi.jpg",
+    title: "Park Gate Beautification",
+    caption: "Welcoming green entrance at a park in Varanasi.",
+    category: "Urban Greens",
+  },
+  {
+    src: "/real-paver-walkway.jpg",
+    title: "Paver Walkway",
+    caption: "Hardscaping intertwined with lush lawn edges.",
+    category: "Hardscaping",
+  },
+  {
+    src: "/real-paver-walkway2.jpg",
+    title: "Walkway Landscaping",
+    caption: "Scenic walking paths bordered by greenery.",
+    category: "Hardscaping",
+  },
+  {
+    src: "/real-playground-gym.jpg",
+    title: "Park & Playground",
+    caption: "Integrated green spaces with playground equipment.",
+    category: "Facilities",
+  },
+  {
+    src: "/real-township-avenue-install.jpg",
+    title: "Township Avenue",
+    caption: "Avenue plantation underway in a large township.",
+    category: "Plantation",
+  },
+  {
+    src: "/real-tree-pruning-work.jpg",
+    title: "Tree Pruning & Care",
+    caption: "Professional arboriculture and tree maintenance.",
+    category: "Maintenance",
+  },
+  {
+    src: "/real-vertical-garden.jpg",
+    title: "Vertical Garden",
+    caption: "Space-saving vertical garden installation.",
+    category: "Vertical Garden",
+  },
 ];
 
 // CraftMyGarden — teaser for the residential/private track
