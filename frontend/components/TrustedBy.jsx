@@ -46,11 +46,11 @@ export default function TrustedBy({ onRequestProfile }) {
     const handleResize = () => {
       const width = window.innerWidth;
       // Adjust scale to ensure the 1200px wide cluster fits.
-      // Increase mobile scale so the logos are larger.
-      if (width < 640) setScale(0.45);
-      else if (width < 768) setScale(0.6);
-      else if (width < 1024) setScale(0.75);
-      else if (width < 1280) setScale(0.9);
+      // Increase mobile scale so the logos are larger, covering 80-85% of viewport
+      if (width < 640) setScale(0.48); // Significantly larger for mobile
+      else if (width < 768) setScale(0.65);
+      else if (width < 1024) setScale(0.8);
+      else if (width < 1280) setScale(0.95);
       else setScale(1);
     };
     
@@ -109,10 +109,10 @@ export default function TrustedBy({ onRequestProfile }) {
         </FadeIn>
 
         {/* Animated Premium Logo Scatter Layout */}
-        <div className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center mt-12 md:mt-24 mb-10">
+        <div className="relative w-full h-[500px] md:h-[700px] flex items-center justify-center mt-12 md:mt-24 mb-10 overflow-hidden mx-auto">
           <div 
-            className="absolute w-[1200px] h-[700px] flex items-center justify-center transition-transform duration-300 origin-center"
-            style={{ transform: `scale(${scale})` }}
+            className="absolute w-[1200px] h-[700px] flex items-center justify-center transition-transform duration-300 origin-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            style={{ transform: `translate(-50%, -50%) scale(${scale})` }}
           >
             {/* Scattered Logos */}
             {isMounted && TRUSTED_LOGOS.map((logo, i) => (
