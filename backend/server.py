@@ -13,6 +13,37 @@ from datetime import datetime, timezone
 
 
 ROOT_DIR = Path(__file__).parent
+import resend
+import asyncio
+resend.api_key = os.environ.get("RESEND_API_KEY", "")
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "onboarding@resend.dev")
+
+class EmailRequest(BaseModel):
+    recipient_email: str
+    subject: str
+    html_content: str
+
+@api_router.post("/send-email")
+async def send_email(request: EmailRequest):
+    params = {
+        "from": SENDER_EMAIL,
+        "to": [request.recipient_email],
+        "subject": request.subject,
+        "html": request.html_content
+    }
+
+    try:
+        # Run sync SDK in thread to keep FastAPI non-blocking
+        email = await asyncio.to_thread(resend.Emails.send, params)
+        return {
+            "status": "success",
+            "message": f"Email sent to {request.recipient_email}",
+            "email_id": email.get("id")
+        }
+    except Exception as e:
+        logger.error(f"Failed to send email: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+
 load_dotenv(ROOT_DIR / '.env')
 
 mongo_url = os.environ['MONGO_URL']
@@ -241,6 +272,31 @@ async def delete_career(career_id: str):
 async def create_contact(payload: ContactCreate):
     msg = Contact(**payload.model_dump())
     await db.contacts.insert_one(msg.model_dump())
+    
+    # Try sending an email to site admin
+    if resend.api_key:
+        try:
+            admin_email_html = f"""
+            <h2>New Contact Us Message</h2>
+            <p><strong>Name:</strong> {payload.name}</p>
+            <p><strong>Email:</strong> {payload.email}</p>
+            <p><strong>Phone:</strong> {payload.phone}</p>
+            <p><strong>Subject:</strong> {payload.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>{payload.message}</p>
+            """
+            
+            # Send notification to admin (for now, sending to the user to demonstrate integration)
+            params = {
+                "from": SENDER_EMAIL,
+                "to": [payload.email],  # You can replace this with admin email
+                "subject": f"Contact Form Submission: {payload.subject}",
+                "html": admin_email_html
+            }
+            asyncio.create_task(asyncio.to_thread(resend.Emails.send, params))
+        except Exception as e:
+            logger.error(f"Failed to send contact notification email: {e}")
+            
     return msg
 
 
@@ -249,6 +305,29 @@ async def create_contact(payload: ContactCreate):
 async def create_profile_request(payload: ProfileRequestCreate):
     req = ProfileRequest(**payload.model_dump())
     await db.profile_requests.insert_one(req.model_dump())
+    
+    if resend.api_key:
+        try:
+            admin_email_html = f"""
+            <h2>New Profile Request</h2>
+            <p><strong>Name:</strong> {payload.name}</p>
+            <p><strong>Email:</strong> {payload.email}</p>
+            <p><strong>Organization:</strong> {payload.organization}</p>
+            <p><strong>Designation:</strong> {payload.designation}</p>
+            <p><strong>Phone:</strong> {payload.phone}</p>
+            <p><strong>Message:</strong> {payload.message}</p>
+            """
+            
+            params = {
+                "from": SENDER_EMAIL,
+                "to": [payload.email],
+                "subject": "A2Z Plant Nutrient: Company Profile Request Received",
+                "html": admin_email_html
+            }
+            asyncio.create_task(asyncio.to_thread(resend.Emails.send, params))
+        except Exception as e:
+            logger.error(f"Failed to send profile request notification email: {e}")
+
     return req
 
 
