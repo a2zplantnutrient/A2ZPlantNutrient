@@ -153,8 +153,8 @@ export default function AboutPage() {
                 Guided by Expertise &amp; Compliance.
               </h2>
               <p className="mt-5 text-stone-600 leading-relaxed">
-                Founded in 2021, A2Z Plant Nutrient has rapidly scaled under leadership that prioritizes rigorous execution and environmental accountability. 
-                Our Director brings deep credibility to every tender and project deployment.
+                Founded in 2021, A2Z Plant Nutrient has rapidly scaled under executive leadership that prioritizes rigorous execution and environmental accountability. 
+                Our founding team brings deep institutional credibility to every tender and project deployment.
               </p>
               
               <ul className="mt-6 space-y-4">
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <strong className="text-emerald-950 block">CII Membership</strong>
-                    <span className="text-sm text-stone-600">Active member of the Confederation of Indian Industry, ensuring alignment with national corporate standards.</span>
+                    <span className="text-sm text-stone-600">Active membership in the Confederation of Indian Industry, ensuring alignment with national corporate standards.</span>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -173,7 +173,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <strong className="text-emerald-950 block">Carbon Footprint Certification</strong>
-                    <span className="text-sm text-stone-600">Certified expertise in carbon footprint assessment and mitigation strategies.</span>
+                    <span className="text-sm text-stone-600">Certified executive expertise in carbon footprint assessment and mitigation strategies.</span>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -182,7 +182,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <strong className="text-emerald-950 block">Project Management Credentials</strong>
-                    <span className="text-sm text-stone-600">Certified project management professional guiding large-scale EPC execution.</span>
+                    <span className="text-sm text-stone-600">Certified project management professionals guiding large-scale EPC execution.</span>
                   </div>
                 </li>
               </ul>
@@ -193,7 +193,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-emerald-100">
-                  <h3 className="font-serif text-xl font-semibold text-emerald-950">Our Director</h3>
+                  <h3 className="font-serif text-xl font-semibold text-emerald-950">Founding Leadership</h3>
                   <p className="text-sm text-emerald-800">Steering India&apos;s EPC Horticulture</p>
                 </div>
               </div>

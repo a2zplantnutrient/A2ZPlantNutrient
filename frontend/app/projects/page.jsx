@@ -150,7 +150,7 @@ export default function ProjectsPage() {
                         <img 
                           src={c.logo} 
                           alt={`${c.name} logo`} 
-                          className="max-h-full max-w-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          className="max-h-full max-w-full object-contain opacity-85 group-hover:opacity-100 transition-all duration-300"
                         />
                       </div>
                       <div className="text-[9px] uppercase tracking-[0.16em] text-stone-500 mt-2 font-semibold">
