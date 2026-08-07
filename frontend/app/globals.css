@@ -84,7 +84,8 @@ img {
 
 /* Prevent body scroll when modals are open */
 body.modal-open {
-  overflow: hidden;
+  overflow: hidden !important;
+  touch-action: none;
 }
 
     filter: blur(0px);

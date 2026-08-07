@@ -142,32 +142,33 @@ export default function GalleryPage() {
 
         {active && (
           <div
-            className="fixed inset-0 z-50 bg-emerald-950/90 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] bg-emerald-950/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden"
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, height: '100vh', width: '100vw' }}
             onClick={() => setActive(null)}
           >
             <button
               aria-label="Close"
-              className="absolute top-6 right-6 text-white p-2 rounded-full bg-white/10 hover:bg-white/20"
+              className="absolute top-6 right-6 text-white p-2 rounded-full bg-white/10 hover:bg-white/20 z-50"
               onClick={() => setActive(null)}
             >
               <X size={22} />
             </button>
-            {active.media_type === "video" ? (
-              <video
-                src={active.data}
-                controls
-                autoPlay
-                className="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              />
-            ) : (
-              <img
-                src={active.data}
-                alt={active.title || "Preview"}
-                className="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              />
-            )}
+            <div className="relative max-h-[90vh] max-w-[90vw] flex items-center justify-center m-auto" onClick={(e) => e.stopPropagation()}>
+              {active.media_type === "video" ? (
+                <video
+                  src={active.data}
+                  controls
+                  autoPlay
+                  className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl object-contain m-auto"
+                />
+              ) : (
+                <img
+                  src={active.data}
+                  alt={active.title || "Preview"}
+                  className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl object-contain m-auto"
+                />
+              )}
+            </div>
           </div>
         )}
       </section>
