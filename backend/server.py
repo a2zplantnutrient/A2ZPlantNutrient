@@ -22,7 +22,14 @@ SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "onboarding@resend.dev")
 
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# Parse DB name from URL or fallback
+try:
+    db_name = mongo_url.split('/')[-1].split('?')[0]
+    if not db_name:
+        db_name = "a2z"
+except Exception:
+    db_name = "a2z"
+db = client[db_name]
 
 app = FastAPI(title="A2Z Plant Nutrient API")
 api_router = APIRouter(prefix="/api")
