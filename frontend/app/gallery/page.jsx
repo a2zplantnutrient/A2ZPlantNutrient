@@ -30,6 +30,17 @@ export default function GalleryPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    if (active) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [active]);
+
   // Fallback to local images if backend has nothing
   const items =
     media.length > 0

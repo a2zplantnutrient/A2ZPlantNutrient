@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Download, ShieldCheck, FileText } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -27,6 +27,17 @@ function triggerPdfDownload() {
 export default function ProfileRequestModal({ open, onClose }) {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [open]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +84,7 @@ export default function ProfileRequestModal({ open, onClose }) {
           role="dialog"
           aria-modal="true"
           aria-label="Request Company Profile"
-          className="fixed inset-0 z-50 bg-emerald-950/80 backdrop-blur-sm flex items-start md:items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 bg-emerald-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
           data-testid="profile-request-modal"
         >
           <motion.div
