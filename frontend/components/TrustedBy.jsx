@@ -45,11 +45,12 @@ export default function TrustedBy({ onRequestProfile }) {
     setIsMounted(true);
     const handleResize = () => {
       const width = window.innerWidth;
-      // Adjust scale to ensure the 1200px wide cluster fits
-      if (width < 640) setScale(0.3);
-      else if (width < 768) setScale(0.5);
-      else if (width < 1024) setScale(0.7);
-      else if (width < 1280) setScale(0.85);
+      // Adjust scale to ensure the 1200px wide cluster fits.
+      // Increase mobile scale so the logos are larger.
+      if (width < 640) setScale(0.45);
+      else if (width < 768) setScale(0.6);
+      else if (width < 1024) setScale(0.75);
+      else if (width < 1280) setScale(0.9);
       else setScale(1);
     };
     
