@@ -286,10 +286,10 @@ async def create_contact(payload: ContactCreate):
             <p>{payload.message}</p>
             """
             
-            # Send notification to admin (for now, sending to the user to demonstrate integration)
+            # Send notification to admin
             params = {
                 "from": SENDER_EMAIL,
-                "to": [payload.email],  # You can replace this with admin email
+                "to": ["a2zplantnutrient@gmail.com"],
                 "subject": f"Contact Form Submission: {payload.subject}",
                 "html": admin_email_html
             }
@@ -320,7 +320,7 @@ async def create_profile_request(payload: ProfileRequestCreate):
             
             params = {
                 "from": SENDER_EMAIL,
-                "to": [payload.email],
+                "to": ["a2zplantnutrient@gmail.com"],
                 "subject": "A2Z Plant Nutrient: Company Profile Request Received",
                 "html": admin_email_html
             }
