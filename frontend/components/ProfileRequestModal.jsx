@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Download, ShieldCheck, FileText } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -27,6 +28,9 @@ function triggerPdfDownload() {
 export default function ProfileRequestModal({ open, onClose }) {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (open) {
@@ -72,7 +76,9 @@ export default function ProfileRequestModal({ open, onClose }) {
     }
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -186,6 +192,7 @@ export default function ProfileRequestModal({ open, onClose }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

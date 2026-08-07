@@ -80,7 +80,10 @@ img {
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
+    filter: none;
+  }
+}
 
 /* Prevent body scroll when modals are open */
 body.modal-open {
@@ -88,13 +91,8 @@ body.modal-open {
   touch-action: none;
 }
 
-    filter: blur(0px);
-  }
-}
-
 .premium-page-transition {
   animation: premiumPageEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  will-change: opacity, transform, filter;
 }
 
 /* Reduced Motion Fallback for Transitions */

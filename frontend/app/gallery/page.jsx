@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X, Plus, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
@@ -22,6 +23,9 @@ export default function GalleryPage() {
   const [active, setActive] = useState(null);
   const [media, setMedia] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     fetchMedia({ limit: 500 })
@@ -140,7 +144,7 @@ export default function GalleryPage() {
         )}
         </div>
 
-        {active && (
+        {mounted && active && createPortal(
           <div
             className="fixed inset-0 z-[100] bg-emerald-950/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden"
             style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, height: '100vh', width: '100vw' }}
@@ -169,7 +173,8 @@ export default function GalleryPage() {
                 />
               )}
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </section>
     </div>
