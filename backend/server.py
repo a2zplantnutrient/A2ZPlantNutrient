@@ -14,10 +14,18 @@ from datetime import datetime, timezone
 
 ROOT_DIR = Path(__file__).parent
 import resend
+load_dotenv(ROOT_DIR / '.env')
 import asyncio
 resend.api_key = os.environ.get("RESEND_API_KEY", "")
 SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "onboarding@resend.dev")
 
+
+mongo_url = os.environ['MONGO_URL']
+client = AsyncIOMotorClient(mongo_url)
+db = client[os.environ['DB_NAME']]
+
+app = FastAPI(title="A2Z Plant Nutrient API")
+api_router = APIRouter(prefix="/api")
 class EmailRequest(BaseModel):
     recipient_email: str
     subject: str
@@ -44,14 +52,6 @@ async def send_email(request: EmailRequest):
         logger.error(f"Failed to send email: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
 
-load_dotenv(ROOT_DIR / '.env')
-
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-
-app = FastAPI(title="A2Z Plant Nutrient API")
-api_router = APIRouter(prefix="/api")
 
 
 # ===================== Helpers =====================
