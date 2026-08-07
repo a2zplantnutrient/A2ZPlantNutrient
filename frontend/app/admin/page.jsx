@@ -2,26 +2,28 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Trash2, Edit3, Plus, FileText, Image as ImageIcon, Loader2 } from "lucide-react";
+import { Trash2, Edit3, Plus, FileText, Image as ImageIcon, Loader2, Briefcase } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { fetchBlogs, deleteBlog, fetchMedia, deleteMedia } from "@/lib/api";
+import { fetchBlogs, deleteBlog, fetchMedia, deleteMedia, fetchCareers, deleteCareer } from "@/lib/api";
 
 export default function AdminPage() {
   const { toast } = useToast();
   const [blogs, setBlogs] = useState([]);
   const [media, setMedia] = useState([]);
+  const [careers, setCareers] = useState([]);
   const [tab, setTab] = useState("blogs");
   const [loading, setLoading] = useState(true);
 
   const reload = async () => {
     setLoading(true);
     try {
-      const [b, m] = await Promise.all([fetchBlogs(), fetchMedia()]);
+      const [b, m, c] = await Promise.all([fetchBlogs(), fetchMedia(), fetchCareers()]);
       setBlogs(b || []);
       setMedia(m || []);
+      setCareers(c || []);
     } catch (e) {
       toast({ title: "Failed to load", description: e.message, variant: "destructive" });
     } finally {
@@ -55,6 +57,17 @@ export default function AdminPage() {
     }
   };
 
+  const handleDeleteCareer = async (id) => {
+    if (!confirm("Delete this job opening?")) return;
+    try {
+      await deleteCareer(id);
+      toast({ title: "Deleted" });
+      reload();
+    } catch (e) {
+      toast({ title: "Delete failed", description: e.message, variant: "destructive" });
+    }
+  };
+
   return (
     <div data-testid="admin-page">
       <PageHero title="Content Dashboard" subtitle="Manage your site" />
@@ -79,6 +92,15 @@ export default function AdminPage() {
             >
               <ImageIcon size={14} /> Media ({media.length})
             </button>
+            <button
+              onClick={() => setTab("careers")}
+              className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition ${
+                tab === "careers" ? "bg-white text-emerald-800 shadow-sm" : "text-stone-600"
+              }`}
+              data-testid="tab-careers"
+            >
+              <Briefcase size={14} /> Careers ({careers.length})
+            </button>
           </div>
 
           <div className="flex gap-3">
@@ -90,6 +112,11 @@ export default function AdminPage() {
             <Button asChild variant="outline" className="rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50">
               <Link href="/add-media">
                 <Plus size={16} className="mr-1" /> New Media
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50">
+              <Link href="/add-career">
+                <Plus size={16} className="mr-1" /> New Career
               </Link>
             </Button>
           </div>
@@ -167,6 +194,36 @@ export default function AdminPage() {
                 <div className="p-3">
                   <div className="text-xs text-emerald-700 uppercase tracking-wider">{m.category}</div>
                   <div className="font-serif text-sm font-semibold text-emerald-950 truncate">{m.title}</div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        )}
+
+        {!loading && tab === "careers" && (
+          <div className="space-y-4" data-testid="admin-careers-list">
+            {careers.length === 0 && (
+              <Card className="p-10 border-dashed text-center text-stone-600">
+                No job openings yet — <Link href="/add-career" className="text-emerald-700 underline">add one</Link>.
+              </Card>
+            )}
+            {careers.map((c) => (
+              <Card key={c.id} className="p-4 md:p-5 border-stone-200 flex items-center gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs uppercase tracking-wider text-emerald-700">{c.type} · {c.location}</div>
+                  <h3 className="font-serif text-lg font-semibold text-emerald-950 truncate">{c.title}</h3>
+                  <p className="text-stone-500 text-sm mt-1 line-clamp-1">{c.desc}</p>
+                </div>
+                <div className="flex gap-2 shrink-0">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="rounded-full text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700"
+                    onClick={() => handleDeleteCareer(c.id)}
+                    data-testid={`delete-career-${c.id}`}
+                  >
+                    <Trash2 size={14} />
+                  </Button>
                 </div>
               </Card>
             ))}

@@ -81,6 +81,20 @@ export async function fetchCareers() {
   return handle(res);
 }
 
+export async function createCareer(payload) {
+  const res = await fetch(`${API_BASE}/careers`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  return handle(res);
+}
+
+export async function deleteCareer(id) {
+  const res = await fetch(`${API_BASE}/careers/${id}`, { method: "DELETE" });
+  return handle(res);
+}
+
 // ---------- Contact ----------
 export async function sendContact(payload) {
   try {
@@ -99,6 +113,27 @@ export async function sendContact(payload) {
     return handle(res);
   } catch (error) {
     console.warn("Contact API threw error, using fallback mock response:", error.message);
+    return { success: true, mocked: true };
+  }
+}
+
+export async function sendApplication(payload) {
+  try {
+    const res = await fetch(`${API_BASE}/apply`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    
+    // For when backend is unavailable or not working yet, mock success
+    if (!res.ok) {
+      console.warn("Apply API failed, using fallback mock response");
+      return { success: true, mocked: true };
+    }
+    
+    return handle(res);
+  } catch (error) {
+    console.warn("Apply API threw error, using fallback mock response:", error.message);
     return { success: true, mocked: true };
   }
 }

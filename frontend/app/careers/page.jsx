@@ -19,7 +19,7 @@ import {
   WatercolorLeafSingle,
 } from "@/components/BotanicalPatterns";
 import { useToast } from "@/hooks/use-toast";
-import { fetchCareers } from "@/lib/api";
+import { fetchCareers, sendApplication, fileToBase64 } from "@/lib/api";
 import { CAREERS as FALLBACK_CAREERS, COMPANY } from "@/lib/mock";
 
 export default function CareersPage() {
@@ -27,6 +27,9 @@ export default function CareersPage() {
   const [selected, setSelected] = useState(null);
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [resume, setResume] = useState(null);
+  const [resumeName, setResumeName] = useState("");
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -41,14 +44,76 @@ export default function CareersPage() {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleApply = (e) => {
+  const handleFile = async (e) => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    
+    // Check if it's pdf or doc
+    if (!f.type.includes('pdf') && !f.name.endsWith('.doc') && !f.name.endsWith('.docx')) {
+      toast({
+        title: "Invalid file type",
+        description: "Please upload a PDF or Word document.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (f.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please choose a file under 5MB.",
+        variant: "destructive",
+      });
+      return;
+    }
+    const b64 = await fileToBase64(f);
+    setResume(b64);
+    setResumeName(f.name);
+  };
+
+  const handleApply = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Application submitted",
-      description: `Thanks! We've received your application for ${selected || "a role"}.`,
-    });
-    e.target.reset();
-    setSelected(null);
+    if (!resume) {
+      toast({
+        title: "Missing resume",
+        description: "Please attach your resume.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const form = e.target;
+    const fd = new FormData(form);
+    const payload = {
+      name: fd.get("name"),
+      email: fd.get("email"),
+      phone: fd.get("phone") || "",
+      message: fd.get("message") || "",
+      role: selected || "General Application",
+      resume: resume
+    };
+    
+    setSubmitting(true);
+    try {
+      await sendApplication(payload);
+      toast({
+        title: "Application submitted",
+        description: `Thanks! We've received your application for ${selected || "a role"}.`,
+        variant: "success",
+      });
+      form.reset();
+      setSelected(null);
+      setResume(null);
+      setResumeName("");
+    } catch (err) {
+      toast({
+        title: "Submission failed",
+        description: err.message,
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -145,26 +210,41 @@ export default function CareersPage() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Label className="text-stone-700">Full Name</Label>
-                    <Input required placeholder="Jane Doe" className="mt-2" />
+                    <Input required name="name" placeholder="Jane Doe" className="mt-2" />
                   </div>
                   <div>
                     <Label className="text-stone-700">Email</Label>
-                    <Input required type="email" placeholder="you@email.com" className="mt-2" />
+                    <Input required name="email" type="email" placeholder="you@email.com" className="mt-2" />
                   </div>
                 </div>
                 <div>
                   <Label className="text-stone-700">Phone</Label>
-                  <Input required placeholder="+91 …" className="mt-2" />
+                  <Input required name="phone" placeholder="+91 …" className="mt-2" />
                 </div>
                 <div>
                   <Label className="text-stone-700">Why do you want to join us?</Label>
-                  <Textarea required rows={4} placeholder="Tell us about yourself…" className="mt-2" />
+                  <Textarea required name="message" rows={4} placeholder="Tell us about yourself…" className="mt-2" />
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-md bg-stone-50 border border-dashed border-stone-300 text-stone-500 text-sm">
-                  <Upload size={16} /> Attach Resume (PDF / DOC) — file upload coming soon
+                <div>
+                  <input
+                    type="file"
+                    id="resume-upload"
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    className="hidden"
+                    onChange={handleFile}
+                  />
+                  <label 
+                    htmlFor="resume-upload"
+                    className="flex items-center gap-3 p-3 rounded-md bg-stone-50 border border-dashed border-stone-300 text-stone-500 text-sm cursor-pointer hover:bg-emerald-50 hover:border-emerald-300 transition-colors"
+                  >
+                    <Upload size={16} className={resume ? "text-emerald-600" : ""} /> 
+                    <span className={resume ? "text-emerald-700 font-medium" : ""}>
+                      {resumeName ? resumeName : "Attach Resume (PDF / DOC)"}
+                    </span>
+                  </label>
                 </div>
-                <Button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 rounded-full py-6">
-                  <Send size={16} className="mr-2" /> Submit Application
+                <Button type="submit" disabled={submitting} className="w-full bg-emerald-700 hover:bg-emerald-800 rounded-full py-6">
+                  <Send size={16} className="mr-2" /> {submitting ? "Submitting..." : "Submit Application"}
                 </Button>
               </form>
             </Card>

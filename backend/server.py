@@ -125,6 +125,19 @@ class Career(CareerBase):
     created_at: str = Field(default_factory=now_iso)
 
 
+class ApplicationCreate(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    name: str
+    email: str
+    phone: str
+    role: Optional[str] = ""
+    message: str
+    resume: str  # Will hold base64 string
+
+class Application(ApplicationCreate):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    created_at: str = Field(default_factory=now_iso)
+
 class ContactCreate(BaseModel):
     model_config = ConfigDict(extra="ignore")
     name: str
@@ -266,6 +279,51 @@ async def delete_career(career_id: str):
         raise HTTPException(status_code=404, detail="Career not found")
     return {"ok": True, "deleted": career_id}
 
+
+@api_router.post("/apply")
+async def create_application(payload: ApplicationCreate):
+    app = Application(**payload.model_dump())
+    await db.applications.insert_one(app.model_dump())
+    
+    # Try sending an email to site admin
+    if resend.api_key:
+        try:
+            admin_email_html = f"""
+            <h2>New Job Application</h2>
+            <p><strong>Role:</strong> {payload.role}</p>
+            <p><strong>Name:</strong> {payload.name}</p>
+            <p><strong>Email:</strong> {payload.email}</p>
+            <p><strong>Phone:</strong> {payload.phone}</p>
+            <p><strong>Message:</strong></p>
+            <p>{payload.message}</p>
+            <p><i>Resume attached below.</i></p>
+            """
+            
+            attachments = []
+            if payload.resume.startswith("data:"):
+                # parse base64
+                header, b64_data = payload.resume.split(",", 1)
+                mime_type = header.split(":")[1].split(";")[0]
+                ext = "pdf" if "pdf" in mime_type else "doc"
+                
+                attachments.append({
+                    "filename": f"resume_{payload.name.replace(' ', '_')}.{ext}",
+                    "content": b64_data
+                })
+            
+            # Send notification to admin
+            params = {
+                "from": SENDER_EMAIL,
+                "to": ["info@a2zplantnutrient.com"],
+                "subject": f"New Job Application: {payload.name} for {payload.role}",
+                "html": admin_email_html,
+                "attachments": attachments
+            }
+            asyncio.create_task(asyncio.to_thread(resend.Emails.send, params))
+        except Exception as e:
+            logger.error(f"Failed to send application notification email: {e}")
+            
+    return app
 
 # ---------- Contact ----------
 @api_router.post("/contact", response_model=Contact)
