@@ -22,6 +22,10 @@ export const COMPANY = {
   logo: "/logo.png",
   companyProfilePdf: "/docs/A2Z-Plant-Nutrient-Company-Profile.pdf",
   companyProfilePdfName: "A2Z-Plant-Nutrient-Company-Profile.pdf",
+  linkedin: "https://www.linkedin.com/company/a2z-plant-nutrient",
+  facebook: "https://www.facebook.com/a2zplantnutrient",
+  twitter: "https://twitter.com/a2zplantnutrient",
+  instagram: "https://www.instagram.com/a2zplantnutrient",
   // Registration numbers — replace placeholders with real values before public launch
   cin: "Available on request",
   gstin: "Available on request",

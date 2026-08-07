@@ -40,10 +40,19 @@ export default function ContactPage() {
     try {
       await sendContact(payload);
       toast({
-        title: "Message sent",
+        title: "Message sent successfully",
         description: "Thanks for reaching out — we'll get back within 24 hours.",
+        variant: "success",
+        duration: 5000,
+        className: "focus:outline-none focus:ring-2 focus:ring-emerald-500",
+        tabIndex: 0
       });
       form.reset();
+      // focus the toast after it appears
+      setTimeout(() => {
+        const toastEl = document.querySelector('[role="status"]');
+        if (toastEl) toastEl.focus();
+      }, 100);
     } catch (err) {
       toast({
         title: "Failed to send",
