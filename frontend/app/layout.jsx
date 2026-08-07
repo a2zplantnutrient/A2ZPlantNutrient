@@ -5,24 +5,27 @@ import FloatingActions from "@/components/FloatingActions";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
-  title: "A2Z Plant Nutrient | Landscaping & Plant Services in Varanasi",
+  title: {
+    template: "%s | A2Z Plant Nutrient",
+    default: "A2Z Plant Nutrient | EPC Commercial Horticulture & Landscaping Contractors",
+  },
   description:
-    "Expert landscaping, plantation, lawn care, mural art and indoor plant services in Varanasi by A2Z Plant Nutrient Private Limited.",
+    "India's trusted EPC contractor for commercial horticulture, sustainable landscaping, and large-scale plantation projects. ISO 9001 & 14001 certified vendor for PSUs & Government.",
   keywords: [
+    "EPC Horticulture",
+    "Commercial Landscaping",
+    "PSU Contractors",
+    "Government Tenders",
     "A2Z Plant Nutrient",
-    "Landscaping Varanasi",
-    "Plantation Varanasi",
-    "Indoor Plants",
-    "Lawn Care",
-    "Mural Art",
-    "Garden Design",
+    "Urban Forestry",
+    "Compensatory Afforestation",
   ],
   authors: [{ name: "A2Z Plant Nutrient" }],
   icons: { icon: "/logo.png" },
   openGraph: {
-    title: "A2Z Plant Nutrient | Landscaping & Plant Services in Varanasi",
+    title: "A2Z Plant Nutrient | EPC Commercial Horticulture & Landscaping",
     description:
-      "Expert landscaping, plantation, lawn care, mural art and indoor plant services in Varanasi.",
+      "India's trusted EPC contractor for commercial horticulture, sustainable landscaping, and large-scale plantation projects.",
     type: "website",
   },
 };
