@@ -133,7 +133,7 @@ export default function ProjectsPage() {
             </span>
             <div className="flex-1 h-px bg-stone-200" />
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {TRUSTED_BY.slice(0, 19).map((c) => {
               const label = c.name.replace(/\(.*?\)/g, "").trim();
               const short = c.sector?.split(" · ")[0] || "Client";
@@ -141,15 +141,32 @@ export default function ProjectsPage() {
                 <button
                   key={c.name}
                   onClick={() => handleClientClick(c.name)}
-                  className="w-full rounded-xl bg-emerald-950 ring-1 ring-emerald-900 hover:ring-amber-300 hover:bg-emerald-900 transition-all px-3 py-4 text-center cursor-pointer transform hover:-translate-y-1 active:scale-95"
+                  className="w-full h-24 rounded-xl bg-white border border-stone-200 hover:border-emerald-300 hover:shadow-md transition-all px-4 py-3 flex flex-col items-center justify-center cursor-pointer transform hover:-translate-y-1 active:scale-95 overflow-hidden relative group"
                   data-testid={`projects-client-tag-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 >
-                  <div className="font-serif text-white text-lg font-semibold leading-none tracking-tight">
-                    {label.length > 22 ? label.slice(0, 20) + "…" : label}
-                  </div>
-                  <div className="text-[10px] uppercase tracking-[0.16em] text-emerald-300/70 mt-2 font-semibold">
-                    {short}
-                  </div>
+                  {c.logo ? (
+                    <>
+                      <div className="relative w-full h-12 flex items-center justify-center">
+                        <img 
+                          src={c.logo} 
+                          alt={`${c.name} logo`} 
+                          className="max-h-full max-w-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                        />
+                      </div>
+                      <div className="text-[9px] uppercase tracking-[0.16em] text-stone-500 mt-2 font-semibold">
+                        {short}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="font-serif text-emerald-950 text-lg font-semibold leading-none tracking-tight">
+                        {label.length > 22 ? label.slice(0, 20) + "…" : label}
+                      </div>
+                      <div className="text-[9px] uppercase tracking-[0.16em] text-stone-500 mt-2 font-semibold">
+                        {short}
+                      </div>
+                    </>
+                  )}
                 </button>
               );
             })}

@@ -141,6 +141,67 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Leadership Profile */}
+      <section className="py-20 bg-stone-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <p className="uppercase tracking-[0.25em] text-emerald-700 text-xs font-semibold">
+                Leadership Team
+              </p>
+              <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+                Guided by Expertise &amp; Compliance.
+              </h2>
+              <p className="mt-5 text-stone-600 leading-relaxed">
+                Founded in 2021, A2Z Plant Nutrient has rapidly scaled under leadership that prioritizes rigorous execution and environmental accountability. 
+                Our Director brings deep credibility to every tender and project deployment.
+              </p>
+              
+              <ul className="mt-6 space-y-4">
+                <li className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+                    <ShieldCheck size={16} />
+                  </div>
+                  <div>
+                    <strong className="text-emerald-950 block">CII Membership</strong>
+                    <span className="text-sm text-stone-600">Active member of the Confederation of Indian Industry, ensuring alignment with national corporate standards.</span>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+                    <Leaf size={16} />
+                  </div>
+                  <div>
+                    <strong className="text-emerald-950 block">Carbon Footprint Certification</strong>
+                    <span className="text-sm text-stone-600">Certified expertise in carbon footprint assessment and mitigation strategies.</span>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+                    <Target size={16} />
+                  </div>
+                  <div>
+                    <strong className="text-emerald-950 block">Project Management Credentials</strong>
+                    <span className="text-sm text-stone-600">Certified project management professional guiding large-scale EPC execution.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="order-1 md:order-2 relative aspect-[4/5] md:aspect-square w-full max-w-md mx-auto md:mr-0 rounded-3xl overflow-hidden shadow-2xl">
+              <img src="/real-park-worker-spray.jpg" alt="Leadership overseeing projects" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-emerald-100">
+                  <h3 className="font-serif text-xl font-semibold text-emerald-950">Our Director</h3>
+                  <p className="text-sm text-emerald-800">Steering India&apos;s EPC Horticulture</p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Mission / Vision / Values */}
       <section className="py-16 bg-emerald-50/50 relative overflow-hidden">
         {/* Subtle Botanical Texture */}
