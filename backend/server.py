@@ -401,18 +401,29 @@ class AdminLoginPayload(BaseModel):
     password: str
 
 
+import bcrypt
+
 @api_router.post("/admin-auth")
 async def admin_login(payload: AdminLoginPayload, response: Response):
-    expected = os.environ.get("ADMIN_TOKEN", "")
-    if not expected:
+    stored_hash_str = os.environ.get("ADMIN_PASSWORD_HASH", "")
+    stored_hash_str = stored_hash_str.strip("'\"")
+    
+    if not stored_hash_str:
         raise HTTPException(status_code=500, detail="admin-not-configured")
-    if not payload.password or payload.password != expected:
+        
+    if not payload.password:
+        raise HTTPException(status_code=401, detail="invalid-credentials")
+        
+    try:
+        if not bcrypt.checkpw(payload.password.encode('utf-8'), stored_hash_str.encode('utf-8')):
+            raise ValueError("Invalid password")
+    except Exception:
         raise HTTPException(status_code=401, detail="invalid-credentials")
 
     # Set HttpOnly cookie that the Next.js middleware verifies.
     response.set_cookie(
         key="a2z_admin",
-        value=expected,
+        value="authenticated",
         max_age=60 * 60 * 8,
         httponly=True,
         secure=True,
