@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
+import { TextReveal } from "@/components/Motion";
 
 export default function PageHero({ title, subtitle }) {
   return (
@@ -38,15 +39,12 @@ export default function PageHero({ title, subtitle }) {
         >
           <Leaf size={14} /> {subtitle}
         </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 font-serif text-4xl md:text-6xl text-emerald-950 font-semibold leading-[1.1]"
-          data-testid="page-hero-title"
+        <TextReveal
+          delay={0.1}
+          className="mt-5 font-serif text-4xl md:text-6xl text-emerald-950 font-semibold leading-[1.1] justify-center"
         >
           {title}
-        </motion.h1>
+        </TextReveal>
       </div>
     </section>
   );

@@ -12,6 +12,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Magnetic, BloomButton } from "@/components/Interactive";
+import { TextReveal } from "@/components/Motion";
 import { CERTIFICATIONS, STATS, COMPANY } from "@/lib/mock";
 
 const SLIDES = [
@@ -137,39 +139,44 @@ export default function HeroCarousel({ onRequestProfile }) {
                   <ShieldCheck size={14} /> {slide.kicker}
                 </span>
                 <h1 className="mt-6 font-hero text-4xl md:text-5xl lg:text-6xl text-white font-semibold leading-[1.05] tracking-tight">
-                  {slide.title}
+                  <TextReveal delay={0.1}>{slide.title}</TextReveal>
                 </h1>
                 <p className="mt-6 text-lg text-emerald-100/85 leading-relaxed max-w-2xl">
                   {slide.subtitle}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   {slide.primaryCta.modal ? (
-                    <Button
-                      onClick={handlePrimary}
-                      className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6 font-semibold"
-                      data-testid="carousel-primary-cta"
-                    >
-                      <FileText size={18} className="mr-2" /> {slide.primaryCta.label}
-                    </Button>
+                    <Magnetic>
+                      <BloomButton
+                        onClick={handlePrimary}
+                        className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-3 font-semibold shadow-lg shadow-amber-400/20"
+                        data-testid="carousel-primary-cta"
+                      >
+                        <FileText size={18} className="mr-2 relative z-10" /> <span className="relative z-10">{slide.primaryCta.label}</span>
+                      </BloomButton>
+                    </Magnetic>
                   ) : (
-                    <Button
-                      asChild
-                      className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6 font-semibold"
-                      data-testid="carousel-primary-cta"
-                    >
-                      <Link href={slide.primaryCta.href}>
-                        {slide.primaryCta.label} <ArrowRight size={18} className="ml-1" />
-                      </Link>
-                    </Button>
+                    <Magnetic>
+                      <BloomButton
+                        as={Link}
+                        href={slide.primaryCta.href}
+                        className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-3 font-semibold shadow-lg shadow-amber-400/20"
+                        data-testid="carousel-primary-cta"
+                      >
+                        <span className="relative z-10">{slide.primaryCta.label}</span> <ArrowRight size={18} className="ml-1 relative z-10" />
+                      </BloomButton>
+                    </Magnetic>
                   )}
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="rounded-full px-7 py-6 border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white"
-                    data-testid="carousel-secondary-cta"
-                  >
-                    <Link href={slide.secondaryCta.href}>{slide.secondaryCta.label}</Link>
-                  </Button>
+                  <Magnetic>
+                    <BloomButton
+                      as={Link}
+                      href={slide.secondaryCta.href}
+                      className="inline-flex items-center justify-center rounded-full px-7 py-3 border border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+                      data-testid="carousel-secondary-cta"
+                    >
+                      <span className="relative z-10">{slide.secondaryCta.label}</span>
+                    </BloomButton>
+                  </Magnetic>
                 </div>
 
                 {/* Credentials strip — visible on every slide */}

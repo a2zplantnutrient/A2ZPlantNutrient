@@ -19,7 +19,8 @@ import {
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { FadeIn, Stagger, StaggerItem, ScaleIn } from "@/components/Motion";
+import { FadeIn, Stagger, StaggerItem, ScaleIn, TextReveal } from "@/components/Motion";
+import { Magnetic, BloomButton } from "@/components/Interactive";
 import Counter from "@/components/Counter";
 import HeroCarousel from "@/components/HeroCarousel";
 import TrustedBy from "@/components/TrustedBy";
@@ -72,9 +73,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Why A2Z</span>
-            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+            <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight justify-center">
               EPC-Grade Horticulture, Executed Reliably
-            </h2>
+            </TextReveal>
           </FadeIn>
           <Stagger className="grid md:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => {
@@ -105,9 +106,9 @@ export default function HomePage() {
           <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
             <div>
               <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Selected Work</span>
-              <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+              <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
                 Government &amp; PSU Projects
-              </h2>
+              </TextReveal>
               <p className="mt-3 text-stone-600 max-w-xl">
                 A snapshot of horticulture EPC contracts we&apos;ve executed for national agencies and corporate clients.
               </p>
@@ -173,9 +174,9 @@ export default function HomePage() {
           </ScaleIn>
           <FadeIn>
             <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">Who We Are</span>
-            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
+            <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
               An EPC Partner Built For India&apos;s Green Mandates
-            </h2>
+            </TextReveal>
             <p className="mt-5 text-stone-600 leading-relaxed">
               A2Z Plant Nutrient Private Limited is a Startup India-recognised, ISO 9001 &amp; 14001 certified horticulture EPC partner headquartered in Varanasi and operating across multiple Indian states.
             </p>
@@ -198,7 +199,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <FadeIn className="text-center max-w-2xl mx-auto mb-12">
             <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">What We Do</span>
-            <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Our EPC Service Portfolio</h2>
+            <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight justify-center">Our EPC Service Portfolio</TextReveal>
             <p className="mt-4 text-stone-600">End-to-end horticulture contracting for public and private institutions.</p>
           </FadeIn>
           <Stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -242,9 +243,9 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider bg-amber-100 text-amber-800 px-3 py-1 rounded-full">
                   Coming Soon
                 </span>
-                <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-4 leading-tight">
+                <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-4 leading-tight">
                   {CRAFTMYGARDEN.name}
-                </h2>
+                </TextReveal>
                 <p className="mt-3 font-serif italic text-emerald-700 text-lg">{CRAFTMYGARDEN.tagline}</p>
                 <p className="mt-4 text-stone-600 leading-relaxed">{CRAFTMYGARDEN.description}</p>
                 <Button asChild className="mt-6 bg-emerald-700 hover:bg-emerald-800 rounded-full">
@@ -273,7 +274,7 @@ export default function HomePage() {
             <FadeIn className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
               <div>
                 <span className="inline-flex items-center justify-center px-6 py-2 rounded-full bg-emerald-100/80 text-emerald-800 text-base font-bold uppercase tracking-[0.2em] mb-4">From Our Blog</span>
-                <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Insights &amp; Expert Notes</h2>
+                <TextReveal className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">Insights &amp; Expert Notes</TextReveal>
               </div>
               <Button asChild variant="outline" className="rounded-full border-emerald-700 text-emerald-700 hover:bg-emerald-50 self-start md:self-auto">
                 <Link href="/blog">View All Articles <ArrowRight size={16} className="ml-1" /></Link>
@@ -312,24 +313,26 @@ export default function HomePage() {
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider bg-amber-400/90 text-emerald-950 px-3 py-1 rounded-full">
               For Procurement Officers
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold mt-4 leading-tight">
+            <TextReveal className="font-serif text-3xl md:text-5xl font-semibold mt-4 leading-tight">
               Need Credentials For A Tender Or RFP?
-            </h2>
+            </TextReveal>
             <p className="mt-4 text-emerald-100/85 leading-relaxed">
               Instantly download the official A2Z Company Profile PDF — ISO certificates,
               full client list, past PO summary and workforce declaration in one file.
             </p>
           </div>
           <div className="flex md:justify-end">
-            <div className="space-y-3">
-              <Button
-                onClick={() => setProfileOpen(true)}
-                className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-6 w-full md:w-auto font-semibold"
-                data-testid="home-request-profile-btn"
-              >
-                <FileText size={18} className="mr-2" /> Download Company Profile
-              </Button>
-              <a href={`tel:${COMPANY.phoneRaw}`} className="block text-center text-amber-200 hover:text-amber-300 text-sm">
+            <div className="space-y-3 flex flex-col items-center md:items-end">
+              <Magnetic>
+                <BloomButton
+                  onClick={() => setProfileOpen(true)}
+                  className="bg-amber-400 hover:bg-amber-500 text-emerald-950 rounded-full px-7 py-4 w-full md:w-auto font-semibold inline-flex items-center justify-center shadow-lg shadow-amber-400/20"
+                  data-testid="home-request-profile-btn"
+                >
+                  <FileText size={18} className="mr-2 relative z-10" /> <span className="relative z-10">Download Company Profile</span>
+                </BloomButton>
+              </Magnetic>
+              <a href={`tel:${COMPANY.phoneRaw}`} className="block text-center text-amber-200 hover:text-amber-300 text-sm mt-2">
                 or call {COMPANY.phone}
               </a>
             </div>
