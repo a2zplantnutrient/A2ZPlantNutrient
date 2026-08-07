@@ -2,162 +2,134 @@ import React from "react";
 
 /**
  * BotanicalPatterns.jsx
- * Highly optimized, lightweight SVG decorative elements for A2Z Plant Nutrient.
- * Redesigned for a deeply premium, minimalist architectural look.
+ * Premium corporate EPC botanical patterns - blending watercolor textures,
+ * elegant line art, and architectural contours. Optimized for 3-8% opacity
+ * on white backgrounds to achieve a crisp, clear, and high-end aesthetic.
  */
 
-// Premium Shadow Leaf - Looks like a soft botanical shadow cast on the wall
-export function PremiumShadowLeafLeft({ className = "", opacity = 0.03 }) {
+// Design 1: Watercolor & Line Art Branch (Left Edge)
+export function WatercolorBranchLeft({ className = "", opacity = 0.07 }) {
   return (
-    <svg
-      viewBox="0 0 500 500"
-      className={`pointer-events-none select-none ${className}`}
-      fill="none"
+    <svg 
+      viewBox="0 0 400 800" 
+      className={`pointer-events-none select-none ${className}`} 
+      style={{ opacity }} 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity, filter: "blur(18px)" }}
     >
-      <path
-        d="M20,480 C-10,350 40,200 150,100 C300,-10 420,50 480,150 C490,170 500,220 480,250 C430,320 280,380 20,480 Z"
-        fill="#022c22"
-      />
-      <path
-        d="M50,450 C80,300 200,200 350,120 C420,80 460,100 450,140 C410,250 250,300 50,450 Z"
-        fill="#064e3b"
-      />
+      <path d="M -50 850 C 50 600 150 300 350 50" stroke="#064e3b" strokeWidth="3" fill="none" strokeLinecap="round" />
+      
+      {/* Soft watercolor-style filled leaves */}
+      <path d="M 30 700 C 120 600 250 680 200 750 C 130 800 60 750 30 700 Z" fill="#047857" opacity="0.5" />
+      <path d="M 80 500 C 180 400 320 480 250 560 C 180 620 100 560 80 500 Z" fill="#10b981" opacity="0.4" />
+      <path d="M 150 300 C 260 200 380 280 320 360 C 240 420 170 360 150 300 Z" fill="#064e3b" opacity="0.4" />
+      
+      {/* Crisp line-art detailing overlaid */}
+      <path d="M 30 700 C 100 650 180 700 200 750" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 80 500 C 150 450 250 500 250 560" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 150 300 C 220 250 320 300 320 360" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      
+      {/* Opposite smaller line-art leaves */}
+      <path d="M 100 600 C 50 550 -20 600 -10 650 C 20 680 80 650 100 600 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
+      <path d="M 170 400 C 100 330 30 400 50 450 C 80 480 150 450 170 400 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
+      <path d="M 250 200 C 180 130 110 200 130 250 C 160 280 230 250 250 200 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
     </svg>
   );
 }
 
-export function PremiumShadowLeafRight({ className = "", opacity = 0.03 }) {
+// Design 2: Watercolor & Line Art Branch (Right Edge)
+export function WatercolorBranchRight({ className = "", opacity = 0.07 }) {
   return (
-    <svg
-      viewBox="0 0 500 500"
-      className={`pointer-events-none select-none ${className}`}
-      fill="none"
+    <svg 
+      viewBox="0 0 400 800" 
+      className={`pointer-events-none select-none ${className}`} 
+      style={{ opacity }} 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity, filter: "blur(20px)" }}
     >
-      <path
-        d="M480,20 C510,150 460,300 350,400 C200,510 80,450 20,350 C10,330 0,280 20,250 C70,180 220,120 480,20 Z"
-        fill="#022c22"
-      />
-      <path
-        d="M450,50 C420,200 300,300 150,380 C80,420 40,400 50,360 C90,250 250,200 450,50 Z"
-        fill="#064e3b"
-      />
+      <path d="M 450 -50 C 300 200 200 500 50 850" stroke="#064e3b" strokeWidth="3" fill="none" strokeLinecap="round" />
+      
+      {/* Soft filled leaves */}
+      <path d="M 350 100 C 250 180 200 50 250 -20 C 320 -50 380 30 350 100 Z" fill="#047857" opacity="0.5" />
+      <path d="M 280 300 C 180 380 120 250 180 180 C 250 150 320 230 280 300 Z" fill="#10b981" opacity="0.4" />
+      <path d="M 200 550 C 100 630 40 500 100 430 C 170 400 240 480 200 550 Z" fill="#064e3b" opacity="0.4" />
+
+      {/* Center veins */}
+      <path d="M 350 100 C 300 100 230 70 250 -20" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 280 300 C 230 300 160 270 180 180" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 200 550 C 150 550 80 520 100 430" stroke="#022c22" strokeWidth="2.5" fill="none" />
+
+      {/* Outlined leaves on the right */}
+      <path d="M 310 180 C 400 230 450 150 420 100 C 380 80 320 130 310 180 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
+      <path d="M 240 380 C 330 430 380 350 350 300 C 310 280 250 330 240 380 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
+      <path d="M 160 620 C 250 670 300 590 270 540 C 230 520 170 570 160 620 Z" stroke="#064e3b" strokeWidth="2" fill="none" />
     </svg>
   );
 }
 
-// Fine Line Branch - Ultra-minimalist continuous line drawing of an olive branch
-export function FineLineBranch({ className = "", opacity = 0.08, stroke = "#064e3b" }) {
+// Design 3: Fine Botanical Line Art (Corners)
+export function LeafOutlineCorner({ className = "", opacity = 0.08 }) {
   return (
-    <svg
-      viewBox="0 0 300 600"
-      className={`pointer-events-none select-none ${className}`}
-      fill="none"
+    <svg 
+      viewBox="0 0 300 300" 
+      className={`pointer-events-none select-none ${className}`} 
+      style={{ opacity }} 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity }}
     >
-      <path
-        d="M20,580 Q100,300 280,20"
-        stroke={stroke}
-        strokeWidth="1"
-        strokeLinecap="round"
-      />
-      {/* Delicate leaves attached to stem */}
-      <path
-        d="M60,460 Q20,400 80,380 Q110,410 60,460"
-        stroke={stroke}
-        strokeWidth="1"
-      />
-      <path
-        d="M100,350 Q160,300 200,320 Q160,380 100,350"
-        stroke={stroke}
-        strokeWidth="1"
-      />
-      <path
-        d="M150,220 Q100,160 140,120 Q180,160 150,220"
-        stroke={stroke}
-        strokeWidth="1"
-      />
-      <path
-        d="M210,120 Q280,80 300,100 Q260,150 210,120"
-        stroke={stroke}
-        strokeWidth="1"
-      />
-      <path
-        d="M40,520 Q80,550 100,520 Q80,490 40,520"
-        stroke={stroke}
-        strokeWidth="1"
-      />
+      <path d="M 150 350 C 150 200 120 120 -50 80" stroke="#064e3b" strokeWidth="3" fill="none" strokeLinecap="round" />
+      
+      {/* Line art fern/monstera-inspired splits */}
+      <path d="M 150 250 C 250 220 280 120 220 50 C 180 80 150 150 150 200" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 150 180 C 230 150 250 50 180 -10 C 150 30 140 100 140 150" stroke="#047857" strokeWidth="2" fill="none" />
+      
+      <path d="M 110 100 C 130 20 80 -30 20 -20 C 50 30 90 70 100 90" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 60 80 C 50 -10 -20 -10 -50 20 C -20 50 20 60 50 70" stroke="#047857" strokeWidth="2" fill="none" />
     </svg>
   );
 }
 
-// Topographical Lines - Abstract premium architectural landscape
-export function TopographicContours({ className = "", opacity = 0.05 }) {
+// Design 4: Minimalist Leaf Repeating Texture (Seamless Background)
+export function LeafVeinPattern({ className = "", opacity = 0.05 }) {
   return (
-    <svg
-      viewBox="0 0 1000 300"
-      className={`pointer-events-none select-none w-full ${className}`}
-      fill="none"
+    <div
+      className={`absolute inset-0 pointer-events-none select-none ${className}`}
+      style={{
+        opacity,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 60 0 C 80 20 80 40 60 60 C 40 40 40 20 60 0 Z' stroke='%23064e3b' stroke-width='1.5' fill='none' /%3E%3Cpath d='M 60 60 C 80 80 80 100 60 120 C 40 100 40 80 60 60 Z' stroke='%23047857' stroke-width='1' fill='none' /%3E%3Cpath d='M 0 60 C 20 40 40 40 60 60 C 40 80 20 80 0 60 Z' stroke='%2310b981' stroke-width='1' fill='none' /%3E%3Cpath d='M 60 60 C 80 40 100 40 120 60 C 100 80 80 80 60 60 Z' stroke='%23064e3b' stroke-width='1' fill='none' /%3E%3C/svg%3E")`,
+        backgroundRepeat: "repeat",
+      }}
+    />
+  );
+}
+
+// Design 5: Contour/Wave Patterns representing earth topographies
+export function OrganicWaveSeparator({ className = "", opacity = 0.08 }) {
+  return (
+    <svg 
+      viewBox="0 0 1440 200" 
+      className={`pointer-events-none select-none w-full ${className}`} 
+      style={{ opacity }} 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity }}
     >
-      <path d="M-100,50 Q150,200 400,100 T900,150 T1200,50" stroke="#047857" strokeWidth="0.5" />
-      <path d="M-100,80 Q150,230 400,130 T900,180 T1200,80" stroke="#047857" strokeWidth="0.5" />
-      <path d="M-100,110 Q150,260 400,160 T900,210 T1200,110" stroke="#047857" strokeWidth="0.5" />
-      <path d="M-100,140 Q150,290 400,190 T900,240 T1200,140" stroke="#047857" strokeWidth="0.5" />
-      <path d="M-100,170 Q150,320 400,220 T900,270 T1200,170" stroke="#047857" strokeWidth="0.5" />
+      <path d="M 0 150 C 400 250, 800 50, 1440 120" stroke="#022c22" strokeWidth="2.5" fill="none" />
+      <path d="M 0 170 C 400 270, 800 70, 1440 140" stroke="#047857" strokeWidth="1.5" fill="none" strokeDasharray="8 8" />
+      <path d="M 0 190 C 400 290, 800 90, 1440 160" stroke="#10b981" strokeWidth="1" fill="none" />
     </svg>
   );
 }
 
-// Geometric Arc Leaf - Very modern corporate representation of growth
-export function GeometricLeafCorner({ className = "", opacity = 0.06 }) {
+// Design 6: Single Abstract Leaf Motif
+export function WatercolorLeafSingle({ className = "", opacity = 0.08, rotate = 0 }) {
   return (
-    <svg
-      viewBox="0 0 200 200"
-      className={`pointer-events-none select-none ${className}`}
-      fill="none"
+    <svg 
+      viewBox="0 0 200 200" 
+      className={`pointer-events-none select-none ${className}`} 
+      style={{ opacity, transform: `rotate(${rotate}deg)` }} 
       xmlns="http://www.w3.org/2000/svg"
-      style={{ opacity }}
     >
-      <path
-        d="M200,200 A200,200 0 0,0 0,0 L0,200 Z"
-        fill="url(#geoGradient)"
-      />
-      <path
-        d="M200,200 A150,150 0 0,0 50,50 L50,200 Z"
-        fill="url(#geoGradientDark)"
-      />
-      <path
-        d="M200,200 A100,100 0 0,0 100,100 L100,200 Z"
-        fill="url(#geoGradientLight)"
-      />
-      <defs>
-        <linearGradient id="geoGradient" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#10b981" stopOpacity="0" />
-          <stop offset="1" stopColor="#047857" stopOpacity="0.4" />
-        </linearGradient>
-        <linearGradient id="geoGradientDark" x1="50" y1="50" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#059669" stopOpacity="0" />
-          <stop offset="1" stopColor="#064e3b" stopOpacity="0.5" />
-        </linearGradient>
-        <linearGradient id="geoGradientLight" x1="100" y1="100" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#34d399" stopOpacity="0" />
-          <stop offset="1" stopColor="#047857" stopOpacity="0.6" />
-        </linearGradient>
-      </defs>
+      <path d="M 10 190 C 80 180 150 120 190 10 C 120 30 40 100 10 190 Z" fill="#047857" opacity="0.4" />
+      <path d="M 10 190 C 70 170 130 100 190 10" stroke="#022c22" strokeWidth="3" fill="none" strokeLinecap="round" />
+      <path d="M 50 145 L 90 90" stroke="#022c22" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <path d="M 90 105 L 140 60" stroke="#022c22" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <path d="M 130 65 L 170 30" stroke="#022c22" strokeWidth="2" fill="none" strokeLinecap="round" />
     </svg>
   );
 }
-
-// For backwards compatibility across the site while changing the visual entirely
-export const WatercolorBranchLeft = PremiumShadowLeafLeft;
-export const WatercolorBranchRight = PremiumShadowLeafRight;
-export const LeafOutlineCorner = GeometricLeafCorner;
-export const LeafVeinPattern = TopographicContours;
-export const OrganicWaveSeparator = TopographicContours;
-export const WatercolorLeafSingle = FineLineBranch;
