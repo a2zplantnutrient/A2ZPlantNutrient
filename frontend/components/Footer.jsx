@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   Linkedin,
   Facebook,
-  Twitter,
   Instagram
 } from "lucide-react";
 import { COMPANY, NAV, SERVICES } from "@/lib/mock";
@@ -128,11 +127,6 @@ export default function Footer() {
               {COMPANY.facebook && (
                 <a href={COMPANY.facebook} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-900/80 flex items-center justify-center text-emerald-300 hover:bg-amber-400 hover:text-emerald-950 transition-colors" aria-label="Facebook">
                   <Facebook size={16} />
-                </a>
-              )}
-              {COMPANY.twitter && (
-                <a href={COMPANY.twitter} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-emerald-900/80 flex items-center justify-center text-emerald-300 hover:bg-amber-400 hover:text-emerald-950 transition-colors" aria-label="Twitter">
-                  <Twitter size={16} />
                 </a>
               )}
               {COMPANY.instagram && (
