@@ -33,23 +33,9 @@ import {
 } from "@/lib/mock";
 
 export default function AboutPage() {
-  const blocks = [
-    {
-      icon: Target,
-      title: "Our Mission",
-      text: "To deliver reliable, sustainable horticulture EPC — helping India's government bodies, PSUs and corporates meet their green-cover, biodiversity and ESG mandates at scale.",
-    },
-    {
-      icon: Eye,
-      title: "Our Vision",
-      text: "To be India's most trusted horticulture EPC partner — combining agronomy, design and operational excellence to shape long-lasting green infrastructure.",
-    },
-    {
-      icon: Heart,
-      title: "Our Values",
-      text: "Compliance, transparency and craftsmanship. We treat every tender as a long-term partnership and every plant as a decade-long commitment.",
-    },
-  ];
+  const [err, setErr] = require("react").useState(null);
+  
+  if (err) return <div>ERROR: {err.message}</div>;
 
   return (
     <div data-testid="about-page">
@@ -216,7 +202,23 @@ export default function AboutPage() {
             </h2>
           </FadeIn>
           <Stagger className="grid md:grid-cols-3 gap-6">
-            {blocks.map((b, i) => {
+            {[
+              {
+                icon: Target,
+                title: "Our Mission",
+                text: "To deliver reliable, sustainable horticulture EPC — helping India's government bodies, PSUs and corporates meet their green-cover, biodiversity and ESG mandates at scale.",
+              },
+              {
+                icon: Eye,
+                title: "Our Vision",
+                text: "To be India's most trusted horticulture EPC partner — combining agronomy, design and operational excellence to shape long-lasting green infrastructure.",
+              },
+              {
+                icon: Heart,
+                title: "Our Values",
+                text: "Compliance, transparency and craftsmanship. We treat every tender as a long-term partnership and every plant as a decade-long commitment.",
+              },
+            ].map((b, i) => {
               const Icon = b.icon;
               return (
                 <StaggerItem key={i}>
