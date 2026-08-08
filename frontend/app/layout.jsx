@@ -7,14 +7,14 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata = {
   title: {
     template: "%s | A2Z Plant Nutrient",
-    default: "A2Z Plant Nutrient | EPC Commercial Horticulture & Landscaping Contractors",
+    default: "A2Z Plant Nutrient | EPC Commercial Horticulture & Landscaping Partners",
   },
   description:
-    "India's trusted EPC contractor for commercial horticulture, sustainable landscaping, and large-scale plantation projects. ISO 9001 & 14001 certified vendor for PSUs & Government.",
+    "India's trusted EPC Partner for commercial horticulture, sustainable landscaping, and large-scale plantation projects. ISO 9001 & 14001 certified vendor for PSUs & Government.",
   keywords: [
     "EPC Horticulture",
     "Commercial Landscaping",
-    "PSU Contractors",
+    "PSU Partners",
     "Government Tenders",
     "A2Z Plant Nutrient",
     "Urban Forestry",
@@ -25,7 +25,7 @@ export const metadata = {
   openGraph: {
     title: "A2Z Plant Nutrient | EPC Commercial Horticulture & Landscaping",
     description:
-      "India's trusted EPC contractor for commercial horticulture, sustainable landscaping, and large-scale plantation projects.",
+      "India's trusted EPC Partner for commercial horticulture, sustainable landscaping, and large-scale plantation projects.",
     type: "website",
   },
 };

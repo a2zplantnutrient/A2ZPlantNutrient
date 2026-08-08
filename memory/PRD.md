@@ -1,7 +1,7 @@
 # A2Z Plant Nutrient — Website PRD
 
 ## Original Problem Statement
-Build a marketing + CMS website for A2Z Plant Nutrient Private Limited, an ISO 9001 & 14001 certified, government / PSU / corporate horticulture EPC contractor (repositioned from residential landscaper). Include a printable Company Profile PDF download for procurement officers, admin CMS pages, and multi-round audit fixes.
+Build a marketing + CMS website for A2Z Plant Nutrient Private Limited, an ISO 9001 & 14001 certified, government / PSU / corporate horticulture EPC Partner (repositioned from residential landscaper). Include a printable Company Profile PDF download for procurement officers, admin CMS pages, and multi-round audit fixes.
 
 ## Architecture
 - **Frontend**: Next.js 14 App Router at `/app/frontend`, port 3000 via `yarn start` (aliased to `next dev -H 0.0.0.0 -p 3000`).
