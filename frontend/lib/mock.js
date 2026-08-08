@@ -381,7 +381,7 @@ export const LEADERSHIP = [
     name: "Abhishek Agrawal",
     role: "Founder & Chief Executive Officer",
     bio:
-      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corp[...]
+      "B.Tech (Mechanical Engineering) and PG Diploma in Project Management. CII-certified Carbon-Footprint Professional. Leads A2Z Plant Nutrient's EPC operations across government, PSU and corporate projects.",
     initials: "AA",
   },
 ];

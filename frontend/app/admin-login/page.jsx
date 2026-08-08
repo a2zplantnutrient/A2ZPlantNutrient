@@ -21,9 +21,8 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setSubmitting(true);
     setError("");
-    // Backend (FastAPI) handles password check and cookie set — ingress routes /api/* to it.
-    const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "";
-    const res = await fetch(`${backend}/api/admin-auth`, {
+    // Keep admin authentication on the frontend origin; /api/* is routed to FastAPI by ingress.
+    const res = await fetch("/admin-auth", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
