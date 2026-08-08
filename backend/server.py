@@ -266,7 +266,8 @@ class AdminLoginPayload(BaseModel):
 
 @api_router.post("/admin-auth")
 async def admin_login(payload: AdminLoginPayload, response: Response):
-    expected = os.environ.get("ADMIN_TOKEN", "")
+    # Support the current Vercel variable name while retaining backwards compatibility.
+    expected = os.environ.get("ADMIN_KEY") or os.environ.get("ADMIN_TOKEN", "")
     if not expected:
         raise HTTPException(status_code=500, detail="admin-not-configured")
     if not payload.password or payload.password != expected:
