@@ -12,7 +12,7 @@ export default function ServicesPage() {
   const reasons = [
     "ISO 9001 & 14001 certified — audit-ready processes",
     "DPIIT-recognized, Udyam-registered private limited company",
-    "In-house workforce of 100+ across states — no sub-contractor risk",
+    "In-house workforce of 100+ across states — no sub-Partner risk",
     "Transparent tender-spec compliance and PO-linked deliverables",
     "Long-term maintenance contracts with digital reporting",
   ];

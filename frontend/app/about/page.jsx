@@ -58,7 +58,7 @@ export default function AboutPage() {
             About the Company
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-emerald-950 font-semibold mt-3 leading-tight">
-            A horticulture EPC contractor — built for India&apos;s scale.
+            A horticulture EPC Partner — built for India&apos;s scale.
           </h2>
           <p className="mt-5 text-stone-600 leading-relaxed">
             <strong>{COMPANY.legalName}</strong> is a DPIIT-recognized, ISO 9001 &amp; 14001 certified private

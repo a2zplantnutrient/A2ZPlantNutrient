@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-emerald-200/80 text-sm leading-relaxed mb-4">
-              An ISO 9001 &amp; 14001 certified, DPIIT-recognized horticulture EPC contractor delivering
+              An ISO 9001 &amp; 14001 certified, DPIIT-recognized horticulture EPC Partner delivering
               landscape, plantation and maintenance projects for government, PSUs and corporates
               across India.
             </p>

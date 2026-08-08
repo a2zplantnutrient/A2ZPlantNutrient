@@ -1,12 +1,12 @@
 // Site content for A2Z Plant Nutrient Private Limited
-// Repositioned as an EPC horticulture contractor serving government, PSUs and corporates
+// Repositioned as an EPC horticulture Partner serving government, PSUs and corporates
 // across India — not just residential landscaping in Varanasi.
 
 export const COMPANY = {
   name: "A2Z Plant Nutrient",
   legalName: "A2Z Plant Nutrient Private Limited",
   tagline: "From Tender to Tree",
-  positioning: "Government / PSU / Corporate Horticulture EPC Contractor",
+  positioning: "Government / PSU / Corporate Horticulture EPC Partner",
   founded: 2021,
   phone: "+91 81605 34604",
   phoneRaw: "+918160534604",
@@ -44,7 +44,7 @@ export const HERO = {
   title:
     "Building India's green infrastructure — one project at a time.",
   description:
-    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC contractor. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
+    "A2Z Plant Nutrient is an ISO 9001 & 14001 certified, DPIIT-recognized horticulture EPC Partner. We deliver large-scale landscaping, plantation, lawn development and maintenance projects fo[...]",
   image: "/project01.jpg",
 };
 
